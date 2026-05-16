@@ -1,0 +1,173 @@
+import { useEffect, useRef } from "react";
+import Typed from "typed.js";
+import { motion } from "framer-motion";
+import { ArrowRight, Sparkles } from "lucide-react";
+
+export function Hero() {
+  const typedRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const typed = new Typed(typedRef.current, {
+      strings: ["Data Scientist |", "Data Analyst |", "Insights Analyst |"],
+      typeSpeed: 60,
+      backSpeed: 30,
+      backDelay: 2000,
+      startDelay: 300,
+      showCursor: true,
+      cursorChar: "|",
+      loop: true,
+      smartBackspace: false,
+    });
+
+    return () => typed.destroy();
+  }, []);
+
+  return (
+    <section
+      id="home"
+      className="relative min-h-[100svh] flex items-center pt-28 pb-16 overflow-hidden"
+    >
+      {/* BACKGROUND */}
+      <div className="aurora" />
+      <div className="absolute inset-0 grid-bg opacity-60" />
+
+      <div className="relative mx-auto w-[min(1200px,92%)] grid lg:grid-cols-[1.15fr_0.85fr] gap-12 items-center">
+
+        {/* LEFT SIDE */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
+          <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1.5 text-sm text-muted-foreground mb-6">
+            <Sparkles size={18} className="text-accent" />
+            <span>Master's Aspirant · Open to collaborations</span>
+          </div>
+
+          <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-semibold leading-[1.02] tracking-tight">
+            Hi, I'm <span className="text-gradient-primary">Abdoul Razak</span>
+          </h1>
+
+          <p className="mt-5 font-display text-xl sm:text-2xl text-muted-foreground">
+            And, I'm a{" "}
+            <span className="text-accent/70">·</span>{" "}
+            <span
+              ref={typedRef}
+              className="text-blue-400 font-semibold inline-block whitespace-nowrap"
+            ></span>
+          </p>
+
+          <p className="mt-6 max-w-xl text-sm sm:text-base text-muted-foreground/90 leading-relaxed">
+            A certified <span className="font-semibold">Data Scientist & Data Analyst</span> with formal training in
+            <span className="font-semibold"> Microsoft Azure and AWS cloud technologies</span>, and practical expertise in
+            <span className="font-semibold"> Machine Learning using tree-based models</span>.
+            Experienced in applying data-driven methods to extract insights and support decision-making.
+          </p>
+
+          <div className="mt-9 flex flex-wrap items-center gap-3">
+            <a
+              href="#projects"
+              className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-accent px-5 py-3 text-base font-medium text-primary-foreground shadow-glow-indigo hover:shadow-glow-cyan transition-all hover:-translate-y-0.5"
+            >
+              View My Projects
+              <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
+            </a>
+
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 rounded-xl glass px-5 py-3 text-base font-medium hover:bg-white/10 transition"
+            >
+              Get in Touch
+            </a>
+          </div>
+
+          {/* STATS WITH VERTICAL SEPARATORS */}
+          <div className="mt-12 grid grid-cols-3 max-w-md gap-6">
+            {[
+              { k: "3+", v: "Years experience" },
+              { k: "10+", v: "Projects shipped" },
+              { k: "BSc", v: "Mech Eng · UR" },
+            ].map((s) => (
+              <div key={s.v}>
+                <div className="font-display text-2xl text-foreground">
+                  {s.k}
+                </div>
+
+                <div className="text-base text-muted-foreground mt-1">
+                  {s.v}
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* RIGHT SIDE */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }}
+          className="relative mx-auto flex items-center justify-center"
+          style={{ width: 320, height: 320 }}
+        >
+          {/* glow */}
+          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/50 via-accent/30 to-transparent blur-2xl" />
+
+          {/* orbit ring */}
+          <svg
+            className="absolute inset-0 w-full h-full"
+            viewBox="0 0 320 320"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="160"
+              cy="160"
+              r="154"
+              stroke="url(#orbitGrad)"
+              strokeWidth="1"
+              strokeDasharray="6 10"
+            />
+            <defs>
+              <linearGradient id="orbitGrad" x1="0" y1="0" x2="320" y2="320">
+                <stop stopColor="#6366f1" stopOpacity="0.6" />
+                <stop offset="0.5" stopColor="#22d3ee" stopOpacity="0.4" />
+                <stop offset="1" stopColor="#6366f1" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          {/* avatar */}
+          <div className="relative z-10 w-60 h-60 rounded-full overflow-hidden ring-2 ring-primary/30">
+            <img
+              src="/images/Razak.jpeg"
+              alt="Abdoul Razak – Data Scientist"
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
+
+          {/* floating chips */}
+          <div className="absolute glass rounded-xl px-3 py-2 text-xs shadow-glass z-20 whitespace-nowrap"
+            style={{ top: "10px", left: "-18px", animation: "float 5s ease-in-out infinite" }}>
+            🌐 Google Colab & Deepnote
+          </div>
+
+          <div className="absolute glass rounded-xl px-3 py-2 text-xs shadow-glass z-20 whitespace-nowrap"
+            style={{ top: "32px", right: "-22px", animation: "float 6s ease-in-out infinite reverse" }}>
+            ⚡ Power BI & Tableau
+          </div>
+
+          <div className="absolute glass rounded-xl px-3 py-2 text-xs shadow-glass z-20 whitespace-nowrap"
+            style={{ bottom: "28px", left: "-24px", animation: "float 7s ease-in-out infinite" }}>
+            ☀️ MySQL & Excel
+          </div>
+
+          <div className="absolute glass rounded-xl px-3 py-2 text-xs shadow-glass z-20 whitespace-nowrap"
+            style={{ bottom: "14px", right: "-16px", animation: "float 5.5s ease-in-out infinite reverse" }}>
+            📡 Python "Pandas & Numpy"
+          </div>
+
+        </motion.div>
+      </div>
+    </section>
+  );
+}

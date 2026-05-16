@@ -1,0 +1,300 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/*
+ * Cyber Aurora — futuristic dark portfolio design system.
+ * Near-black base, indigo + cyan glows, glassmorphism surfaces.
+ */
+
+:root {
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-glow-indigo: var(--glow-indigo);
+  --color-glow-cyan: var(--glow-cyan);
+  --color-glow-violet: var(--glow-violet);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+
+  --shadow-glow-indigo: 0 0 40px -8px var(--glow-indigo);
+  --shadow-glow-cyan: 0 0 40px -8px var(--glow-cyan);
+  --shadow-glass: 0 8px 32px 0 rgb(0 0 0 / 0.36);
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.6s ease-out forwards;
+  --animate-shimmer: shimmer 8s linear infinite;
+}
+
+:root {
+  --radius: 0.875rem;
+
+  /* Cyber Aurora dark palette */
+  --background: oklch(0.14 0.025 270);
+  --foreground: oklch(0.96 0.01 250);
+
+  --surface: oklch(0.18 0.03 268);
+  --surface-elevated: oklch(0.22 0.035 268);
+
+  --card: oklch(0.18 0.03 268);
+  --card-foreground: oklch(0.96 0.01 250);
+  --popover: oklch(0.18 0.03 268);
+  --popover-foreground: oklch(0.96 0.01 250);
+
+  --primary: oklch(0.68 0.19 268);
+  --primary-foreground: oklch(0.98 0.005 250);
+
+  --secondary: oklch(0.24 0.04 270);
+  --secondary-foreground: oklch(0.96 0.01 250);
+
+  --muted: oklch(0.22 0.03 268);
+  --muted-foreground: oklch(0.72 0.03 260);
+
+  --accent: oklch(0.78 0.16 210);
+  --accent-foreground: oklch(0.14 0.025 270);
+
+  --destructive: oklch(0.65 0.22 25);
+  --destructive-foreground: oklch(0.98 0.005 250);
+
+  --border: oklch(0.32 0.04 268 / 0.5);
+  --input: oklch(0.28 0.04 268 / 0.7);
+  --ring: oklch(0.68 0.19 268);
+
+  --glow-indigo: oklch(0.68 0.22 268 / 0.6);
+  --glow-cyan: oklch(0.82 0.16 210 / 0.55);
+  --glow-violet: oklch(0.65 0.25 305 / 0.55);
+
+  /* Sidebar (kept for shadcn compatibility) */
+  --sidebar: oklch(0.18 0.03 268);
+  --sidebar-foreground: oklch(0.96 0.01 250);
+  --sidebar-primary: oklch(0.68 0.19 268);
+  --sidebar-primary-foreground: oklch(0.98 0.005 250);
+  --sidebar-accent: oklch(0.24 0.04 270);
+  --sidebar-accent-foreground: oklch(0.96 0.01 250);
+  --sidebar-border: oklch(0.32 0.04 268 / 0.5);
+  --sidebar-ring: oklch(0.68 0.19 268);
+
+  --chart-1: oklch(0.68 0.19 268);
+  --chart-2: oklch(0.78 0.16 210);
+  --chart-3: oklch(0.65 0.25 305);
+  --chart-4: oklch(0.74 0.18 180);
+  --chart-5: oklch(0.7 0.2 330);
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background-color: rgba(138, 110, 255, 0.4);
+    color: #ffffff;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: linear-gradient(135deg,
+        rgba(40, 42, 62, 0.5) 0%,
+        rgba(30, 32, 54, 0.3) 100%);
+    background: linear-gradient(135deg,
+        oklch(0.24 0.04 268 / 0.5) 0%,
+        oklch(0.18 0.03 268 / 0.3) 100%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid rgba(80, 82, 110, 0.18);
+  }
+
+  .glass-strong {
+    background: linear-gradient(135deg,
+        rgba(44, 46, 66, 0.7) 0%,
+        rgba(35, 37, 58, 0.5) 100%);
+    background: linear-gradient(135deg,
+        oklch(0.26 0.04 268 / 0.7) 0%,
+        oklch(0.2 0.03 268 / 0.5) 100%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid rgba(88, 90, 120, 0.22);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg,
+        oklch(0.96 0.01 250) 0%,
+        oklch(0.78 0.16 210) 50%,
+        oklch(0.68 0.22 305) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .text-gradient-primary {
+    background: linear-gradient(135deg,
+        oklch(0.78 0.16 210) 0%,
+        oklch(0.68 0.22 268) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .glow-indigo {
+    box-shadow: 0 0 60px -10px oklch(0.68 0.22 268 / 0.55);
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 60px -10px oklch(0.82 0.18 210 / 0.55);
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(oklch(0.5 0.05 268 / 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(0.5 0.05 268 / 0.08) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+  }
+
+  .aurora {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .aurora::before,
+  .aurora::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.45;
+  }
+
+  .aurora::before {
+    width: 520px;
+    height: 520px;
+    background: radial-gradient(circle, oklch(0.68 0.22 268 / 0.7), transparent 70%);
+    top: -120px;
+    left: -120px;
+    animation: float 12s ease-in-out infinite;
+  }
+
+  .aurora::after {
+    width: 460px;
+    height: 460px;
+    background: radial-gradient(circle, oklch(0.78 0.16 210 / 0.6), transparent 70%);
+    bottom: -140px;
+    right: -120px;
+    animation: float 14s ease-in-out infinite reverse;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: oklch(0.5 0.06 268 / 0.4);
+    border-radius: 4px;
+  }
+}
