@@ -8,7 +8,7 @@ export function Hero() {
 
   useEffect(() => {
     const typed = new Typed(typedRef.current, {
-      strings: ["Data Scientist |", "Data Analyst |", "Insights Analyst |"],
+      strings: ["Data Scientist |", "Data &amp; Insights Analyst |", "Mechanical Engineer |"],
       typeSpeed: 60,
       backSpeed: 30,
       backDelay: 2000,
