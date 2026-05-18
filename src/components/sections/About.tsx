@@ -62,11 +62,11 @@ export function About() {
                   <ul className="space-y-2 text-muted-foreground list-none">
                     <li className="flex items-start gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-accent/60 mt-1.5" />
-                      <span>Associate Data Scientist (Exp. 2028)</span>
+                      <span>Associate Data Scientist | (Exp. 2028)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-accent/60 mt-1.5" />
-                      <span>Associate Data Analyst (Exp. 2028)</span>
+                      <span>Associate Data Analyst | (Exp. 2028)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-accent/60 mt-1.5" />
