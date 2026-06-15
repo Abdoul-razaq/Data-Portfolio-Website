@@ -50,10 +50,9 @@ export function About() {
               <div className="space-y-4 text-sm">
                 <div>
                   <p className="font-medium text-foreground">
-                    BSc (Hons) Mechanical Engineering in production.
-                    <span className="text-accent/80 text-xs font-normal ml-4 whitespace-nowrap">| May 2022 — July 2026</span>
+                    BSc (Hons) Mechanical Engineering in production. <span className="text-accent/80 font-normal ml-1 whitespace-nowrap">| University of Rwanda</span>
                   </p>
-                  <p className="text-muted-foreground mt-0.5">University of Rwanda</p>
+                  <p className="text-muted-foreground mt-0.5">May 2022 — June 2026</p>
                 </div>
                 <div className="pt-5 mt-2 border-t border-white/5">
                   <p className="font-medium text-foreground mb-3 flex items-center gap-2">
@@ -61,19 +60,19 @@ export function About() {
                   </p>
                   <ul className="space-y-2 text-muted-foreground list-none">
                     <li className="flex items-start gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-accent/60 mt-1.5" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-accent/60 mt-1.5 shrink-0" />
                       <span>Associate Data Scientist | (Exp. 2028)</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-accent/60 mt-1.5" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-accent/60 mt-1.5 shrink-0" />
                       <span>Associate Data Analyst | (Exp. 2028)</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-accent/60 mt-1.5" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-accent/60 mt-1.5 shrink-0" />
                       <span>Microsoft Certified: Azure Developer Associate (AZ-204)</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-accent/60 mt-1.5" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-accent/60 mt-1.5 shrink-0" />
                       <span>AWS Cloud Practitioner (CLF-C02)</span>
                     </li>
                   </ul>
@@ -105,13 +104,13 @@ export function About() {
                   </p>
                 </div>
                 <div>
-                  <div className="flex justify-between items-start gap-2">
-                    <p className="font-medium text-foreground">Founder & President</p>
+                  <p className="font-medium text-foreground">Founder & President</p>
+                  <div className="flex justify-between items-start gap-2 mt-0.5">
+                    <p className="text-muted-foreground">DataX Lab Rwanda</p>
                     <span className="text-accent/80 text-xs whitespace-nowrap mt-0.5">Feb 2026 — Present</span>
                   </div>
-                  <p className="text-muted-foreground mt-0.5">University of Rwanda | Data Science Club</p>
                   <p className="mt-2 text-muted-foreground leading-relaxed">
-                    Sole founder of the university's first Data Science Club, leading initiatives to foster a data-driven culture and empower students with analytical skills.
+                    Sole founder of DataX Lab Rwanda, leading initiatives to foster a data-driven culture and empower students with analytical skills.
                   </p>
                 </div>
               </div>

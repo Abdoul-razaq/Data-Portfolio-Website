@@ -8,7 +8,7 @@ export function Hero() {
 
   useEffect(() => {
     const typed = new Typed(typedRef.current, {
-      strings: ["Data Scientist |", "Data &amp; Insights Analyst |", "Mechanical Engineer |"],
+      strings: ["Data Scientist ", "Data &amp; Insights Analyst ", "Mechanical Engineer "],
       typeSpeed: 60,
       backSpeed: 30,
       backDelay: 2000,
@@ -87,16 +87,21 @@ export function Hero() {
               { k: "3+", v: "Years experience" },
               { k: "10+", v: "Projects shipped" },
               {
-                k: "BSc",
+                k: (
+                  <>
+                    <span className="lg:hidden">BSc</span>
+                    <span className="hidden lg:inline">Bachelor's Degree - BS</span>
+                  </>
+                ),
                 v: (
                   <>
                     <span className="lg:hidden">Mech Eng · UR</span>
-                    <span className="hidden lg:inline">Mechanical Engineering · University of Rwanda</span>
+                    <span className="hidden lg:inline">Mechanical Engineering in production · University of Rwanda</span>
                   </>
                 ),
               },
             ].map((s, i) => (
-              <div key={s.k} className={i !== 0 ? "lg:pl-12" : ""}>
+              <div key={i} className={i !== 0 ? "lg:pl-12" : ""}>
                 <div className="font-display text-2xl lg:text-3xl text-foreground font-semibold">
                   {s.k}
                 </div>
