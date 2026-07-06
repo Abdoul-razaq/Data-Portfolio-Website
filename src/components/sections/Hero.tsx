@@ -95,14 +95,14 @@ export function Hero() {
                 ),
                 v: (
                   <>
-                    <span className="lg:hidden">Mech Eng · UR</span>
-                    <span className="hidden lg:inline">Mechanical Engineering in production · University of Rwanda</span>
+                    <span className="lg:hidden">Mech Eng</span>
+                    <span className="hidden lg:inline">Mechanical Engineering in production</span>
                   </>
                 ),
               },
             ].map((s, i) => (
               <div key={i} className={i !== 0 ? "lg:pl-12" : ""}>
-                <div className="font-display text-2xl lg:text-3xl text-foreground font-semibold">
+                <div className="font-display text-2xl lg:text-3xl text-foreground font-semibold lg:whitespace-nowrap">
                   {s.k}
                 </div>
 
