@@ -97,7 +97,7 @@ export function Skills() {
         <SectionHeader
           eyebrow="Skills"
           title="Data Analytics & Engineering Toolkit."
-          subtitle="A focused skillset built around real-world data analysis, cloud computing, and machine learning — transforming raw data into actionable insights."
+          subtitle="A focused skillset built around real-world data analysis, cloud computing, and machine learning - transforming raw data into actionable insights."
         />
 
         <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6">

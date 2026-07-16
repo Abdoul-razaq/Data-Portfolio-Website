@@ -25,12 +25,12 @@ export const softwareList: Software[] = [
     description:
       "MATLAB is a powerful numerical computing environment used by engineers and scientists worldwide to analyse data, develop algorithms, and create mathematical models.",
     whatItIs:
-      "MATLAB (Matrix Laboratory) is software designed for mathematical computation, data analysis, and visualisation. Simulink is an add-on that allows engineers to visually model and simulate dynamic systems — think of it like drawing a flow diagram that actually runs and shows you results.",
+      "MATLAB (Matrix Laboratory) is software designed for mathematical computation, data analysis, and visualisation. Simulink is an add-on that allows engineers to visually model and simulate dynamic systems - think of it like drawing a flow diagram that actually runs and shows you results.",
     howItHelps: [
       "Simulates how energy systems behave before any physical hardware is built",
       "Helps engineers test control strategies for motors, solar panels, and power grids",
       "Plots graphs and analyses large datasets quickly",
-      "Models thermal behaviour — how heat moves through a system over time",
+      "Models thermal behaviour - how heat moves through a system over time",
       "Designs and tests PID controllers for automated systems",
     ],
     keyFeatures: [
@@ -64,7 +64,7 @@ export const softwareList: Software[] = [
     description:
       "SolidWorks is a 3D computer-aided design (CAD) software used to create detailed models of physical parts and assemblies, then simulate how they perform under real-world conditions.",
     whatItIs:
-      "SolidWorks allows engineers to design objects in 3D on a computer — everything from a simple bracket to a complex machine assembly. It also includes simulation tools that test whether a design will survive real forces, heat, or vibration without needing to physically build and break it first.",
+      "SolidWorks allows engineers to design objects in 3D on a computer - everything from a simple bracket to a complex machine assembly. It also includes simulation tools that test whether a design will survive real forces, heat, or vibration without needing to physically build and break it first.",
     howItHelps: [
       "Creates precise 3D models of mechanical parts ready for manufacturing",
       "Simulates stress, vibration, and thermal loads on a design",
@@ -83,7 +83,7 @@ export const softwareList: Software[] = [
       {
         title: "Fast EV Charger Enclosure",
         description:
-          "Designed the structural housing for a fast EV charger prototype in SolidWorks, including ventilation slots, mounting brackets, and panel cutouts — optimised for CNC fabrication.",
+          "Designed the structural housing for a fast EV charger prototype in SolidWorks, including ventilation slots, mounting brackets, and panel cutouts - optimised for CNC fabrication.",
       },
       {
         title: "Sensor Enclosure for IoT Devices",
@@ -101,9 +101,9 @@ export const softwareList: Software[] = [
     tagline: "Optimise hybrid energy systems",
     logo: "https://www.homerenergy.com/images/HOMER-Pro-Logo.png",
     description:
-      "HOMER Pro is specialised software for designing and optimising hybrid energy systems — combinations of solar, wind, batteries, diesel generators, and grid connections.",
+      "HOMER Pro is specialised software for designing and optimising hybrid energy systems - combinations of solar, wind, batteries, diesel generators, and grid connections.",
     whatItIs:
-      "HOMER (Hybrid Optimisation of Multiple Energy Resources) helps energy engineers figure out the best combination of power sources for a given location. You input local solar data, load demand, equipment costs, and fuel prices — HOMER runs thousands of simulations and tells you the cheapest, most reliable configuration.",
+      "HOMER (Hybrid Optimisation of Multiple Energy Resources) helps energy engineers figure out the best combination of power sources for a given location. You input local solar data, load demand, equipment costs, and fuel prices - HOMER runs thousands of simulations and tells you the cheapest, most reliable configuration.",
     howItHelps: [
       "Finds the optimal mix of solar panels, batteries, and generators for a site",
       "Calculates the cost of energy over a 20–25 year project lifetime",
@@ -137,7 +137,7 @@ export const softwareList: Software[] = [
     description:
       "LEAP (Long-range Energy Alternatives Planning) is a widely used tool for energy policy analysis, helping governments and researchers model future energy demand and supply scenarios.",
     whatItIs:
-      "LEAP is a scenario-based modelling tool — it lets you ask 'what if?' questions about energy. What if the population grows by 30%? What if we switch 50% of cooking to electric? What if we add 500MW of solar? LEAP calculates how those changes affect total energy demand, costs, and emissions over decades.",
+      "LEAP is a scenario-based modelling tool - it lets you ask 'what if?' questions about energy. What if the population grows by 30%? What if we switch 50% of cooking to electric? What if we add 500MW of solar? LEAP calculates how those changes affect total energy demand, costs, and emissions over decades.",
     howItHelps: [
       "Models national or regional energy demand across sectors like transport, industry, and households",
       "Projects how energy needs will grow as population and economy expand",
@@ -169,7 +169,7 @@ export const softwareList: Software[] = [
     tagline: "Programming microcontrollers for the real world",
     logo: "https://upload.wikimedia.org/wikipedia/commons/8/87/Arduino_Logo.svg",
     description:
-      "Arduino IDE is the development environment used to write, compile, and upload code to microcontroller boards like Arduino and NodeMCU — the brains inside IoT devices.",
+      "Arduino IDE is the development environment used to write, compile, and upload code to microcontroller boards like Arduino and NodeMCU - the brains inside IoT devices.",
     whatItIs:
       "A microcontroller is a tiny computer on a chip that reads sensors, makes decisions, and controls outputs like motors or lights. Arduino IDE is the tool used to program these chips. You write code in a simplified version of C/C++, and the IDE translates it into instructions the microcontroller can execute.",
     howItHelps: [
@@ -208,7 +208,7 @@ export const softwareList: Software[] = [
     tagline: "Connect your hardware to the cloud",
     logo: "https://cdn.worldvectorlogo.com/logos/blynk.svg",
     description:
-      "Blynk is an IoT platform that lets you build mobile dashboards and cloud backends for connected hardware projects — without needing to set up your own server.",
+      "Blynk is an IoT platform that lets you build mobile dashboards and cloud backends for connected hardware projects - without needing to set up your own server.",
     whatItIs:
       "Blynk acts as the bridge between a physical device (like a NodeMCU sensor) and a smartphone app. Your hardware sends data to the Blynk cloud, and you can view it on a customisable dashboard from anywhere in the world. You can also send commands back to the hardware from your phone.",
     howItHelps: [
@@ -216,7 +216,7 @@ export const softwareList: Software[] = [
       "Sends push notifications and alerts when thresholds are exceeded",
       "Allows remote control of hardware from anywhere via internet",
       "Stores historical data for trend analysis",
-      "Requires no backend server setup — cloud is managed by Blynk",
+      "Requires no backend server setup - cloud is managed by Blynk",
     ],
     keyFeatures: [
       "Drag-and-drop mobile dashboard builder",
@@ -229,7 +229,7 @@ export const softwareList: Software[] = [
       {
         title: "Smart Passenger Counting System",
         description:
-          "Integrated Blynk to display live passenger counts, daily totals, and peak-hour graphs on an operator's phone — replacing manual paper logs entirely.",
+          "Integrated Blynk to display live passenger counts, daily totals, and peak-hour graphs on an operator's phone - replacing manual paper logs entirely.",
       },
       {
         title: "Dual-Axis Solar Tracker",
@@ -247,7 +247,7 @@ export const softwareList: Software[] = [
     tagline: "Precision 2D and 3D technical drafting",
     logo: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Autocad_2024_badge.png",
     description:
-      "AutoCAD is the industry-standard software for creating precise technical drawings — used in architecture, electrical engineering, civil engineering, and mechanical design.",
+      "AutoCAD is the industry-standard software for creating precise technical drawings - used in architecture, electrical engineering, civil engineering, and mechanical design.",
     whatItIs:
       "AutoCAD lets engineers and designers draw exact plans, layouts, and schematics on a computer. Everything is drawn to precise measurements, so a contractor or fabricator can use the drawing directly to build or install something. It's the digital replacement for the drawing board.",
     howItHelps: [
@@ -255,7 +255,7 @@ export const softwareList: Software[] = [
       "Draws floor plans and site layouts for solar installations",
       "Produces fabrication drawings with exact dimensions and tolerances",
       "Generates as-built documentation for completed installations",
-      "Enables collaboration — drawings can be shared and revised easily",
+      "Enables collaboration - drawings can be shared and revised easily",
     ],
     keyFeatures: [
       "Precision 2D drafting with snap and dimension tools",
@@ -286,7 +286,7 @@ export const softwareList: Software[] = [
     tagline: "Versatile programming for engineering and data",
     logo: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
     description:
-      "Python is one of the world's most popular programming languages — widely used in engineering, data science, automation, and web development for its simplicity and powerful libraries.",
+      "Python is one of the world's most popular programming languages - widely used in engineering, data science, automation, and web development for its simplicity and powerful libraries.",
     whatItIs:
       "Python is a general-purpose programming language that reads almost like plain English, making it accessible to engineers who aren't professional software developers. With libraries like NumPy, Pandas, and Matplotlib, it becomes a powerful tool for scientific computing and data visualisation.",
     howItHelps: [

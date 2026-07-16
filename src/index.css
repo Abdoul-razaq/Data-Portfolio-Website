@@ -3,7 +3,7 @@
 @import "tailwindcss/utilities";
 
 /*
- * Cyber Aurora — futuristic dark portfolio design system.
+ * Cyber Aurora - futuristic dark portfolio design system.
  * Near-black base, indigo + cyan glows, glassmorphism surfaces.
  */
 
@@ -192,6 +192,10 @@
 }
 
 @layer utilities {
+  .font-times {
+    font-family: "Times New Roman", Times, Baskerville, Georgia, serif;
+  }
+
   .glass {
     background: linear-gradient(135deg,
         rgba(40, 42, 62, 0.5) 0%,

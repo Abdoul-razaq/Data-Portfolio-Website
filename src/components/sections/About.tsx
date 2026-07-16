@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { GraduationCap, Briefcase, Award } from "lucide-react";
+import { GraduationCap, Briefcase, BookOpen, ExternalLink, ChevronDown } from "lucide-react";
 
 
 export function About() {
@@ -17,8 +17,8 @@ export function About() {
             className="space-y-5 text-muted-foreground/90 leading-relaxed"
           >
             <p>
-              I am a BSc (Hons) Mechanical Engineering student at the
-              <span className="text-foreground"> University of Rwanda</span>, class of 2026, with a strong foundation in engineering design, production systems, simulation, and embedded systems development.
+              I hold a BSc (Hons) in Mechanical Engineering from the{" "}
+              <span className="text-foreground">University of Rwanda</span>, class of 2026, with a strong foundation in engineering design, production systems, simulation, and embedded systems development.
             </p>
 
             <p>
@@ -35,47 +35,95 @@ export function About() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {/* Education & Certificates Block */}
+            {/* Education & Research Thesis Block */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="glass rounded-2xl p-6 hover:shadow-glow-indigo transition-all group"
+              className="glass rounded-2xl p-6 hover:shadow-glow-indigo transition-all group flex flex-col justify-between"
             >
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/30 to-accent/20 text-accent mb-3 group-hover:scale-110 transition">
-                <GraduationCap size={24} />
-              </div>
-              <h3 className="font-display text-xl font-semibold mb-3">Education</h3>
-              <div className="space-y-4 text-sm">
-                <div>
-                  <p className="font-medium text-foreground">
-                    BSc (Hons) Mechanical Engineering in production. <span className="text-accent/80 font-normal ml-1 whitespace-nowrap">| University of Rwanda</span>
-                  </p>
-                  <p className="text-muted-foreground mt-0.5">May 2022 — June 2026</p>
+              <div>
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/30 to-accent/20 text-accent mb-3 group-hover:scale-110 transition">
+                  <GraduationCap size={24} />
                 </div>
-                <div className="pt-5 mt-2 border-t border-white/5">
-                  <p className="font-medium text-foreground mb-3 flex items-center gap-2">
-                    <Award size={14} className="text-accent" /> Certifications
-                  </p>
-                  <ul className="space-y-2 text-muted-foreground list-none">
-                    <li className="flex items-start gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-accent/60 mt-1.5 shrink-0" />
-                      <span>Associate Data Scientist | (Exp. 2028)</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-accent/60 mt-1.5 shrink-0" />
-                      <span>Associate Data Analyst | (Exp. 2028)</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-accent/60 mt-1.5 shrink-0" />
-                      <span>Microsoft Certified: Azure Developer Associate (AZ-204)</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-accent/60 mt-1.5 shrink-0" />
-                      <span>AWS Cloud Practitioner (CLF-C02)</span>
-                    </li>
-                  </ul>
+                <h3 className="font-display text-xl font-semibold mb-3">Education</h3>
+                <div className="space-y-4 text-sm">
+                  <div>
+                    <p className="font-medium text-foreground">
+                      BSc (Hons) Mechanical Engineering in production. <span className="text-accent/80 font-normal ml-1 whitespace-nowrap">| University of Rwanda</span>
+                    </p>
+                    <p className="text-muted-foreground mt-0.5">May 2022 - June 2026</p>
+                  </div>
+                  
+                  <div className="pt-5 mt-2 border-t border-white/5">
+                    <p className="font-medium text-foreground mb-3 flex items-center gap-2">
+                      <BookOpen size={14} className="text-accent" /> Research Thesis
+                    </p>
+                    
+                    <div className="space-y-3">
+                      <div>
+                        <p className="font-medium text-foreground text-sm leading-snug">
+                          Design and Mathematical Modelling of Solar Fish Dryer With MPPT System
+                        </p>
+                        <p className="text-muted-foreground text-xs mt-0.5">Oct 2025 - Jun 2026</p>
+                      </div>
+
+                      <a
+                        href="https://drive.google.com/file/d/1XI43caEFAb6fvQmo1OFOkaAoeUzhN5ho/view?usp=sharing"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs text-accent hover:text-accent-hover transition-colors font-medium border border-accent/20 bg-accent/5 px-2.5 py-1 rounded-md mt-1"
+                      >
+                        <ExternalLink size={12} />
+                        View Research Paper
+                      </a>
+
+                      <details className="mt-3 group border border-white/10 rounded-xl bg-white/5 overflow-hidden transition-all duration-300">
+                        <summary className="flex items-center justify-between p-3 cursor-pointer select-none font-medium text-xs text-foreground hover:bg-white/10 transition">
+                          <span>Read Thesis Summary</span>
+                          <ChevronDown size={14} className="text-muted-foreground transition-transform duration-300 group-open:rotate-180" />
+                        </summary>
+                        <div className="p-3 border-t border-white/5 text-[11px] leading-relaxed text-muted-foreground/80 space-y-3 max-h-[240px] overflow-y-auto scrollbar-thin">
+                          <div>
+                            <p className="mb-2 font-medium text-foreground">Data Science & Analytical Highlights:</p>
+                          </div>
+                          
+                          <div>
+                            <h4 className="font-semibold text-foreground mb-0.5">1. Web Scraping & Climate Integration</h4>
+                            <ul className="list-disc pl-4 space-y-1">
+                              <li><strong>Data Acquisition:</strong> Scraped Location-specific 2025 microclimate parameters (8,760 hourly rows of irradiance, temperature, relative humidity) for Rubavu from the <strong>NASA POWER API</strong>.</li>
+                              <li><strong>Data Pipeline:</strong> Programmed a data ingestion pipeline in **Google Colab** using **Python (Pandas)** to clean, merge, and synchronize microclimate variables as physical disturbances.</li>
+                            </ul>
+                          </div>
+
+                          <div>
+                            <h4 className="font-semibold text-foreground mb-0.5">2. Mathematical Modeling & System Linearization</h4>
+                            <ul className="list-disc pl-4 space-y-1">
+                              <li><strong>Jacobian Evaluation:</strong> Derived and linearized a five-state non-linear thermodynamic energy-mass system in **Google Colab** using **Python (NumPy/SciPy)**.</li>
+                              <li><strong>State-Space Model:</strong> Computed A, B, C, D state-space matrices at a midday peak operating point to prepare the model for feedback control design.</li>
+                            </ul>
+                          </div>
+
+                          <div>
+                            <h4 className="font-semibold text-foreground mb-0.5">3. Curve Fitting & Kinetic Model Validation</h4>
+                            <ul className="list-disc pl-4 space-y-1">
+                              <li><strong>Curve Fitting:</strong> Evaluated thin-layer drying curves against physical databases from the **Mendeley Data repository** using **SciPy solvers (`curve_fit`)**, confirming kinetic model fit with R² &ge; 0.99.</li>
+                              <li><strong>Diffusion Analysis:</strong> Handled linear regression on Fick's Second Law to determine effective moisture diffusivity (D_eff = 9.49 &times; 10^-11 m²/s, R² = 0.9993).</li>
+                            </ul>
+                          </div>
+
+                          <div>
+                            <h4 className="font-semibold text-foreground mb-0.5">4. Energy Analytics & Loop Validation</h4>
+                            <ul className="list-disc pl-4 space-y-1">
+                              <li><strong>Feedback Simulation:</strong> Simulated Proportional-Integral (PI) loop trajectories using Python's numerical integrator (`solve_ivp`), showing regulation with low RMSE (0.523&deg;C for temperature).</li>
+                              <li><strong>Energy Optimization:</strong> Tracked integrated solar thermal gains to model and verify a **52.3% energy saving** compared to standard electric drying.</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </details>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -94,23 +142,24 @@ export function About() {
               <h3 className="font-display text-xl font-semibold mb-3">Experience</h3>
               <div className="space-y-5 text-sm">
                 <div>
-                  <p className="font-medium text-foreground">Data & Insight Analyst</p>
+                  <p className="font-medium text-foreground">Data Analyst Apprentice</p>
                   <div className="flex justify-between items-start gap-2 mt-0.5">
-                    <p className="text-muted-foreground">FinAcco Hub Rwanda</p>
-                    <span className="text-accent/80 text-xs whitespace-nowrap mt-0.5">Jan 2026 — Present</span>
+                    <p className="text-muted-foreground">ALX Rwanda</p>
+                    <span className="text-accent/80 text-xs whitespace-nowrap mt-0.5">Jan 2026 - Jun 2026</span>
                   </div>
                   <p className="mt-2 text-muted-foreground leading-relaxed">
-                    Cleaning, modeling, and visualizing large datasets to drive strategic business decisions and track operational performance.
+                    Collaborated on hands-on analytical projects, building data models, cleaning large datasets, and translating raw data into actionable insights and dashboards.
                   </p>
                 </div>
+                
                 <div>
                   <p className="font-medium text-foreground">Founder & President</p>
                   <div className="flex justify-between items-start gap-2 mt-0.5">
                     <p className="text-muted-foreground">DataX Lab Rwanda</p>
-                    <span className="text-accent/80 text-xs whitespace-nowrap mt-0.5">Feb 2026 — Present</span>
+                    <span className="text-accent/80 text-xs whitespace-nowrap mt-0.5">Feb 2026 - Present</span>
                   </div>
                   <p className="mt-2 text-muted-foreground leading-relaxed">
-                    Sole founder of DataX Lab Rwanda, leading initiatives to foster a data-driven culture and empower students with analytical skills.
+                    Sole Founder of DataX Lab Rwanda, leading initiatives to foster a data-driven culture and empower students with analytical skills at University of Rwanda.
                   </p>
                 </div>
               </div>

@@ -42,7 +42,7 @@ export function Contact() {
         <SectionHeader
           eyebrow="Contact"
           title="Let’s work on something impactful."
-          subtitle="Abdoul Razak — Data Analyst & Scientist. Open to internships, data roles, and collaborations where data drives decisions."
+          subtitle="Abdoul Razak - Data Analyst & Scientist. Open to internships, data roles, and collaborations where data drives decisions."
         />
 
         <div className="mt-12 grid lg:grid-cols-[0.9fr_1.1fr] gap-6">

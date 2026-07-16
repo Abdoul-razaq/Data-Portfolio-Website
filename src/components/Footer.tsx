@@ -8,7 +8,7 @@ export function Footer() {
 
         {/* LEFT */}
         <p className="text-base text-muted-foreground text-center sm:text-left">
-          © {new Date().getFullYear()} Abdoul Razak — Data Analyst & Scientist
+          © {new Date().getFullYear()} Abdoul Razak - Data Analyst & Scientist
         </p>
 
         {/* RIGHT */}

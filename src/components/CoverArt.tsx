@@ -1,6 +1,6 @@
 /**
  * Reusable SVG-based cover art for project cards & headers.
- * Uses pure CSS gradients + abstract geometry — no external images needed.
+ * Uses pure CSS gradients + abstract geometry - no external images needed.
  */
 type Variant =
   | "iot-bus"
