@@ -45,7 +45,7 @@ export function Hero() {
 
         {/* Wrapper to center content vertically in the remaining space */}
         <div className="w-full flex-1 flex items-center mt-2 lg:mt-0">
-          <div className="w-full grid lg:grid-cols-[0.95fr_1.05fr] gap-10 lg:gap-12 items-center">
+          <div className="w-full grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-20 items-center">
 
             {/* LEFT SIDE (PROFILE PICTURE ONLY) */}
             <motion.div
@@ -117,7 +117,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              className="w-full lg:pl-10"
+              className="w-full lg:pl-14"
             >
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.02] tracking-tight">
                 Hi, I'm <span className="text-gradient-primary">Abdoul Razak</span>
