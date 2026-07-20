@@ -154,7 +154,7 @@ export function Hero() {
               </div>
 
               {/* STATS WITH VERTICAL SEPARATORS */}
-              <div className="mt-12 grid grid-cols-3 max-w-md gap-6 lg:flex lg:max-w-full lg:gap-12 lg:divide-x lg:divide-white/10">
+              <div className="mt-12 grid grid-cols-3 max-w-md gap-4 lg:flex lg:max-w-full lg:gap-6 lg:divide-x lg:divide-white/10">
                 {[
                   { k: "3+", v: "Years experience" },
                   { k: "10+", v: "Projects shipped" },
@@ -173,7 +173,7 @@ export function Hero() {
                     ),
                   },
                 ].map((s, i) => (
-                  <div key={i} className={i !== 0 ? "lg:pl-12" : ""}>
+                  <div key={i} className={i !== 0 ? "lg:pl-6" : ""}>
                     <div className="font-display text-2xl lg:text-3xl text-foreground font-semibold lg:whitespace-nowrap">
                       {s.k}
                     </div>
