@@ -51,7 +51,7 @@ export function About() {
                 <div className="space-y-4 text-sm">
                   <div>
                     <p className="font-medium text-foreground">
-                      BSc (Hons) Mechanical Engineering in production. <span className="text-accent/80 font-normal ml-1 whitespace-nowrap">| University of Rwanda</span>
+                      BSc (Hons) Mechanical Engineering in production <span className="text-accent/80 font-normal">| University of Rwanda</span>
                     </p>
                     <p className="text-muted-foreground mt-0.5">May 2022 - June 2026</p>
                   </div>
@@ -69,17 +69,19 @@ export function About() {
                         <p className="text-muted-foreground text-xs mt-0.5">Oct 2025 - Jun 2026</p>
                       </div>
 
-                      <a
-                        href="https://drive.google.com/file/d/1XI43caEFAb6fvQmo1OFOkaAoeUzhN5ho/view?usp=sharing"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs text-accent hover:text-accent-hover transition-colors font-medium border border-accent/20 bg-accent/5 px-2.5 py-1 rounded-md mt-1"
-                      >
-                        <ExternalLink size={12} />
-                        View Research Paper
-                      </a>
+                      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 pt-1">
+                        <a
+                          href="https://drive.google.com/file/d/1XI43caEFAb6fvQmo1OFOkaAoeUzhN5ho/view?usp=sharing"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center gap-1.5 text-xs text-accent hover:text-accent-hover transition-colors font-medium border border-accent/20 bg-accent/5 px-3 py-1.5 rounded-lg"
+                        >
+                          <ExternalLink size={13} />
+                          View Research Paper
+                        </a>
+                      </div>
 
-                      <details className="mt-3 group border border-white/10 rounded-xl bg-white/5 overflow-hidden transition-all duration-300">
+                      <details className="mt-2 group border border-white/10 rounded-xl bg-white/5 overflow-hidden transition-all duration-300">
                         <summary className="flex items-center justify-between p-3 cursor-pointer select-none font-medium text-xs text-foreground hover:bg-white/10 transition">
                           <span>Read Thesis Summary</span>
                           <ChevronDown size={14} className="text-muted-foreground transition-transform duration-300 group-open:rotate-180" />
@@ -184,7 +186,7 @@ export function SectionHeader({
 }) {
   return (
     <div className={align === "center" ? "text-center mx-auto max-w-2xl" : "max-w-2xl"}>
-      <div className="inline-flex items-center gap-2 rounded-full glass px-5 py-2.5 text-sm leading-none tracking-wide text-accent mx-auto">
+      <div className={`inline-flex items-center gap-2 rounded-full glass px-5 py-2.5 text-sm leading-none tracking-wide text-accent ${align === "center" ? "mx-auto" : ""}`}>
         <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-glow-cyan" />
         {eyebrow}
       </div>
