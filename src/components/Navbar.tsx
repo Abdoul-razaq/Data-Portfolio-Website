@@ -62,16 +62,9 @@ export function Navbar() {
             }`}
         >
           {/* ── LOGO ── */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent shadow-glow-indigo">
-              <span className="font-display text-sm font-semibold text-primary-foreground">
-                A
-              </span>
-              <span className="absolute inset-0 rounded-lg bg-primary/40 blur-md -z-10 group-hover:opacity-100 opacity-60 transition" />
-            </span>
-
-            <span className="font-display text-lg sm:text-xl font-semibold tracking-tight">
-              Abdoul Razak <span className="text-accent">.</span>
+          <Link to="/" className="flex items-center group">
+            <span className="font-display text-2xl tracking-tight text-white">
+              <span className="text-blue-500 font-bold">N</span><span className="font-bold">\</span>abdoul Razak.
             </span>
           </Link>
 

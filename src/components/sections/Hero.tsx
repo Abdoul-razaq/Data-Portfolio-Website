@@ -45,82 +45,17 @@ export function Hero() {
 
         {/* Wrapper to center content vertically in the remaining space */}
         <div className="w-full flex-1 flex items-center mt-2 lg:mt-0">
-          <div className="w-full grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-20 items-center">
+          <div className="w-full grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-center">
 
-            {/* LEFT SIDE (PROFILE PICTURE ONLY) */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.92 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }}
-              className="relative mx-auto flex items-center justify-center w-[320px] h-[320px] sm:w-[380px] sm:h-[380px] lg:w-[420px] lg:h-[420px]"
-            >
-              {/* glow */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/50 via-accent/30 to-transparent blur-2xl" />
-
-              {/* orbit ring */}
-              <svg
-                className="absolute inset-0 w-full h-full"
-                viewBox="0 0 420 420"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle
-                  cx="210"
-                  cy="210"
-                  r="203"
-                  stroke="url(#orbitGrad)"
-                  strokeWidth="1.5"
-                  strokeDasharray="6 10"
-                />
-                <defs>
-                  <linearGradient id="orbitGrad" x1="0" y1="0" x2="420" y2="420">
-                    <stop stopColor="#6366f1" stopOpacity="0.6" />
-                    <stop offset="0.5" stopColor="#22d3ee" stopOpacity="0.4" />
-                    <stop offset="1" stopColor="#6366f1" stopOpacity="0" />
-                  </linearGradient>
-                </defs>
-              </svg>
-
-              {/* avatar */}
-              <div className="relative z-10 w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] lg:w-[335px] lg:h-[335px] rounded-full overflow-hidden ring-4 ring-primary/30 shadow-2xl">
-                <img
-                  src="/images/Razak.jpeg"
-                  alt="Abdoul Razak – Data Scientist"
-                  className="w-full h-full object-cover object-center"
-                />
-              </div>
-
-              {/* floating chips */}
-              <div className="absolute glass rounded-xl px-3 py-2 text-xs shadow-glass z-20 whitespace-nowrap"
-                style={{ top: "12px", left: "-10px", animation: "float 5s ease-in-out infinite" }}>
-                🌐 Google Colab & Deepnote
-              </div>
-
-              <div className="absolute glass rounded-xl px-3 py-2 text-xs shadow-glass z-20 whitespace-nowrap"
-                style={{ top: "35px", right: "-12px", animation: "float 6s ease-in-out infinite reverse" }}>
-                ⚡ Power BI & Tableau
-              </div>
-
-              <div className="absolute glass rounded-xl px-3 py-2 text-xs shadow-glass z-20 whitespace-nowrap"
-                style={{ bottom: "35px", left: "-15px", animation: "float 7s ease-in-out infinite" }}>
-                ☀️ MySQL & Excel
-              </div>
-
-              <div className="absolute glass rounded-xl px-3 py-2 text-xs shadow-glass z-20 whitespace-nowrap"
-                style={{ bottom: "18px", right: "-10px", animation: "float 5.5s ease-in-out infinite reverse" }}>
-                📡 Python "Pandas & Numpy"
-              </div>
-            </motion.div>
-
-            {/* RIGHT SIDE (TEXT CONTENT) */}
+            {/* LEFT SIDE (TEXT CONTENT) */}
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              className="w-full lg:pl-14"
+              className="w-full lg:pr-14"
             >
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.02] tracking-tight">
-                Hi, I'm <span className="text-gradient-primary">Abdoul Razak</span>
+                Hi, I'm <span className="text-blue-500 font-bold">Abdoul Razak</span>
               </h1>
 
               <p className="mt-6 font-display text-xl sm:text-2xl text-muted-foreground">
@@ -183,6 +118,71 @@ export function Hero() {
                     </div>
                   </div>
                 ))}
+              </div>
+            </motion.div>
+
+            {/* RIGHT SIDE (PROFILE PICTURE ONLY) */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.92 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }}
+              className="relative mx-auto flex items-center justify-center w-[280px] h-[280px] sm:w-[340px] sm:h-[340px] lg:w-[380px] lg:h-[380px]"
+            >
+              {/* glow */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/50 via-accent/30 to-transparent blur-2xl" />
+
+              {/* orbit ring */}
+              <svg
+                className="absolute inset-0 w-full h-full"
+                viewBox="0 0 420 420"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="210"
+                  cy="210"
+                  r="203"
+                  stroke="url(#orbitGrad)"
+                  strokeWidth="1.5"
+                  strokeDasharray="6 10"
+                />
+                <defs>
+                  <linearGradient id="orbitGrad" x1="0" y1="0" x2="420" y2="420">
+                    <stop stopColor="#6366f1" stopOpacity="0.6" />
+                    <stop offset="0.5" stopColor="#22d3ee" stopOpacity="0.4" />
+                    <stop offset="1" stopColor="#6366f1" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+              </svg>
+
+              {/* avatar */}
+              <div className="relative z-10 w-[210px] h-[210px] sm:w-[260px] sm:h-[260px] lg:w-[290px] lg:h-[290px] rounded-full overflow-hidden ring-4 ring-primary/30 shadow-2xl">
+                <img
+                  src="/images/Razak.jpeg"
+                  alt="Abdoul Razak – Data Scientist"
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+
+              {/* floating chips */}
+              <div className="absolute glass rounded-xl px-3 py-2 text-xs shadow-glass z-20 whitespace-nowrap"
+                style={{ top: "12px", left: "-10px", animation: "float 5s ease-in-out infinite" }}>
+                🌐 Google Colab & Deepnote
+              </div>
+
+              <div className="absolute glass rounded-xl px-3 py-2 text-xs shadow-glass z-20 whitespace-nowrap"
+                style={{ top: "35px", right: "-12px", animation: "float 6s ease-in-out infinite reverse" }}>
+                ⚡ Power BI & Tableau
+              </div>
+
+              <div className="absolute glass rounded-xl px-3 py-2 text-xs shadow-glass z-20 whitespace-nowrap"
+                style={{ bottom: "35px", left: "-15px", animation: "float 7s ease-in-out infinite" }}>
+                ☀️ MySQL & Excel
+              </div>
+
+              <div className="absolute glass rounded-xl px-3 py-2 text-xs shadow-glass z-20 whitespace-nowrap"
+                style={{ bottom: "18px", right: "-10px", animation: "float 5.5s ease-in-out infinite reverse" }}>
+                📡 Python "Pandas & Numpy"
               </div>
             </motion.div>
           </div>
