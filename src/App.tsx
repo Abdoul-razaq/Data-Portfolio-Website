@@ -19,7 +19,7 @@ function App() {
         <Route
           path="/"
           element={
-            <div className="relative min-h-screen text-white bg-[#0a0f1c] overflow-hidden">
+            <div className="relative min-h-screen text-white bg-[#0a0f1c] overflow-x-hidden">
               <Navbar />
 
               <main>

@@ -4,7 +4,7 @@ import { GraduationCap, Briefcase, BookOpen, ExternalLink, ChevronDown } from "l
 
 export function About() {
   return (
-    <section id="about" className="relative pb-16 sm:pb-24 scroll-mt-20">
+    <section id="about" className="relative pt-12 lg:pt-8 pb-16 sm:pb-24 scroll-mt-20">
       <div className="mx-auto w-[min(1200px,92%)]">
         <SectionHeader eyebrow="About" title="Data-Driven Engineering." />
 

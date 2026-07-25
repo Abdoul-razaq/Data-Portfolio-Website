@@ -31,7 +31,7 @@ export default function ProjectDetail() {
     .slice(0, 3);
 
   return (
-    <div className="relative min-h-screen text-white bg-[#0a0f1c] overflow-hidden">
+    <div className="relative min-h-screen text-white bg-[#0a0f1c] overflow-x-hidden">
       <div className="absolute inset-0 grid-bg opacity-40 -z-10" />
       <div className="aurora opacity-30 -z-10" />
       <Navbar />

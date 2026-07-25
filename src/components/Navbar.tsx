@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Menu, X, Download } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const sections = [
   { id: "home", label: "Home" },
@@ -80,7 +81,7 @@ export function Navbar() {
                     }}
                     className={`px-3 py-2 text-lg rounded-md transition-colors
     ${active === s.id
-                        ? "text-blue-400 font-semibold underline underline-offset-4"
+                        ? "text-gradient font-semibold underline underline-offset-4"
                         : "text-muted-foreground hover:text-white"
                       }`}
                   >
@@ -122,53 +123,61 @@ export function Navbar() {
         </nav>
 
         {/* ── MOBILE MENU ── */}
-        {open && (
-          <div className="lg:hidden mt-2 glass-strong rounded-2xl p-3">
-            <ul className="flex flex-col">
-              {sections.map((s) => (
-                <li key={s.id}>
-                  {onHome ? (
-                    <a
-                      href={`#${s.id}`}
-                      onClick={() => {
-                        setActive(s.id);
-                        setOpen(false);
-                      }}
-                      className={`block px-4 py-3 text-lg rounded-lg transition-colors
-    ${active === s.id
-                          ? "text-blue-400 font-semibold"
-                          : "text-muted-foreground hover:text-foreground"
-                        }`}
-                    >
-                      {s.label}
-                    </a>
-                  ) : (
-                    <Link
-                      to={`/#${s.id}`}
-                      onClick={() => setOpen(false)}
-                      className="block px-4 py-3 text-lg text-muted-foreground hover:text-foreground transition-colors rounded-lg"
-                    >
-                      {s.label}
-                    </Link>
-                  )}
-                </li>
-              ))}
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.25, ease: "easeInOut" }}
+              className="lg:hidden mt-2 glass-strong rounded-2xl p-3 overflow-hidden"
+            >
+              <ul className="flex flex-col">
+                {sections.map((s) => (
+                  <li key={s.id}>
+                    {onHome ? (
+                      <a
+                        href={`#${s.id}`}
+                        onClick={() => {
+                          setActive(s.id);
+                          setOpen(false);
+                        }}
+                        className={`block px-4 py-3 text-lg rounded-lg transition-colors
+      ${active === s.id
+                            ? "text-gradient font-semibold"
+                            : "text-muted-foreground hover:text-foreground"
+                          }`}
+                      >
+                        {s.label}
+                      </a>
+                    ) : (
+                      <Link
+                        to={`/#${s.id}`}
+                        onClick={() => setOpen(false)}
+                        className="block px-4 py-3 text-lg text-muted-foreground hover:text-foreground transition-colors rounded-lg"
+                      >
+                        {s.label}
+                      </Link>
+                    )}
+                  </li>
+                ))}
 
-              {/* ── CV BUTTON MOBILE (REFERENCE STYLE) ── */}
-              <li className="mt-2">
-                <button
-                  onClick={() =>
-                    window.open('https://drive.google.com/file/d/1j_yfALFgx4-bsB5HHDbK5xRK4RBzVsh6/view?usp=sharing', '_blank')
-                  }
-                  className="inline-flex items-center gap-2 bg-pink-500 px-5 py-2.5 text-sm font-medium text-white rounded-md shadow-md transition-all hover:bg-pink-600 hover:-translate-y-0.5"
-                >
-                  Download CV
-                  <Download size={16} />
-                </button>
-              </li>
-            </ul>
-          </div>
-        )}
+                {/* ── CV BUTTON MOBILE (REFERENCE STYLE) ── */}
+                <li className="mt-2">
+                  <button
+                    onClick={() =>
+                      window.open('https://drive.google.com/file/d/1j_yfALFgx4-bsB5HHDbK5xRK4RBzVsh6/view?usp=sharing', '_blank')
+                    }
+                    className="inline-flex items-center gap-2 bg-pink-500 px-5 py-2.5 text-sm font-medium text-white rounded-md shadow-md transition-all hover:bg-pink-600 hover:-translate-y-0.5"
+                  >
+                    Download CV
+                    <Download size={16} />
+                  </button>
+                </li>
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </header >
   );

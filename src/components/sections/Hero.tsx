@@ -25,13 +25,13 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[100svh] flex flex-col pt-20 lg:pt-24 pb-16 overflow-hidden"
+      className="relative min-h-[100svh] flex flex-col pt-20 lg:pt-24 pb-20 lg:pb-16 overflow-x-hidden"
     >
       {/* BACKGROUND */}
       <div className="aurora" />
       <div className="absolute inset-0 grid-bg opacity-60" />
 
-      <div className="relative mx-auto w-[min(1200px,92%)] flex-1 flex flex-col items-start gap-6 z-10">
+      <div className="relative mx-auto w-[min(1200px,92%)] lg:flex-1 flex flex-col items-start gap-6 z-10 py-4 lg:py-0">
         {/* Badge at the left start, below navbar */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
@@ -44,31 +44,31 @@ export function Hero() {
         </motion.div>
 
         {/* Wrapper to center content vertically in the remaining space */}
-        <div className="w-full flex-1 flex items-center mt-2 lg:mt-0">
-          <div className="w-full grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-center">
+        <div className="w-full lg:flex-1 flex items-center mt-2 lg:mt-0">
+          <div className="w-full grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-10 items-center">
 
             {/* LEFT SIDE (TEXT CONTENT) */}
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              className="w-full lg:pr-14"
+              className="w-full lg:pr-4"
             >
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.02] tracking-tight">
-                Hi, I'm <span className="text-blue-500 font-bold">Abdoul Razak</span>
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold lg:font-medium leading-[1.02] tracking-tight">
+                Hi, I'm <span className="text-blue-500 font-bold lg:font-semibold">Abdoul Razak</span>
               </h1>
 
-              <p className="mt-6 font-display text-xl sm:text-2xl text-muted-foreground">
+              <p className="mt-6 font-display text-2xl sm:text-3xl text-muted-foreground">
                 And, I'm a{" "}
                 <span className="text-accent/70">·</span>{" "}
                 <span
                   ref={typedRef}
-                  className="text-blue-400 font-semibold inline-block whitespace-nowrap"
+                  className="text-gradient font-semibold inline-block whitespace-nowrap"
                 ></span>
               </p>
 
-              <p className="mt-6 max-w-2xl text-sm sm:text-base text-muted-foreground leading-relaxed text-justify">
-                A certified <span className="font-semibold">Data Scientist</span> and <span className="font-semibold">Data Analyst</span> with formal training in <span className="font-semibold">Microsoft Azure</span> and <span className="font-semibold">AWS cloud technologies</span>, and practical expertise in <span className="font-semibold">Machine Learning</span> using tree-based models. Experienced in applying data-driven methods to extract insights and support decision-making.
+              <p className="mt-6 max-w-xl text-sm sm:text-base text-muted-foreground leading-relaxed text-justify">
+                A certified <span className="font-semibold">Data Scientist</span> and <span className="font-semibold">Data Analyst</span> with formal training in <span className="font-semibold">Microsoft Azure</span> and <span className="font-semibold">AWS cloud technologies</span>, and practical expertise in <span className="font-semibold">Machine Learning</span> using <span className="whitespace-nowrap">tree-based</span> models. Experienced in applying data-driven methods to extract insights and support <span className="whitespace-nowrap">decision-making.</span>
               </p>
 
               <div className="mt-9 flex flex-wrap items-center gap-3">
@@ -96,7 +96,7 @@ export function Hero() {
                   {
                     k: (
                       <>
-                        <span className="lg:hidden">BSc</span>
+                        <span className="lg:hidden">BSc (Hons)</span>
                         <span className="hidden lg:inline">Bachelor's Degree - BS</span>
                       </>
                     ),
