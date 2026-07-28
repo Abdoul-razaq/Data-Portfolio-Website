@@ -96,13 +96,13 @@ export function Hero() {
                   {
                     k: (
                       <>
-                        <span className="lg:hidden">BSc (Hons)</span>
+                        <span className="lg:hidden">BSc </span>
                         <span className="hidden lg:inline">Bachelor's Degree - BS</span>
                       </>
                     ),
                     v: (
                       <>
-                        <span className="lg:hidden">Mech Eng</span>
+                        <span className="lg:hidden">(Hons) Mech Eng</span>
                         <span className="hidden lg:inline">Mechanical Engineering in production</span>
                       </>
                     ),
