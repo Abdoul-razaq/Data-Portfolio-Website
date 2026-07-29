@@ -26,7 +26,7 @@ export function About() {
             </p>
 
             <p>
-              I have developed practical expertise in <span className="text-foreground">SQL, Python, Excel, Power BI, and Tableau</span>, which I have applied in real-world projects including market gap analysis, logistics performance evaluation, and cryptocurrency trend analysis. These projects involved working with large datasets, building efficient data workflows, defining key performance metrics, and designing interactive dashboards to support strategic decisions.
+              I have developed practical expertise in <span className="text-foreground">SQL, Python, Excel, Power BI, and Tableau</span>, which I have applied in real-world projects including diabetes prediction modeling, customer churn forecasting, and real estate valuation systems. These projects involved working with large datasets, building efficient data workflows, defining key performance metrics, and designing interactive dashboards to support strategic decisions.
             </p>
 
             <p>

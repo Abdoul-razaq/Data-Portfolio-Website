@@ -14,6 +14,7 @@ type Filter = "All" | ProjectCategory;
 const filters: Filter[] = ["All", ...categories];
 
 const fallbackGradient: Record<ProjectCategory, string> = {
+  "Machine Learning": "from-purple-900/80 via-purple-900/60 to-slate-900",
   "Data Analytics": "from-blue-900/80 via-blue-900/60 to-slate-900",
   "Business Intelligence": "from-emerald-900/80 via-emerald-900/60 to-slate-900",
   "Data Engineering": "from-rose-900/80 via-rose-900/60 to-slate-900",
@@ -113,16 +114,27 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
       </Link>
 
       {/* ACTION BUTTONS */}
-      <div className="absolute top-3 right-3 flex gap-2">
+      <div className="absolute top-3 right-3 flex gap-2 z-10">
 
-        {(project.github || project.demo) && (
+        {project.github && (
           <a
-            href={project.github ?? project.demo}
+            href={project.github}
             target="_blank"
             onClick={(e) => e.stopPropagation()}
-            className="px-3 py-1 text-xs bg-black/70 text-white rounded"
+            className="px-3 py-1 text-xs bg-black/70 text-white rounded hover:bg-black/90 transition"
           >
-            {project.github ? "GitHub" : "Preview"}
+            GitHub
+          </a>
+        )}
+
+        {project.demo && (
+          <a
+            href={project.demo}
+            target="_blank"
+            onClick={(e) => e.stopPropagation()}
+            className="px-3 py-1 text-xs bg-black/70 text-white rounded hover:bg-black/90 transition"
+          >
+            Preview
           </a>
         )}
 
@@ -131,7 +143,7 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
             href={project.report}
             target="_blank"
             onClick={(e) => e.stopPropagation()}
-            className="px-3 py-1 text-xs bg-black/70 text-white rounded"
+            className="px-3 py-1 text-xs bg-black/70 text-white rounded hover:bg-black/90 transition"
           >
             Report
           </a>
