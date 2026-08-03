@@ -64,7 +64,7 @@ export function Navbar() {
         >
           {/* ── LOGO ── */}
           <Link to="/" className="flex items-center group">
-            <span className="font-display text-1.5xl tracking-tight text-white">
+            <span className="font-display text-1.8xl tracking-tight text-white">
               Portfolio.
             </span>
           </Link>

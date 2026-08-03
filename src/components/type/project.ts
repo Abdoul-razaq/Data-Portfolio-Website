@@ -96,7 +96,7 @@ export const projects: Project[] = [
     tools: ["Python", "AWS S3", "AWS Lambda", "AWS Glue", "PySpark", "AWS Athena", "AWS IAM", "AWS Step Functions", "AWS CLI"],
     gallery: ["/images/Project-2.png", "/images/architecture.jpeg"],
     github: "https://github.com/Abdoul-razaq/YouTube-Trending-Video-Analytics",
-    pysparkCode: "https://github.com/Abdoul-razaq/YouTube-Trending-Video-Analytics/blob/main/pyspark_code.py",
+    demo: "https://github.com/Abdoul-razaq/YouTube-Trending-Video-Analytics/blob/main/pyspark_code.py",
     dataSource: "Trending YouTube Video Statistics dataset (Kaggle), containing daily trending-video metrics across 10 regions (US, GB, CA, DE, FR, IN, JP, KR, MX, RU).",
     toolDetails: [
       { name: "AWS S3", description: "Object storage forming the data lake — holds the raw, cleansed, and analytics-ready layers of the pipeline." },
