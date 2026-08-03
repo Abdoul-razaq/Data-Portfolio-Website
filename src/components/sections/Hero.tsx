@@ -1,14 +1,14 @@
 import { useEffect, useRef } from "react";
 import Typed from "typed.js";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 export function Hero() {
   const typedRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const typed = new Typed(typedRef.current, {
-      strings: ["Data Analyst ", "Data Scientist ", "Mechanical Engineer "],
+      strings: ["Data Scientist ", "Data Analyst ", "Mechanical Engineer "],
       typeSpeed: 60,
       backSpeed: 30,
       backDelay: 2000,
@@ -71,18 +71,19 @@ export function Hero() {
                 A certified <span className="font-semibold">Data Scientist</span> and <span className="font-semibold">Data Analyst</span> with formal training in <span className="font-semibold">Microsoft Azure</span> and <span className="font-semibold">AWS cloud technologies</span>, and practical expertise in <span className="font-semibold">Machine Learning</span> using <span className="whitespace-nowrap">tree-based</span> models. Experienced in applying data-driven methods to extract insights and support <span className="whitespace-nowrap">decision-making.</span>
               </p>
 
-              <div className="mt-9 flex flex-wrap items-center gap-3">
-                <a
-                  href="#projects"
-                  className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-accent px-5 py-3 text-base font-medium text-primary-foreground shadow-glow-indigo hover:shadow-glow-cyan transition-all hover:-translate-y-0.5"
+              <div className="mt-9 flex flex-wrap items-center gap-4">
+                <button
+                  onClick={() =>
+                    window.open('https://drive.google.com/file/d/1uapJtOcNr6_fwsvBKVpw8AmsU5lgeG-_/view?usp=sharing', '_blank')
+                  }
+                  className="inline-flex items-center gap-2 rounded-full border-2 border-blue-500 bg-[#1a1a1a] px-8 py-3.5 text-base font-medium text-white shadow-md transition-all hover:bg-blue-500/10 hover:border-blue-400 hover:-translate-y-0.5"
                 >
-                  View My Projects
-                  <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
-                </a>
+                  Download CV
+                </button>
 
                 <a
                   href="#contact"
-                  className="inline-flex items-center gap-2 rounded-xl glass px-5 py-3 text-base font-medium hover:bg-white/10 transition"
+                  className="inline-flex items-center gap-2 rounded-full border-2 border-white/80 bg-[#1a1a1a] px-8 py-3.5 text-base font-medium text-white shadow-md transition-all hover:bg-white/10 hover:border-white hover:-translate-y-0.5"
                 >
                   Get in Touch
                 </a>

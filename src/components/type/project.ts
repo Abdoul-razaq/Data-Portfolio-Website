@@ -30,13 +30,11 @@ export type Project = {
   github?: string;
   demo?: string;
   report?: string;
+  pysparkCode?: string;
   videoUrl?: string;
   dataSource?: string;
   toolDetails?: ToolDetail[];
   steps?: ProjectStep[];
-  resumeBullets?: string[];
-  compactVersion?: string;
-  gradSchoolStatement?: string;
 };
 
 export const projects: Project[] = [
@@ -46,7 +44,7 @@ export const projects: Project[] = [
     title: "Diabetes Prediction System",
     category: "Machine Learning",
     shortDescription: "Built a machine learning model to predict pre-existing diabetes diagnoses in ICU patients.",
-    cover: "/images/Project 1.png",
+    cover: "/images/Project-1.webp",
     overview:
       "Imagine someone gets rushed to a hospital's Intensive Care Unit (ICU) — the ward for the most critically ill patients. Doctors need to treat them fast, but often they don't yet know the patient's full medical history (the person might be unconscious, or their old records haven't arrived yet). One important thing doctors want to know quickly: does this patient already have diabetes? That knowledge changes how they read blood sugar levels and other vital signs.\n\nSo the problem was: can we build a computer program that guesses \"yes, this patient likely has diabetes\" or \"no, they probably don't\" — using only the information collected in the patient's first 24 hours in the ICU?",
     problem:
@@ -56,7 +54,7 @@ export const projects: Project[] = [
     results:
       "The final model achieved a strong predictive performance of 0.87 AUC, outperforming the Logistic Regression baseline model. The workflow is thoroughly documented in a public GitHub repository and Google Colab notebook containing evaluations, clinical feature importance analyses, and the final predicted submission file.",
     tools: ["Python", "Google Colab", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Scikit-learn", "LightGBM"],
-    gallery: ["/images/Project 1.png"],
+    gallery: ["/images/Project-1.png"],
     github: "https://github.com/Abdoul-razaq/Diabetes-Detection-Model",
     demo: "https://colab.research.google.com/drive/15ifbHAmdWu5gtB2xE768Jac8BuPWhAIU?usp=sharing",
     dataSource: "WiDS Datathon 2021 (Women in Data Science) hosted on Kaggle, containing anonymized data from over 130,000 real ICU patients with ~180 clinical features.",
@@ -78,15 +76,48 @@ export const projects: Project[] = [
       { number: 6, title: "Advanced LightGBM Model", description: "Built and trained a LightGBM classifier with 5-fold stratified cross-validation, protecting against overfitting and validating generalizability." },
       { number: 7, title: "Model Evaluation", description: "Measured final predictive strength, achieving 0.87 AUC. Plotted confusion matrices and analyzed feature importances to verify clinical logic." },
       { number: 8, title: "Prediction Output", description: "Generated predictions on a completely unseen test dataset and formatted the results into a final submission.csv file." }
+    ]
+  },
+
+  {
+    slug: "youtube-trending-analytics-pipeline",
+    title: "YouTube Trending Video Data Pipeline",
+    category: "Data Engineering",
+    shortDescription: "Built a serverless AWS pipeline to analyze trending YouTube data for content marketing insights.",
+    cover: "/images/Project-2.jpeg",
+    overview:
+      "Marketing team wants to run a YouTube campaign, but first they need to answer a basic question: what kind of content actually performs well, and where? Trending video data exists — but it arrives daily, split across ten different country files, in raw CSV and JSON formats that aren't ready to analyze or plug into a dashboard.\n\nSo the problem was: can we build a system that automatically pulls this data in, cleans it, organizes it, and makes it instantly queryable — without anyone manually downloading files or wrangling spreadsheets every day?",
+    problem:
+      "Marketing teams need to identify which video categories and content types drive the most engagement across regions in order to plan effective campaigns. But trending video data is scattered across multiple regional sources, arrives in raw/messy formats, and isn't structured for repeatable analysis — making it slow and error-prone to work with by hand.",
+    solution:
+      "A serverless AWS data pipeline built on S3, Lambda, and Glue, following a raw → cleansed → analytics data lake architecture. The project ingests daily trending-video statistics across 10 countries (~200K+ records) using Hive-style partitioning by region, transforms the data through both event-driven (Lambda) and batch (Glue/PySpark) ETL, and registers schema centrally in the AWS Glue Data Catalog — making the cleaned data instantly queryable via Athena for engagement and content-performance analysis, without ever loading it into a separate database.",
+    results:
+      "Delivered an automated, query-ready data lake processing 200K+ trending video records across 10 regions, enabling engagement and category-level analysis to inform video marketing strategy. The workflow is documented in a public GitHub repository with an architecture diagram, and extends an open-source reference implementation with added logging, error handling, and refactored, maintainable code.",
+    tools: ["Python", "AWS S3", "AWS Lambda", "AWS Glue", "PySpark", "AWS Athena", "AWS IAM", "AWS Step Functions", "AWS CLI"],
+    gallery: ["/images/Project-2.png", "/images/architecture.jpeg"],
+    github: "https://github.com/Abdoul-razaq/YouTube-Trending-Video-Analytics",
+    pysparkCode: "https://github.com/Abdoul-razaq/YouTube-Trending-Video-Analytics/blob/main/pyspark_code.py",
+    dataSource: "Trending YouTube Video Statistics dataset (Kaggle), containing daily trending-video metrics across 10 regions (US, GB, CA, DE, FR, IN, JP, KR, MX, RU).",
+    toolDetails: [
+      { name: "AWS S3", description: "Object storage forming the data lake — holds the raw, cleansed, and analytics-ready layers of the pipeline." },
+      { name: "AWS Lambda", description: "Event-driven compute that automatically transforms incoming JSON reference data to Parquet the moment a new file lands in S3." },
+      { name: "AWS Glue", description: "Managed Spark environment used for batch ETL on the larger video-statistics dataset, plus the Data Catalog that tracks schema across all tables." },
+      { name: "PySpark", description: "Used within the Glue job to apply schema mapping, resolve data types, drop null fields, and repartition data at scale." },
+      { name: "AWS Athena", description: "Serverless SQL engine used to query the cleansed S3 data directly, without provisioning a database." },
+      { name: "AWS IAM", description: "Manages access control across S3, Lambda, and Glue so only authorized roles can read or write each data layer." },
+      { name: "AWS Step Functions", description: "Orchestrates the pipeline stages — ingestion, transformation, and cataloging — as a single coordinated workflow." },
+      { name: "AWS CLI", description: "Used to upload regional source files into S3 with Hive-style partitioning by region." }
     ],
-    resumeBullets: [
-      "Built a machine learning model to predict pre-existing diabetes diagnoses in ICU patients using only first-24-hour admission data from a 130,000+ patient dataset (WiDS Datathon 2021)",
-      "Performed exploratory data analysis and data cleaning on 180+ clinical features, engineered predictive features (BMI category, comorbidity count), and addressed class imbalance in the target variable",
-      "Trained and validated a LightGBM model using 5-fold stratified cross-validation, achieving 0.87 AUC, benchmarked against a Logistic Regression baseline",
-      "Documented the full workflow in a public GitHub repository with reproducible code and analysis"
-    ],
-    compactVersion: "Built a LightGBM model predicting pre-existing diabetes in ICU patients from 24-hour admission data (130K+ patients, 180+ features), achieving 0.87 AUC via 5-fold cross-validation.",
-    gradSchoolStatement: "To build hands-on experience applying data science to healthcare, I completed an independent project using the WiDS Datathon 2021 dataset — over 130,000 anonymized ICU patient records. The problem: predict whether a patient has a pre-existing diabetes diagnosis using only data available in their first 24 hours of admission, since full medical histories are often unavailable in critical care settings. My process involved exploratory data analysis to understand missingness and class imbalance in the target variable, data cleaning to handle implausible values, feature engineering (including a BMI category and comorbidity count), and training both a Logistic Regression baseline and a LightGBM model validated with 5-fold stratified cross-validation. The final model achieved an AUC of 0.87, demonstrating meaningful predictive signal despite the dataset's inherent class imbalance. This project deepened my interest in applying machine learning to clinical decision support, which I hope to pursue further in a Master's program in Data Science."
+    steps: [
+      { number: 1, title: "Data Ingestion", description: "Uploaded raw CSV and JSON trending-video data for 10 regions into an S3 raw layer, partitioned by region using Hive-style folder naming." },
+      { number: 2, title: "Event-Driven ETL", description: "Built an AWS Lambda function triggered by S3 uploads that flattens and converts incoming JSON reference data into partitioned Parquet." },
+      { number: 3, title: "Batch ETL at Scale", description: "Wrote a PySpark AWS Glue job to transform the larger statistics dataset — applying schema mapping, resolving types, and dropping null fields." },
+      { number: 4, title: "Schema Cataloging", description: "Registered all transformed datasets in the AWS Glue Data Catalog, making schema centrally trackable and queryable." },
+      { number: 5, title: "Serverless Querying", description: "Used AWS Athena to run SQL directly against the cleansed S3 layer to explore category and regional engagement trends." },
+      { number: 6, title: "Pipeline Orchestration", description: "Designed the end-to-end flow — ingestion, transformation, cataloging — to run as a coordinated pipeline via AWS Step Functions." },
+      { number: 7, title: "Code Refactoring & Documentation", description: "Extended an open-source reference architecture with structured logging, input validation, error handling, and a documented, attributed README." },
+      { number: 8, title: "Business Application", description: "Applied the cleaned dataset to identify content categories and regional patterns most useful for planning a YouTube marketing campaign." }
+    ]
   },
 
   {
@@ -94,7 +125,7 @@ export const projects: Project[] = [
     title: "Customer Churn Prediction Model",
     category: "Machine Learning",
     shortDescription: "Built a classification pipeline to predict customer churn for a telecom company.",
-    cover: "/images/Project 2.png",
+    cover: "/images/Project-3.webp",
     overview:
       "You're trying to teach a computer to guess which telecom customers are about to quit (churn) — based on things like their contract type, how long they've been a customer, what services they've signed up for, and how much they pay each month.\n\nYou give the computer facts about a customer — 'month-to-month contract, high monthly bill, no tech support, only 2 months as a customer' — and it learns to predict: 'this customer is probably about to leave.'\n\nThis is called a classification problem in machine learning — 'classification' means you're predicting a category (Churn / No Churn), not a number like a price.",
     problem:
@@ -104,7 +135,7 @@ export const projects: Project[] = [
     results:
       "The best-performing AdaBoost model was tuned using Optuna to capture 82% of actual churners (82% recall) at an overall test accuracy of 70% on completely held-out data. Feature importance metrics validated that contract length, total tenure, and the absence of technical support are the primary churn triggers, providing actionable insights for marketing and retention teams.",
     tools: ["Python", "Google Colab", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Scikit-learn", "XGBoost", "CatBoost", "Optuna", "SMOTE"],
-    gallery: ["/images/Project 2.png"],
+    gallery: ["/images/Project-3.png"],
     github: "https://github.com/Abdoul-razaq/Customer-Churn-Prediction",
     demo: "https://colab.research.google.com/drive/144sqx8HxYM3pTmiKlxJbWgVwZpK4EWGz?usp=sharing",
     dataSource: "IBM's Telco Customer Churn dataset, containing account details, demographics, and service choices for 7,043 telecom customers.",
@@ -129,17 +160,29 @@ export const projects: Project[] = [
       { number: 7, title: "Oversampling with SMOTE", description: "Applied SMOTE to generate synthetic churn examples, creating a balanced 50/50 dataset for the models to learn from during training." },
       { number: 8, title: "Feature Importance Mapping", description: "Inspected model decisions to discover that contract type, internet service category, and lack of support packages are the strongest indicators of churn." },
       { number: 9, title: "AdaBoost Fine-Tuning", description: "Identified AdaBoost as the highest performing model on SMOTE data and tuned its parameters (estimators and learning rate) using Optuna." },
-      { number: 10, title: "Held-out Test Evaluation", description: "Evaluated the tuned model against the hidden test dataset, achieving 82% churn recall to minimize missed retention alerts." }
     ],
-    resumeBullets: [
-      "Built a classification pipeline to predict customer churn for a telecom company using IBM's public Telco Customer Churn dataset (7,043 customers, 21 raw features)",
-      "Performed exploratory data analysis — including a custom mixed-type association matrix (Cramér's V / correlation ratio / Spearman) — and identified contract type, tenure, and add-on service subscriptions as the strongest churn drivers",
-      "Built a preprocessing pipeline (encoding, scaling) and benchmarked 13 classification algorithms (Logistic Regression, Random Forest, XGBoost, CatBoost, AdaBoost, Stacking, and more) via stratified train/test evaluation",
-      "Addressed the dataset's class imbalance (~26.6% churn) using SMOTE, then tuned the best-performing AdaBoost model with Optuna, achieving 82% recall on churners at a final held-out test accuracy of 70% — prioritizing recall since missing an at-risk customer is costlier than a false alarm",
-      "Documented the full workflow in a public GitHub repository with reproducible code and analysis"
-    ],
-    compactVersion: "Built and tuned an AdaBoost classification model to predict telecom customer churn (7K+ customers), achieving 82% recall on churners via SMOTE-based imbalance handling and Optuna hyperparameter tuning, benchmarked against 12 other classification algorithms.",
-    gradSchoolStatement: "To build hands-on experience with the full machine learning workflow, I completed an independent project using IBM's public Telco Customer Churn dataset, covering over 7,000 customers. The problem: predict whether a customer will cancel their service, using account details, subscribed services, and billing information. My process involved exploratory data analysis to understand which factors were associated with churn, a stratified train/test split to preserve the true class balance, and preprocessing to encode categorical features and scale numerical ones. I benchmarked 13 classification algorithms — from Logistic Regression to gradient-boosted trees and ensemble methods — before addressing a key challenge: only about a quarter of customers in the dataset actually churn, so a model optimized for plain accuracy would learn to simply predict 'no churn' and still look deceptively strong. I addressed this by applying SMOTE to rebalance the training data and by explicitly optimizing for recall on the churn class, since in a retention context, failing to identify an at-risk customer is more costly than an occasional false alarm. After tuning the best-performing model (AdaBoost) with Optuna, the final model correctly identified 82% of true churners on a held-out test set never seen during training or tuning. This project sharpened my understanding of evaluating models under class imbalance and choosing metrics that reflect real business costs rather than defaulting to accuracy — practices I want to keep building on in a Master's program in Data Science."
+  },
+
+  {
+    slug: "sales-dashboard",
+    title: "Sales Overview Dashboard",
+    category: "Business Intelligence",
+    shortDescription: "Built an interactive Power BI dashboard to monitor sales performance and KPIs.",
+    cover: "/images/project-4.jpg",
+    overview:
+      "This project focuses on analyzing business sales performance through an interactive Power BI dashboard designed to consolidate key performance indicators into a single view.",
+    problem:
+      "Sales data was fragmented across multiple sources, making it difficult for decision-makers to track performance and identify trends efficiently.",
+    solution:
+      "I developed a Power BI dashboard with DAX measures and visual analytics to centralize sales data and provide real-time KPI tracking.",
+    results:
+      "The dashboard improved visibility into business performance and enabled faster, data-driven decision-making across teams.",
+    tools: ["Power BI"],
+    gallery: ["/images/project-4.jpg"],
+    demo:
+      "https://drive.google.com/file/d/17qKL3JYIvQlaCRk9Rtn4A9DNlAabwOjw/view?usp=sharing",
+    report:
+      "https://drive.google.com/drive/folders/1B4f7bdaR4lVO8SRnt1VdWQYCott-1VJr?usp=sharing",
   },
 
   {
@@ -147,9 +190,9 @@ export const projects: Project[] = [
     title: "California House Price Prediction Model",
     category: "Machine Learning",
     shortDescription: "Built a regression pipeline to predict median house values for California districts.",
-    cover: "/images/Project 3.png",
+    cover: "/images/Project-5.webp",
     overview:
-      "You're trying to teach a computer to guess the price of houses in California, using old data from 1990. But instead of looking at individual houses, the data is grouped by neighborhoods (called 'districts') — so each row of data represents one neighborhood, not one house.\n\nYou give the computer some facts about a neighborhood — like how many people live there, their average income, how close it is to the ocean, how big the houses tend to be — and it learns to predict: 'based on these facts, the houses here are probably worth about this much money.'\n\nThis is called a regression problem in machine learning — 'regression' just means you're predicting a number (like a price), not a category (like 'cat vs dog').",
+      "Imagine you're trying to teach a computer to guess the price of houses in California, using old data from 1990. But instead of looking at individual houses, the data is grouped by neighborhoods (called 'districts') — so each row of data represents one neighborhood, not one house.\n\nYou give the computer some facts about a neighborhood — like how many people live there, their average income, how close it is to the ocean, how big the houses tend to be — and it learns to predict: 'based on these facts, the houses here are probably worth about this much money.'\n\nThis is called a regression problem in machine learning — 'regression' just means you're predicting a number (like a price), not a category (like 'cat vs dog').",
     problem:
       "Predicting property values is critical for real estate decisions, mortgage lending, and urban planning. The challenge lies in building a robust regression model using aggregate census data where key features like house count and bedroom count are highly collinear, some metrics are missing, and income distributions vary widely, making simple random sampling prone to bias.",
     solution:
@@ -157,7 +200,7 @@ export const projects: Project[] = [
     results:
       "The best-performing Random Forest model was optimized with GridSearchCV to yield a final held-out Root Mean Squared Error (RMSE) of ~$46,000, with a 95% confidence interval of $44,072 to $47,973 calculated via SciPy. Feature importances confirmed that median income and proximity to the ocean were the primary predictors, aligning with real-world real estate dynamics.",
     tools: ["Python", "Google Colab", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Scikit-learn", "SciPy"],
-    gallery: ["/images/Project 3.png"],
+    gallery: ["/images/Project-5.png"],
     github: "https://github.com/Abdoul-razaq/California_House_Price_Prediction",
     demo: "https://colab.research.google.com/drive/1rgBLdqijANVoDqVoH7vkC3IipIHCTxUJ?usp=sharing",
     dataSource: "1990 California Census dataset, containing geographical coordinates, median incomes, room metrics, and housing prices for 20,640 census districts.",
@@ -179,60 +222,7 @@ export const projects: Project[] = [
       { number: 6, title: "Hyperparameter Optimization", description: "Tuned the Random Forest's number of estimators and max features using GridSearchCV to achieve optimal performance." },
       { number: 7, title: "Feature Importance Validation", description: "Queried the model to determine that median income, ocean proximity, and population density are the main drivers of housing price." },
       { number: 8, title: "Uncertainty Estimation", description: "Tested the final model on hidden test data to find an RMSE of ~$46,000, and calculated a 95% confidence interval ($44K–$48K) using SciPy." }
-    ],
-    resumeBullets: [
-      "Built a regression pipeline to predict median house value for California districts using 1990 census data (20,640 districts, 9 raw features)",
-      "Performed exploratory data analysis and stratified train/test splitting on income category to prevent sampling bias, then engineered predictive ratio features (rooms per household, bedrooms per room, population per household)",
-      "Built a leakage-safe preprocessing pipeline (median imputation, scaling, one-hot encoding) and benchmarked Linear Regression, Decision Tree, and Random Forest via 10-fold cross-validation",
-      "Tuned the best-performing Random Forest with GridSearchCV, achieving a final held-out test RMSE of ~$46,000 (95% CI: $44,072–$47,973), and validated feature importance against domain intuition",
-      "Documented the full workflow in a public GitHub repository with reproducible code and analysis"
-    ],
-    compactVersion: "Built and tuned a Random Forest regression model predicting California house prices (20K+ districts), achieving ~$46K RMSE via stratified cross-validation and hyperparameter tuning, benchmarked against Linear Regression and Decision Tree baselines.",
-    gradSchoolStatement: "To build hands-on experience with the full machine learning workflow, I completed an independent project using 1990 California census data covering over 20,000 districts. The problem: predict a district's median house value from aggregate statistics like income, room counts, and location. My process involved exploratory data analysis to understand feature distributions and correlations, a stratified train/test split to avoid sampling bias in the income distribution, feature engineering (deriving ratio features like rooms per household and bedrooms per room, which proved more predictive than their raw components), and benchmarking Linear Regression, a Decision Tree, and a Random Forest via cross-validation before tuning the best model with grid search. I deliberately included a held-out test evaluation with a 95% confidence interval, rather than reporting only a single cross-validation score, to reflect a more honest estimate of generalization error. The final model achieved a test RMSE of approximately $46,000. This project deepened my understanding of avoiding data leakage and honestly estimating model uncertainty — practices I want to keep building on in a Master's program in Data Science."
-  },
-
-  {
-    slug: "amazon",
-    title: "Amazon Web Scraper",
-    category: "Data Engineering",
-    shortDescription: "Developed an automated system to track and analyze product pricing trends.",
-    cover: "/images/project-4.jpg",
-    overview:
-      "This project focuses on building a web scraping system to extract product pricing data from Amazon. The objective was to enable automated tracking of price fluctuations over time.",
-    problem:
-      "There was no efficient system for continuously monitoring product price changes, making it difficult to analyze pricing trends in real time.",
-    solution:
-      "Using Python and BeautifulSoup, I developed a web scraper that extracts product data, structures it, and prepares it for analysis and monitoring.",
-    results:
-      "The system successfully enabled automated price tracking, providing structured insights into pricing trends and market fluctuations.",
-    tools: ["Python", "BeautifulSoup"],
-    gallery: ["/images/project-4.jpg"],
-    demo:
-      "https://github.com/Abdoul-razaq/Python/blob/main/Amazon%20Web%20Scraper%20Project.ipynb",
-    report:
-      "https://drive.google.com/file/d/1WiljJlul-IKGKOFeWXvjgohDh-t-svTT/view?usp=sharing",
-  },
-
-  {
-    slug: "sales-dashboard",
-    title: "Sales Overview Dashboard",
-    category: "Business Intelligence",
-    shortDescription: "Built an interactive Power BI dashboard to monitor sales performance and KPIs.",
-    cover: "/images/project-5.jpg",
-    overview:
-      "This project focuses on analyzing business sales performance through an interactive Power BI dashboard designed to consolidate key performance indicators into a single view.",
-    problem:
-      "Sales data was fragmented across multiple sources, making it difficult for decision-makers to track performance and identify trends efficiently.",
-    solution:
-      "I developed a Power BI dashboard with DAX measures and visual analytics to centralize sales data and provide real-time KPI tracking.",
-    results:
-      "The dashboard improved visibility into business performance and enabled faster, data-driven decision-making across teams.",
-    tools: ["Power BI"],
-    gallery: ["/images/project-5.jpg"],
-    demo:
-      "https://drive.google.com/file/d/17qKL3JYIvQlaCRk9Rtn4A9DNlAabwOjw/view?usp=sharing",
-    report:
-      "https://drive.google.com/drive/folders/1B4f7bdaR4lVO8SRnt1VdWQYCott-1VJr?usp=sharing",
+    ]
   },
 
   {

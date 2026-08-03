@@ -55,12 +55,12 @@ export function About() {
                     </p>
                     <p className="text-muted-foreground mt-0.5">May 2022 - June 2026</p>
                   </div>
-                  
+
                   <div className="pt-5 mt-2 border-t border-white/5">
                     <p className="font-medium text-foreground mb-3 flex items-center gap-2">
                       <BookOpen size={14} className="text-accent" /> Research Thesis
                     </p>
-                    
+
                     <div className="space-y-3">
                       <div>
                         <p className="font-medium text-foreground text-sm leading-snug">
@@ -90,7 +90,7 @@ export function About() {
                           <div>
                             <p className="mb-2 font-medium text-foreground">Data Science & Analytical Highlights:</p>
                           </div>
-                          
+
                           <div>
                             <h4 className="font-semibold text-foreground mb-0.5">1. Web Scraping & Climate Integration</h4>
                             <ul className="list-disc pl-4 space-y-1">
@@ -144,18 +144,18 @@ export function About() {
               <h3 className="font-display text-xl font-semibold mb-3">Experience</h3>
               <div className="space-y-5 text-sm">
                 <div>
-                  <p className="font-medium text-foreground">Data Analyst Apprentice</p>
+                  <p className="font-semibold text-foreground">Data Scientist Apprentice</p>
                   <div className="flex justify-between items-start gap-2 mt-0.5">
                     <p className="text-muted-foreground">ALX Rwanda</p>
-                    <span className="text-accent/80 text-xs whitespace-nowrap mt-0.5">Jan 2026 - Jun 2026</span>
+                    <span className="text-accent/80 text-xs whitespace-nowrap mt-0.5">Jan 2026 - Aug 2026</span>
                   </div>
                   <p className="mt-2 text-muted-foreground leading-relaxed">
-                    Collaborated on hands-on analytical projects, building data models, cleaning large datasets, and translating raw data into actionable insights and dashboards.
+                    Collaborated on hands-on machine learning and statistical modeling projects, engineering features, building predictive models, and translating complex data into actionable insights.
                   </p>
                 </div>
-                
+
                 <div>
-                  <p className="font-medium text-foreground">Founder & President</p>
+                  <p className="font-semibold text-foreground">Founder & President</p>
                   <div className="flex justify-between items-start gap-2 mt-0.5">
                     <p className="text-muted-foreground">DataX Lab Rwanda</p>
                     <span className="text-accent/80 text-xs whitespace-nowrap mt-0.5">Feb 2026 - Present</span>

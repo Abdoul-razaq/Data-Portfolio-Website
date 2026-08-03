@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Menu, X, Download } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const sections = [
@@ -64,8 +64,8 @@ export function Navbar() {
         >
           {/* ── LOGO ── */}
           <Link to="/" className="flex items-center group">
-            <span className="font-display text-2xl tracking-tight text-white">
-              <span className="text-blue-500 font-bold">N</span><span className="font-bold">\</span>abdoul Razak.
+            <span className="font-display text-1.5xl tracking-tight text-white">
+              Portfolio.
             </span>
           </Link>
 
@@ -99,18 +99,6 @@ export function Navbar() {
             ))}
           </ul>
 
-          {/* ── CV BUTTON (REFERENCE STYLE) ── */}
-          <div className="hidden lg:block">
-            <button
-              onClick={() =>
-                window.open('https://drive.google.com/file/d/1uapJtOcNr6_fwsvBKVpw8AmsU5lgeG-_/view?usp=sharing', '_blank')
-              }
-              className="inline-flex items-center gap-2 bg-pink-500 px-5 py-2.5 text-sm font-medium text-white rounded-md shadow-md transition-all hover:bg-pink-600 hover:-translate-y-0.5"
-            >
-              Download CV
-              <Download size={20} />
-            </button>
-          </div>
 
           {/* ── MOBILE MENU BUTTON ── */}
           <button
@@ -162,18 +150,6 @@ export function Navbar() {
                   </li>
                 ))}
 
-                {/* ── CV BUTTON MOBILE (REFERENCE STYLE) ── */}
-                <li className="mt-2">
-                  <button
-                    onClick={() =>
-                      window.open('https://drive.google.com/file/d/1uapJtOcNr6_fwsvBKVpw8AmsU5lgeG-_/view?usp=sharing', '_blank')
-                    }
-                    className="inline-flex items-center gap-2 bg-pink-500 px-5 py-2.5 text-sm font-medium text-white rounded-md shadow-md transition-all hover:bg-pink-600 hover:-translate-y-0.5"
-                  >
-                    Download CV
-                    <Download size={16} />
-                  </button>
-                </li>
               </ul>
             </motion.div>
           )}
