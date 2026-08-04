@@ -15,6 +15,13 @@ export type ProjectStep = {
   description: string;
 };
 
+export type StarMethod = {
+  situation: string;
+  task: string;
+  action: string;
+  result: string;
+};
+
 export type Project = {
   slug: string;
   title: string;
@@ -35,6 +42,7 @@ export type Project = {
   dataSource?: string;
   toolDetails?: ToolDetail[];
   steps?: ProjectStep[];
+  star?: StarMethod;
 };
 
 export const projects: Project[] = [
@@ -76,7 +84,13 @@ export const projects: Project[] = [
       { number: 6, title: "Advanced LightGBM Model", description: "Built and trained a LightGBM classifier with 5-fold stratified cross-validation, protecting against overfitting and validating generalizability." },
       { number: 7, title: "Model Evaluation", description: "Measured final predictive strength, achieving 0.87 AUC. Plotted confusion matrices and analyzed feature importances to verify clinical logic." },
       { number: 8, title: "Prediction Output", description: "Generated predictions on a completely unseen test dataset and formatted the results into a final submission.csv file." }
-    ]
+    ],
+    star: {
+      situation: "I worked on a Diabetes Prediction project using real ICU patient data from the WiDS 2021 Kaggle Datathon Challenge.",
+      task: "The goal was to build a model that predicts if a patient in the ICU already has diabetes, using only the data collected in their first 24 hours. This matters because when a patient arrives, doctors often don't have their full medical history yet. A model that can say \"this patient likely has diabetes\" from just vitals and lab results can help doctors act faster.\n\nThere are different types of diabetes. Type 1 is not linked to body weight. Type 2 is more common and often linked to excess weight and low activity. Gestational diabetes happens during pregnancy. According to WHO, diabetes is confirmed when blood sugar levels pass certain limits — for example, a fasting blood sugar at or above 7.0 mmol/L, or a reading at or above 11.1 mmol/L two hours after a glucose test. I used these real medical limits as my Ontology / Guidelines (the rulebook that says what counts as a valid or correct value) to check if the data made sense.",
+      action: "I did not rush through the confusing parts. When I found values that broke these WHO limits — like impossible blood sugar numbers — I treated them as Edge Cases (unusual examples that don't fit the normal rules) and checked them carefully instead of deleting them or guessing. I cleaned the full dataset, which had over 130,000 patient records and 181 columns. I filled in missing information carefully instead of using random guesses, and I created two new helpful features: a BMI category and a count of other health problems the patient had. I also made sure to handle the fact that only about 22% of patients in the data had diabetes, so the model would not simply learn to always guess \"no diabetes.\"",
+      result: "I first built a simple Logistic Regression model as a baseline, which reached an AUC of 0.82. Then I trained a stronger model, LightGBM, using 5-fold cross-validation, which improved the AUC to 0.87 — meaning the model got noticeably better at telling apart patients with and without diabetes. It also reached an F1 score of 0.57 on the diabetes class, which is a reasonable result given the class imbalance (only about 22% of patients had diabetes)."
+    }
   },
 
   {
@@ -117,7 +131,13 @@ export const projects: Project[] = [
       { number: 6, title: "Pipeline Orchestration", description: "Designed the end-to-end flow — ingestion, transformation, cataloging — to run as a coordinated pipeline via AWS Step Functions." },
       { number: 7, title: "Code Refactoring & Documentation", description: "Extended an open-source reference architecture with structured logging, input validation, error handling, and a documented, attributed README." },
       { number: 8, title: "Business Application", description: "Applied the cleaned dataset to identify content categories and regional patterns most useful for planning a YouTube marketing campaign." }
-    ]
+    ],
+    star: {
+      situation: "I built a system on AWS that collects and cleans YouTube trending video data from 10 countries, every day, automatically.",
+      task: "The business wanted to plan marketing and promotion campaigns on YouTube — to know which type of content performs best in which country. To answer that question, they needed clean, ready-to-use data every day, without someone manually downloading and cleaning CSV files each time. The system had to work on its own, and it had to handle two very different kinds of data — one small file and one big file.",
+      action: "I did not use the same method for both files. For the small file (category names), I used a tool called AWS Lambda. It runs by itself the moment a new file arrives, cleans it, and saves it in a fast format called Parquet. For the big file (video statistics), I used a tool called Glue with PySpark, which is better for large amounts of data. This tool only loads the country data it actually needs, instead of loading everything and filtering it later — this saves time and cost. I organized the files saved by country, so the system could quickly find what it needed instead of scanning everything. I used a shared rulebook called the AWS Glue Data Catalog, so different tools like Athena could read the same data without confusion. I used Step Functions to control the order things run in, and IAM roles to make sure each part of the system could only touch the data it was allowed to.",
+      result: "Instead of someone manually pulling and cleaning YouTube data every time the marketing team wanted to ask \"what content works best in which country,\" that data is already sitting there, clean and ready to query with SQL. The system runs by itself and stays reliable without me checking it manually every day. As limitations it does not have automatic tests yet, and I would add that next."
+    }
   },
 
   {
@@ -161,28 +181,53 @@ export const projects: Project[] = [
       { number: 8, title: "Feature Importance Mapping", description: "Inspected model decisions to discover that contract type, internet service category, and lack of support packages are the strongest indicators of churn." },
       { number: 9, title: "AdaBoost Fine-Tuning", description: "Identified AdaBoost as the highest performing model on SMOTE data and tuned its parameters (estimators and learning rate) using Optuna." },
     ],
+    star: {
+      situation: "I worked on a Customer Churn Prediction project using data from a telecom company — 7,043 customers, with information like their contract type, billing, how long they'd been a customer, and what services they used.",
+      task: "The business question was: which customers are likely to leave the company? Here, getting it right mattered more than getting it fast, because missing a customer who is about to leave costs the company much more than a false alarm. So I could not just aim for the highest overall accuracy — I had to aim for the right kind of correctness.",
+      action: "I tested eight different models side by side — Logistic Regression, Decision Tree, Random Forest, Gradient Boosting, AdaBoost, XGBoost, CatBoost, and a Linear SVM — plus a combined model made from AdaBoost and Logistic Regression together. Instead of just picking the model with the best overall accuracy, I focused on one specific number: how many of the customers who actually left did the model correctly catch? This is called recall. I also used a method called SMOTE, which creates more examples of the smaller group in the data — in this case, the churners — so the model would not ignore them.",
+      result: "The models gave very different results. For example, CatBoost had almost 89% accuracy during training, but its ability to catch actual churners was only around 55%. Other models gave up a little overall accuracy but caught more real churners. This taught me an important lesson: a model can look accurate overall and still fail at the one thing the business cares about. That is the same mindset needed in labeling work — the total amount of work done does not matter if the important cases, like a real obstacle in a drone's path, get labeled wrong."
+    }
   },
 
   {
-    slug: "sales-dashboard",
-    title: "Sales Overview Dashboard",
+    slug: "sales-overview-dashboard",
+    title: "ABC Group Sales Overview Dashboard",
     category: "Business Intelligence",
-    shortDescription: "Built an interactive Power BI dashboard to monitor sales performance and KPIs.",
-    cover: "/images/project-4.jpg",
+    shortDescription: "Designed a comprehensive Power BI dashboard to monitor sales performance, track budget.",
+    cover: "/images/project-4.png",
     overview:
-      "This project focuses on analyzing business sales performance through an interactive Power BI dashboard designed to consolidate key performance indicators into a single view.",
+      "Businesses generate huge volumes of sales data every day — transactions, customer records, product details, budget allocations — but raw data sitting in a database doesn't help anyone make decisions. Stakeholders need a single, centralized view where they can see how sales are trending, who the top customers and products are, and how actual performance compares to budget, all in real time. So the goal was to build an interactive business intelligence dashboard that pulls raw sales data from a database, cleans and models it properly, and turns it into visuals that management can actually use to track performance and act on.",
     problem:
-      "Sales data was fragmented across multiple sources, making it difficult for decision-makers to track performance and identify trends efficiently.",
+      "Sales, customer, product, and budget data lived separately in a MySQL Server database with no unified way to analyze it. Without a centralized view, it was difficult to monitor sales trends, spot top-performing products and customers, or track how actual sales compared against budget across time, category, and geography.",
     solution:
-      "I developed a Power BI dashboard with DAX measures and visual analytics to centralize sales data and provide real-time KPI tracking.",
+      "An end-to-end Power BI solution that imports sales, customer, product, and budget data from MySQL Server, cleans and standardizes it in Power Query, and connects it through a proper star-schema data model (DIM_Products, DIM_Calendar, DIM_Customers linked to FACT_InternetSales and FACT_Budget). DAX measures power dynamic KPIs, and the dashboard surfaces total sales, budget vs. actual performance, top 10 customers, top 10 products, sales by category, and sales by customer city — all filterable by customer city, product category, sub-category, product name, month, and year.",
     results:
-      "The dashboard improved visibility into business performance and enabled faster, data-driven decision-making across teams.",
-    tools: ["Power BI"],
-    gallery: ["/images/project-4.jpg"],
-    demo:
-      "https://drive.google.com/file/d/17qKL3JYIvQlaCRk9Rtn4A9DNlAabwOjw/view?usp=sharing",
-    report:
-      "https://drive.google.com/drive/folders/1B4f7bdaR4lVO8SRnt1VdWQYCott-1VJr?usp=sharing",
+      "The dashboard enables real-time tracking of sales vs. budget with dynamic up/down performance indicators, highlights high- and under-performing products and categories, and maps customer distribution by city to support targeting decisions. In the current view, it tracks 22,239,730 in sales against a 21,100,000 budget, a positive variance of 1,139,730.26.",
+    tools: ["Power BI", "MySQL Server", "DAX", "Power Query"],
+    gallery: ["/images/project-4.png"],
+    report: "https://drive.google.com/file/d/1B9jiNPJeJNNo8h6DG6cDrK6ENk10eShI/view?usp=sharing",
+    demo: "https://drive.google.com/drive/folders/1B4f7bdaR4lVO8SRnt1VdWQYCott-1VJr?usp=sharing",
+    dataSource: "MySQL Server database containing sales transactions, customer details, product information, and budget allocations.",
+    toolDetails: [
+      { name: "Power BI", description: "Used for data modeling, transformation, and building the interactive dashboard visuals." },
+      { name: "MySQL Server", description: "Source system holding the raw sales, customer, product, and budget data." },
+      { name: "DAX (Data Analysis Expressions)", description: "Used to build advanced calculations and KPI measures, including Total Sales, Budget vs. Actual Sales, and Top 10 Customers/Products." },
+      { name: "Power Query", description: "Used to clean and transform the data, removing nulls and redundant columns, and standardizing dates, numbers, and text formats." }
+    ],
+    steps: [
+      { number: 1, title: "Data Collection", description: "Imported raw sales transactions, customer details, product information, and budget allocations from MySQL Server into Power BI." },
+      { number: 2, title: "Data Cleaning & Transformation", description: "Used Power Query to remove null/missing values, delete unnecessary or redundant columns, and standardize date, numerical, and text formats." },
+      { number: 3, title: "Data Modeling", description: "Built relationships between DIM_Products, DIM_Calendar, DIM_Customers, FACT_InternetSales, and FACT_Budget to enable cross-table analysis." },
+      { number: 4, title: "DAX Calculations", description: "Developed measures for Total Sales, Budget vs. Actual Sales, and Top 10 Customers & Top 10 Products." },
+      { number: 5, title: "Dynamic KPIs", description: "Implemented KPI visuals with up/down arrows to indicate performance trends over time." },
+      { number: 6, title: "Dashboard Design", description: "Built interactive visuals including Sales by Product Category, Top 10 Customers, Top 10 Products, Budget by Date, and Sales by Customer City, all filterable by city, category, product name, month, and year." }
+    ],
+    star: {
+      situation: "I worked on a Sales Overview Dashboard project, building a business intelligence solution on top of raw sales, customer, product, and budget data stored in MySQL Server.",
+      task: "The goal was to give stakeholders a single, interactive view to monitor sales performance, compare actual sales against budget, and identify top-performing customers and products, so they could make faster, data-driven decisions.",
+      action: "I imported the data from MySQL Server into Power BI and cleaned it in Power Query — removing nulls, dropping redundant columns, and standardizing formats. I then built a proper data model connecting DIM_Products, DIM_Calendar, and DIM_Customers to FACT_InternetSales and FACT_Budget. On top of that model, I wrote DAX measures for total sales, budget vs. actual, and top 10 rankings, and used them to build dynamic KPI visuals with performance-trend indicators.",
+      result: "The final dashboard tracks 22,239,730 in sales against a 21,100,000 budget (a variance of +1,139,730.26), and surfaces Top 10 Customers, Top 10 Products, Sales by Product Category, and Sales by Customer City, all filterable by city, category, product, month, and year — giving stakeholders a real-time, centralized view of sales performance."
+    }
   },
 
   {
@@ -190,7 +235,7 @@ export const projects: Project[] = [
     title: "California House Price Prediction Model",
     category: "Machine Learning",
     shortDescription: "Built a regression pipeline to predict median house values for California districts.",
-    cover: "/images/Project-5.webp",
+    cover: "/images/project-5.jpg",
     overview:
       "Imagine you're trying to teach a computer to guess the price of houses in California, using old data from 1990. But instead of looking at individual houses, the data is grouped by neighborhoods (called 'districts') — so each row of data represents one neighborhood, not one house.\n\nYou give the computer some facts about a neighborhood — like how many people live there, their average income, how close it is to the ocean, how big the houses tend to be — and it learns to predict: 'based on these facts, the houses here are probably worth about this much money.'\n\nThis is called a regression problem in machine learning — 'regression' just means you're predicting a number (like a price), not a category (like 'cat vs dog').",
     problem:
@@ -200,7 +245,7 @@ export const projects: Project[] = [
     results:
       "The best-performing Random Forest model was optimized with GridSearchCV to yield a final held-out Root Mean Squared Error (RMSE) of ~$46,000, with a 95% confidence interval of $44,072 to $47,973 calculated via SciPy. Feature importances confirmed that median income and proximity to the ocean were the primary predictors, aligning with real-world real estate dynamics.",
     tools: ["Python", "Google Colab", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Scikit-learn", "SciPy"],
-    gallery: ["/images/Project-5.png"],
+    gallery: ["/images/project-5.jpg"],
     github: "https://github.com/Abdoul-razaq/California_House_Price_Prediction",
     demo: "https://colab.research.google.com/drive/1rgBLdqijANVoDqVoH7vkC3IipIHCTxUJ?usp=sharing",
     dataSource: "1990 California Census dataset, containing geographical coordinates, median incomes, room metrics, and housing prices for 20,640 census districts.",
@@ -222,7 +267,13 @@ export const projects: Project[] = [
       { number: 6, title: "Hyperparameter Optimization", description: "Tuned the Random Forest's number of estimators and max features using GridSearchCV to achieve optimal performance." },
       { number: 7, title: "Feature Importance Validation", description: "Queried the model to determine that median income, ocean proximity, and population density are the main drivers of housing price." },
       { number: 8, title: "Uncertainty Estimation", description: "Tested the final model on hidden test data to find an RMSE of ~$46,000, and calculated a 95% confidence interval ($44K–$48K) using SciPy." }
-    ]
+    ],
+    star: {
+      situation: "I worked on a California House Price Prediction project — 20,640 neighborhoods (districts) from 1990 census data, with information like median income, location, room counts, and distance to the ocean.",
+      task: "The business question was: what's a fair, honest estimate of house value for a given district? Here, the risk wasn't picking the wrong category — it was trusting a number that looked good but wouldn't hold up on new data. So I couldn't just chase the best-looking training score — I had to prove the score was real.",
+      action: "I tested three models side by side — Linear Regression, Decision Tree, and Random Forest — using 10-fold cross-validation instead of a single train/test check. Along the way, the Decision Tree scored a perfect 0 error on the data it was trained on — but when tested on new data, it actually performed worse than the simplest model. That was a clear sign it had memorized the training data instead of learning a real pattern, so I set it aside. I moved forward with Random Forest, tuned its settings with grid search, and — critically — evaluated it only once on a completely held-out test set I hadn't touched during any of the earlier decisions, reporting both the error and a confidence interval around it.",
+      result: "The final model's predictions were typically off by about $46,000, with 95% confidence the true error falls between $44K and $48K. The bigger lesson: a model can look flawless on data it's already seen and still fail on data it hasn't — the number that matters is the one measured on data the model never touched. That's the same mindset labeling work demands — a label can look complete or confident in the moment, but what matters is whether it's actually correct and would hold up on cases the labeler hasn't seen before."
+    }
   },
 
   {
@@ -270,47 +321,43 @@ export const projects: Project[] = [
   },
 
   {
-    slug: "eda-layoffs",
-    title: "Layoffs EDA (SQL)",
+    slug: "sugar-trap",
+    title: "The Sugar Trap Market Gap Analysis",
     category: "Data Analytics",
-    shortDescription: "Performed exploratory analysis on global layoffs dataset.",
-    cover: "/images/project-8.jpg",
+    shortDescription: "Identified a hidden opportunity in the healthy snack market using data-driven analysis.",
+    cover: "/images/project-8.webp",
     overview:
-      "This project analyzes global layoffs data to uncover trends in workforce reductions across industries and time periods.",
+      "This project investigates global food and nutrition datasets to understand evolving consumer preferences toward healthier snack alternatives. The aim was to analyze product composition and nutritional profiles to uncover underserved market opportunities in the food industry.",
     problem:
-      "There was limited visibility into which industries and companies were most affected by global layoffs.",
+      "The snack food industry is heavily dominated by products high in sugar and processed ingredients. Despite increasing health awareness, there is limited structured data insight highlighting where healthier alternatives are missing in the market.",
     solution:
-      "I used SQL to clean and analyze the dataset, identifying trends, patterns, and correlations in layoffs across sectors.",
+      "Using Python and exploratory data analysis with Pandas, I cleaned and analyzed nutritional datasets, segmenting products based on sugar levels, protein content, and market distribution. Visualization techniques were applied to identify gaps in product availability.",
     results:
-      "The analysis revealed key industry patterns and highlighted economic trends influencing workforce reductions.",
-    tools: ["SQL"],
-    gallery: ["/images/project-8.jpg"],
-    demo:
-      "https://github.com/Abdoul-razaq/SQL/blob/main/Explatory%20Data%20Analysis%20PROJECT%20(In%20MySQL).sql",
-    report:
-      "https://drive.google.com/file/d/16ckV_7LULyR_zno0VoZ8sWIAihx5QTN0/view?usp=sharing",
+      "The analysis revealed a significant gap in low-sugar, high-protein snack categories, highlighting a clear opportunity for innovation in healthier food product development.",
+    tools: ["Python", "Pandas", "Power BI"],
+    gallery: ["/images/project-8.webp"],
+    github: "https://github.com/Abdoul-razaq/The-Sugar-Trap-Market-Gap-Analysis",
+    demo: "https://colab.research.google.com/drive/1pVcXVvGlrjK1E7pMLMk-wC7g3y3xBAwK?usp=sharing",
   },
 
   {
-    slug: "cleaning-layoffs",
-    title: "Layoffs Data Cleaning",
-    category: "Data Engineering",
-    shortDescription: "Cleaned and structured raw layoffs dataset for analysis using SQL.",
-    cover: "/images/project-9.jpg",
+    slug: "logistics",
+    title: "Last Mile Logistics Auditor",
+    category: "Data Analytics",
+    shortDescription: "Analyzed delivery inefficiencies and customer satisfaction in logistics operations.",
+    cover: "/images/project-9.webp",
     overview:
-      "This project focuses on cleaning and preparing a raw layoffs dataset to make it suitable for analysis.",
+      "This project focuses on evaluating last-mile delivery performance in an e-commerce logistics system. The objective was to understand how delivery efficiency impacts customer satisfaction and overall operational performance.",
     problem:
-      "The dataset contained missing values, inconsistencies, and duplicates, making it unreliable for analysis.",
+      "Customers were experiencing inconsistent delivery times, leading to dissatisfaction and reduced trust in logistics reliability. The lack of clear performance tracking made it difficult to identify the root cause of delays.",
     solution:
-      "I used SQL techniques to clean, standardize, and structure the dataset for analytical use.",
+      "I used SQL and Power BI to analyze delivery datasets, focusing on delay patterns, route inefficiencies, and customer feedback metrics. This allowed me to build a structured view of operational bottlenecks.",
     results:
-      "The cleaned dataset became fully analysis-ready, enabling accurate exploration of layoffs trends.",
-    tools: ["SQL"],
-    gallery: ["/images/project-9.jpg"],
-    demo:
-      "https://github.com/Abdoul-razaq/SQL/blob/main/Data%20Cleaning%20PROJECT%20(In%20MySQL).sql",
-    report:
-      "https://drive.google.com/file/d/1TPZmnhUVtwKcBatB5aK9rCZVjlseKjc8/view?usp=sharing",
+      "The analysis showed that inaccurate delivery time estimates were the primary driver of customer dissatisfaction, providing actionable insight for improving logistics planning systems.",
+    tools: ["SQL", "Power BI"],
+    gallery: ["/images/project-9.webp"],
+    github: "https://github.com/Abdoul-razaq/The-Last-Mile-Logistics-Auditor",
+    demo: "https://colab.research.google.com/drive/15WwOHsc6ApX3HapDvngNu5AH0Mr25kFs?usp=sharing",
   },
 ];
 

@@ -15,7 +15,7 @@ function isVideo(src: string) {
 export default function ProjectDetail() {
   const { slug } = useParams();
   const project = slug ? getProject(slug) : undefined;
-  const [activeTab, setActiveTab] = useState<"details" | "methodology">("details");
+  const [activeTab, setActiveTab] = useState<"details" | "methodology" | "summary">("details");
 
   if (!project) {
     return (
@@ -82,24 +82,30 @@ export default function ProjectDetail() {
                 {project.demo.includes("colab.research.google.com")
                   ? "Google Colab"
                   : project.demo.includes("drive.google.com")
-                  ? "View Report"
-                  : project.demo.includes("github.com") && project.demo.endsWith(".sql")
-                  ? "SQL Script"
-                  : "Live Demo"}{" "}
+                    ? project.demo.includes("folders")
+                      ? "Project Folder"
+                      : "View Report"
+                    : project.demo.includes("github.com") && project.demo.endsWith(".sql")
+                      ? "SQL Script"
+                      : "Live Demo"}{" "}
                 <ExternalLink size={14} />
               </a>
             )}
 
-            {project.pysparkCode && (
+            {project.report && (
               <a
-                href={project.pysparkCode}
+                href={project.report}
                 target="_blank"
                 className="text-neutral-300 hover:text-blue-400 flex items-center gap-2"
                 rel="noreferrer"
               >
-                PySpark Code <ExternalLink size={14} />
+                {project.report.includes("drive.google.com") && project.report.includes("folders")
+                  ? "Project Folder"
+                  : "View Report"}{" "}
+                <ExternalLink size={14} />
               </a>
             )}
+
           </div>
         </motion.div>
 
@@ -121,15 +127,14 @@ export default function ProjectDetail() {
               <div>
                 {/* TABS SELECTOR */}
                 <div className="flex border-b border-white/10 mb-8 gap-6">
-                  {(["details", "methodology"] as const).map((tab) => (
+                  {(["details", "methodology", "summary"] as const).map((tab) => (
                     <button
                       key={tab}
                       onClick={() => setActiveTab(tab)}
-                      className={`pb-3 text-base font-semibold capitalize transition relative ${
-                        activeTab === tab
-                          ? "text-blue-400"
-                          : "text-neutral-400 hover:text-neutral-200"
-                      }`}
+                      className={`pb-3 text-base font-semibold capitalize transition relative ${activeTab === tab
+                        ? "text-blue-400"
+                        : "text-neutral-400 hover:text-neutral-200"
+                        }`}
                     >
                       {tab}
                       {activeTab === tab && (
@@ -184,6 +189,56 @@ export default function ProjectDetail() {
                           </div>
                         ))}
                       </div>
+                    </div>
+                  )}
+
+                  {activeTab === "summary" && (
+                    <div className="space-y-8">
+                      {project.star ? (
+                        <div className="grid md:grid-cols-2 gap-6">
+                          {/* Situation */}
+                          <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:bg-white/[0.04] transition duration-200">
+                            <span className="text-xs font-bold uppercase tracking-wider px-2 py-1 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                              Situation
+                            </span>
+                            <p className="text-neutral-300 mt-4 leading-relaxed whitespace-pre-line text-[15px]">
+                              {project.star.situation}
+                            </p>
+                          </div>
+
+                          {/* Task */}
+                          <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:bg-white/[0.04] transition duration-200">
+                            <span className="text-xs font-bold uppercase tracking-wider px-2 py-1 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                              Task
+                            </span>
+                            <p className="text-neutral-300 mt-4 leading-relaxed whitespace-pre-line text-[15px]">
+                              {project.star.task}
+                            </p>
+                          </div>
+
+                          {/* Action */}
+                          <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:bg-white/[0.04] transition duration-200 md:col-span-2">
+                            <span className="text-xs font-bold uppercase tracking-wider px-2 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                              Action
+                            </span>
+                            <p className="text-neutral-300 mt-4 leading-relaxed whitespace-pre-line text-[15px]">
+                              {project.star.action}
+                            </p>
+                          </div>
+
+                          {/* Result */}
+                          <div className="p-6 rounded-2xl bg-blue-500/5 border border-blue-500/10 hover:bg-blue-500/10 transition duration-200 md:col-span-2">
+                            <span className="text-xs font-bold uppercase tracking-wider px-2 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                              Result
+                            </span>
+                            <p className="text-neutral-300 mt-4 leading-relaxed whitespace-pre-line text-[15px]">
+                              {project.star.result}
+                            </p>
+                          </div>
+                        </div>
+                      ) : (
+                        <Block title="Summary">{project.solution}</Block>
+                      )}
                     </div>
                   )}
                 </div>

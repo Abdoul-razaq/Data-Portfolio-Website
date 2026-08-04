@@ -178,11 +178,13 @@ export function SectionHeader({
   title,
   subtitle,
   align = "left",
+  subtitleSize = "text-base sm:text-lg",
 }: {
   eyebrow: string;
   title: string;
   subtitle?: string;
   align?: "left" | "center";
+  subtitleSize?: string;
 }) {
   return (
     <div className={align === "center" ? "text-center mx-auto max-w-2xl" : "max-w-2xl"}>
@@ -194,7 +196,7 @@ export function SectionHeader({
         <span className="text-gradient">{title}</span>
       </h2>
       {subtitle && (
-        <p className="mt-4 text-muted-foreground text-base sm:text-lg leading-relaxed">
+        <p className={`mt-4 text-muted-foreground ${subtitleSize} leading-relaxed`}>
           {subtitle}
         </p>
       )}

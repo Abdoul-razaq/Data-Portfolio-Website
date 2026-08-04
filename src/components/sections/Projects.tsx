@@ -41,7 +41,8 @@ export function Projects() {
           <SectionHeader
             eyebrow="Projects"
             title="ideas & Projects shipped"
-            subtitle="A selection of projects where I use Google Colab, SQL, and BI Tools "
+            subtitle="Explore my projects by category based on your preference."
+            subtitleSize="text-sm sm:text-base"
           />
 
           <div className="flex flex-wrap gap-2">
@@ -49,7 +50,7 @@ export function Projects() {
               <button
                 key={f}
                 onClick={() => setActive(f)}
-                className={`px-4 py-1.5 rounded text-xs font-medium transition-all ${active === f
+                className={`px-4 py-1.5 rounded text-sm font-medium transition-all ${active === f
                   ? "bg-white text-black shadow-lg"
                   : "bg-black/60 text-white/70 hover:bg-black/80 hover:text-white"
                   }`}
