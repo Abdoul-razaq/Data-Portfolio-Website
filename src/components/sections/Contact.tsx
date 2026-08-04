@@ -49,10 +49,10 @@ export function Contact() {
 
           {/* CONTACT INFO */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, y: 35, scale: 0.96, filter: "blur(4px)" }}
+            whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ type: "spring", stiffness: 80, damping: 15, delay: 0.05 }}
             className="glass rounded-3xl p-6 space-y-3"
           >
             {contacts.map((c) => (
@@ -77,10 +77,10 @@ export function Contact() {
 
           {/* FORM */}
           <motion.form
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            initial={{ opacity: 0, y: 35, scale: 0.96, filter: "blur(4px)" }}
+            whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ type: "spring", stiffness: 80, damping: 15, delay: 0.15 }}
             onSubmit={(e) => {
               e.preventDefault();
               setSent(true);

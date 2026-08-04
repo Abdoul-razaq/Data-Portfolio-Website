@@ -104,10 +104,16 @@ export function Skills() {
           {groups.map((g, i) => (
             <motion.div
               key={g.title}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.55, delay: i * 0.08 }}
+              initial={{ opacity: 0, y: 35, scale: 0.95, filter: "blur(4px)" }}
+              whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{
+                type: "spring",
+                stiffness: 70,
+                damping: 14,
+                delay: i * 0.08,
+              }}
+              whileHover={{ y: -6, scale: 1.01, transition: { duration: 0.2 } }}
               className="relative group"
             >
               <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-primary/30 to-accent/20 opacity-0 group-hover:opacity-100 blur-md transition" />

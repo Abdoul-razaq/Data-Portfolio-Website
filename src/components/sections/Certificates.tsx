@@ -63,11 +63,17 @@ export function Certificates() {
           {certificates.map((c, i) => (
             <motion.div
               key={c.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.5, delay: i * 0.05 }}
-              className="group relative glass rounded-2xl overflow-hidden hover:-translate-y-2 transition-all hover:shadow-glow-cyan"
+              initial={{ opacity: 0, y: 35, scale: 0.95, filter: "blur(4px)" }}
+              whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{
+                type: "spring",
+                stiffness: 80,
+                damping: 15,
+                delay: i * 0.06,
+              }}
+              whileHover={{ y: -6, scale: 1.01, transition: { duration: 0.25, ease: "easeOut" } }}
+              className="group relative glass rounded-2xl overflow-hidden shadow-lg hover:shadow-glow-cyan transition-all duration-300"
             >
 
               {/* CLICKABLE IMAGE */}

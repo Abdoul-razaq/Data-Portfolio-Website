@@ -10,10 +10,10 @@ export function About() {
 
         <div className="mt-8 grid lg:grid-cols-[1fr_1.2fr] gap-12 items-start">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 24, filter: "blur(4px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="space-y-5 text-muted-foreground/90 leading-relaxed"
           >
             <p>
@@ -37,10 +37,10 @@ export function About() {
           <div className="grid md:grid-cols-2 gap-6">
             {/* Education & Research Thesis Block */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30, scale: 0.96, filter: "blur(4px)" }}
+              whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              transition={{ type: "spring", stiffness: 80, damping: 14, delay: 0.1 }}
               className="glass rounded-2xl p-6 hover:shadow-glow-indigo transition-all group flex flex-col justify-between"
             >
               <div>
@@ -132,10 +132,10 @@ export function About() {
 
             {/* Experience Block */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30, scale: 0.96, filter: "blur(4px)" }}
+              whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              transition={{ type: "spring", stiffness: 80, damping: 14, delay: 0.2 }}
               className="glass rounded-2xl p-6 hover:shadow-glow-indigo transition-all group"
             >
               <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/30 to-accent/20 text-accent mb-3 group-hover:scale-110 transition">
@@ -192,13 +192,34 @@ export function SectionHeader({
         <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-glow-cyan" />
         {eyebrow}
       </div>
-      <h2 className="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight">
-        <span className="text-gradient">{title}</span>
+      <h2 className="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight flex flex-wrap">
+        {title.split(" ").map((word, i) => (
+          <motion.span
+            key={i}
+            initial={{ opacity: 0, y: 18, filter: "blur(4px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{
+              duration: 0.5,
+              delay: i * 0.05,
+              ease: [0.215, 0.61, 0.355, 1],
+            }}
+            className="mr-[0.25em] inline-block text-gradient animate-morph"
+          >
+            {word}
+          </motion.span>
+        ))}
       </h2>
       {subtitle && (
-        <p className={`mt-4 text-muted-foreground ${subtitleSize} leading-relaxed`}>
+        <motion.p
+          initial={{ opacity: 0, y: 15, filter: "blur(3px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className={`mt-4 text-muted-foreground ${subtitleSize} leading-relaxed`}
+        >
           {subtitle}
-        </p>
+        </motion.p>
       )}
     </div>
   );

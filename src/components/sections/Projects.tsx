@@ -67,10 +67,16 @@ export function Projects() {
               <motion.div
                 key={p.slug}
                 layout
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ delay: i * 0.05 }}
+                initial={{ opacity: 0, y: 35, scale: 0.96, filter: "blur(4px)" }}
+                whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+                viewport={{ once: true, margin: "-50px" }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 80,
+                  damping: 15,
+                  delay: i * 0.05,
+                }}
               >
                 <ProjectCard project={p} />
               </motion.div>
@@ -87,7 +93,10 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
   const hasImage = isImagePath(project.cover);
 
   return (
-    <div className="group relative rounded-3xl overflow-hidden glass">
+    <motion.div
+      whileHover={{ y: -6, scale: 1.01, transition: { duration: 0.25, ease: "easeOut" } }}
+      className="group relative rounded-3xl overflow-hidden glass shadow-lg hover:shadow-glow-indigo transition-all duration-300"
+    >
 
       <Link
         to={`/projects/${project.slug}`}
@@ -162,6 +171,6 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
           {project.shortDescription}
         </p>
       </Link>
-    </div>
+    </motion.div>
   );
 }

@@ -54,8 +54,34 @@ export function Hero() {
               transition={{ duration: 0.7, ease: "easeOut" }}
               className="w-full lg:pr-4"
             >
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold lg:font-medium leading-[1.02] tracking-tight">
-                Hi, I'm <span className="text-blue-500 font-bold lg:font-semibold">Abdoul Razak</span>
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold lg:font-medium leading-[1.02] tracking-tight flex flex-wrap">
+                {"Hi, I'm ".split(" ").map((word, idx) => (
+                  <motion.span
+                    key={idx}
+                    initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
+                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                    transition={{
+                      duration: 0.5,
+                      delay: idx * 0.08,
+                      ease: [0.215, 0.61, 0.355, 1]
+                    }}
+                    className="mr-[0.25em]"
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+                <motion.span
+                  initial={{ opacity: 0, scale: 0.92, filter: "blur(8px)" }}
+                  animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                  transition={{
+                    duration: 0.7,
+                    delay: 0.3,
+                    ease: [0.34, 1.56, 0.64, 1]
+                  }}
+                  className="text-blue-500 font-bold lg:font-semibold inline-block"
+                >
+                  Abdoul Razak
+                </motion.span>
               </h1>
 
               <p className="mt-6 font-display text-2xl sm:text-3xl text-muted-foreground">
@@ -67,11 +93,21 @@ export function Hero() {
                 ></span>
               </p>
 
-              <p className="mt-6 max-w-xl text-sm sm:text-base text-muted-foreground leading-relaxed text-justify">
+              <motion.p
+                initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{ duration: 0.8, delay: 0.45, ease: "easeOut" }}
+                className="mt-6 max-w-xl text-sm sm:text-base text-muted-foreground leading-relaxed text-justify"
+              >
                 A certified <span className="font-semibold">Data Scientist</span> and <span className="font-semibold">Data Analyst</span> with formal training in <span className="font-semibold">Microsoft Azure</span> and <span className="font-semibold">AWS cloud technologies</span>, and practical expertise in <span className="font-semibold">Machine Learning</span> using <span className="whitespace-nowrap">tree-based</span> models. Experienced in applying data-driven methods to extract insights and support <span className="whitespace-nowrap">decision-making.</span>
-              </p>
+              </motion.p>
 
-              <div className="mt-9 flex flex-wrap items-center gap-4">
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+                className="mt-9 flex flex-wrap items-center gap-4"
+              >
                 <button
                   onClick={() =>
                     window.open('https://drive.google.com/file/d/1uapJtOcNr6_fwsvBKVpw8AmsU5lgeG-_/view?usp=sharing', '_blank')
@@ -87,10 +123,15 @@ export function Hero() {
                 >
                   Get in Touch
                 </a>
-              </div>
+              </motion.div>
 
               {/* STATS WITH VERTICAL SEPARATORS */}
-              <div className="mt-12 grid grid-cols-3 max-w-md gap-4 lg:flex lg:max-w-full lg:gap-6 lg:divide-x lg:divide-white/10">
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
+                className="mt-12 grid grid-cols-3 max-w-md gap-4 lg:flex lg:max-w-full lg:gap-6 lg:divide-x lg:divide-white/10"
+              >
                 {[
                   { k: "3+", v: "Years experience" },
                   { k: "10+", v: "Projects shipped" },
@@ -119,13 +160,13 @@ export function Hero() {
                     </div>
                   </div>
                 ))}
-              </div>
+              </motion.div>
             </motion.div>
 
             {/* RIGHT SIDE (PROFILE PICTURE ONLY) */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.92 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, scale: 0.92, filter: "blur(6px)" }}
+              animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
               transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }}
               className="relative mx-auto flex items-center justify-center w-[280px] h-[280px] sm:w-[340px] sm:h-[340px] lg:w-[380px] lg:h-[380px]"
             >
@@ -134,7 +175,7 @@ export function Hero() {
 
               {/* orbit ring */}
               <svg
-                className="absolute inset-0 w-full h-full"
+                className="absolute inset-0 w-full h-full animate-[spin_100s_linear_infinite]"
                 viewBox="0 0 420 420"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
