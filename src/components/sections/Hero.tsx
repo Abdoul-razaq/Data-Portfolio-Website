@@ -54,7 +54,7 @@ export function Hero() {
               transition={{ duration: 0.7, ease: "easeOut" }}
               className="w-full lg:pr-4"
             >
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold lg:font-medium leading-[1.02] tracking-tight flex flex-wrap">
+              <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-semibold lg:font-medium leading-[1.02] tracking-tight flex flex-wrap text-white">
                 {"Hi, I'm ".split(" ").map((word, idx) => (
                   <motion.span
                     key={idx}
@@ -78,7 +78,7 @@ export function Hero() {
                     delay: 0.3,
                     ease: [0.34, 1.56, 0.64, 1]
                   }}
-                  className="text-blue-500 font-bold lg:font-semibold inline-block"
+                  className="text-white font-bold lg:font-semibold inline-block"
                 >
                   Abdoul Razak
                 </motion.span>
@@ -112,7 +112,7 @@ export function Hero() {
                   onClick={() =>
                     window.open('https://drive.google.com/file/d/1uapJtOcNr6_fwsvBKVpw8AmsU5lgeG-_/view?usp=sharing', '_blank')
                   }
-                  className="inline-flex items-center gap-2 rounded-full border-2 border-blue-500 bg-[#1a1a1a] px-8 py-3.5 text-base font-medium text-white shadow-md transition-all hover:bg-blue-500/10 hover:border-blue-400 hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-2 rounded-full border-2 border-blue-800 bg-blue-800 px-8 py-3.5 text-base font-medium text-white shadow-md transition-all hover:bg-blue-900 hover:border-blue-900 hover:-translate-y-0.5"
                 >
                   Download CV
                 </button>
@@ -214,17 +214,17 @@ export function Hero() {
 
               <div className="absolute glass rounded-xl px-3 py-2 text-xs shadow-glass z-20 whitespace-nowrap"
                 style={{ top: "35px", right: "-12px", animation: "float 6s ease-in-out infinite reverse" }}>
-                ⚡ Power BI & Tableau
+                ⚡ Data Analytics and Engineering
               </div>
 
               <div className="absolute glass rounded-xl px-3 py-2 text-xs shadow-glass z-20 whitespace-nowrap"
                 style={{ bottom: "35px", left: "-15px", animation: "float 7s ease-in-out infinite" }}>
-                ☀️ MySQL & Excel
+                ☀️ Cloud Technologies
               </div>
 
               <div className="absolute glass rounded-xl px-3 py-2 text-xs shadow-glass z-20 whitespace-nowrap"
                 style={{ bottom: "18px", right: "-10px", animation: "float 5.5s ease-in-out infinite reverse" }}>
-                📡 Python "Pandas & Numpy"
+                📡 Data Science and Machine Learning
               </div>
             </motion.div>
           </div>

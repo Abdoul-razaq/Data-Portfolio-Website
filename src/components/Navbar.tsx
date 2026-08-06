@@ -79,9 +79,9 @@ export function Navbar() {
                     onClick={() => {
                       setActive(s.id);
                     }}
-                    className={`px-3 py-2 text-lg rounded-md transition-colors
+                    className={`px-3.5 py-2 text-[15px] font-navbar font-medium tracking-wide rounded-md transition-colors
     ${active === s.id
-                        ? "text-gradient font-semibold underline underline-offset-4"
+                        ? "text-white font-bold underline decoration-2 underline-offset-[6px] decoration-[oklch(0.78_0.16_210)]"
                         : "text-muted-foreground hover:text-white"
                       }`}
                   >
@@ -90,7 +90,7 @@ export function Navbar() {
                 ) : (
                   <Link
                     to={`/#${s.id}`}
-                    className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-white/5"
+                    className="px-3.5 py-2 text-[15px] font-navbar font-medium tracking-wide text-muted-foreground hover:text-white transition-colors rounded-md"
                   >
                     {s.label}
                   </Link>
@@ -130,10 +130,10 @@ export function Navbar() {
                           setActive(s.id);
                           setOpen(false);
                         }}
-                        className={`block px-4 py-3 text-lg rounded-lg transition-colors
+                        className={`block px-4 py-2.5 text-base font-navbar font-medium tracking-wide rounded-lg transition-colors
       ${active === s.id
-                            ? "text-gradient font-semibold"
-                            : "text-muted-foreground hover:text-foreground"
+                            ? "text-white font-bold underline decoration-2 underline-offset-[6px] decoration-[oklch(0.78_0.16_210)]"
+                            : "text-muted-foreground hover:text-white"
                           }`}
                       >
                         {s.label}
@@ -142,7 +142,7 @@ export function Navbar() {
                       <Link
                         to={`/#${s.id}`}
                         onClick={() => setOpen(false)}
-                        className="block px-4 py-3 text-lg text-muted-foreground hover:text-foreground transition-colors rounded-lg"
+                        className="block px-4 py-2.5 text-base font-navbar font-medium tracking-wide text-muted-foreground hover:text-white transition-colors rounded-lg"
                       >
                         {s.label}
                       </Link>

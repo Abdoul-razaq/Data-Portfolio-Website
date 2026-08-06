@@ -56,6 +56,8 @@ export function Certificates() {
           eyebrow="Certificates"
           title="Professional Certifications & Verified Skills"
           subtitle="Industry-recognized certifications in Data Science, Machine Learning, and Analytics with verifiable credentials from leading platforms."
+          maxW="max-w-none"
+          subtitleSize="text-base sm:text-lg lg:whitespace-nowrap"
         />
 
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -114,7 +116,7 @@ export function Certificates() {
           ))}
 
         </div>
-        <p className="mt-10 text-center text-lg text-muted-foreground">
+        <p className="mt-10 text-center text-base sm:text-lg text-muted-foreground">
           I also have 20+ additional data-related certifications - visit my LinkedIn profile for full verification.
         </p>
       </div>

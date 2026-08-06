@@ -283,41 +283,87 @@ export const projects: Project[] = [
     shortDescription: "Performed customer segmentation analysis using Tableau for business insights.",
     cover: "/images/project-6.jpg",
     overview:
-      "This project analyzes customer data to identify behavioral patterns and segmentation opportunities using Tableau dashboards.",
+      "An e-commerce retailer's sales data — orders, products, customer demographics, discounts, and location — sat as raw transaction records with no easy way to see who the business's revenue was actually coming from. The goal was to turn that raw order data into a single interactive dashboard that shows where revenue is concentrated across regions, age groups, product categories, and customer gender, and how discounting behavior relates to order volume.",
     problem:
-      "The business lacked clear visibility into customer segments, making it difficult to target high-value customers effectively.",
+      "With hundreds of thousands of individual order records, it was difficult to answer basic strategic questions — which states and regions drive the most revenue, which age groups spend the most, which categories perform best by gender, and whether heavier discounting is actually driving larger order volumes. That required consolidating raw transactional data into clear, filterable visual summaries.",
     solution:
-      "I built an interactive Tableau dashboard to analyze customer behavior, revenue distribution, and segmentation patterns.",
+      "Using Tableau Public Desktop, imported and modeled the e-commerce transaction dataset and built an interactive dashboard combining a Total Revenue KPI, a monthly revenue trend line, a state-level revenue map, a revenue-by-age bar chart, a region-level revenue share donut chart, a male-vs-female revenue breakdown by category, and a quantity-vs-discount scatter plot — all filterable by product category.",
     results:
-      "The analysis identified key customer segments, enabling more targeted business and marketing strategies.",
-    tools: ["Tableau"],
+      "The dashboard shows $234M in total revenue across the dataset. Revenue by age skews toward the 20–60 range, with the 20–30 age group leading at $44.8M. Regionally, the South drives the largest share of revenue at 38.37%, followed by the Midwest at 26.93%, the West at 17.60%, and the Northeast at 17.10%. Mobiles & Tablets is the top category by revenue ($63.8M male / $66.3M female), with Appliances a distant second. The quantity-vs-discount scatter shows most orders cluster at low discount percentages regardless of quantity ordered, with no strong pattern of higher discounts driving bulk orders.",
+    tools: ["Tableau Public Desktop", "Calculated Fields", "Interactive Filters & Parameters"],
     gallery: ["/images/project-6.jpg"],
     demo:
-      "https://drive.google.com/file/d/1UiNWYc8LXt5OeHtLojEm9-VChzyLgxA4/view?usp=sharing",
-    report:
       "https://drive.google.com/drive/folders/1ZqRrU3gWSQ-Ju6b_Q5TSYJuuFA05lOqm?usp=sharing",
+    report:
+      "https://drive.google.com/file/d/1KTQ-QJy-rvCp8JQENIXHqA29bjpu68m8/view?usp=sharing",
+    dataSource: "U.S. e-commerce sales dataset (FY2020–21), containing order-level transaction, product, customer demographic, and geographic data.",
+    toolDetails: [
+      { name: "Tableau Public Desktop", description: "Used for data modeling and building the interactive multi-chart dashboard." },
+      { name: "Calculated Fields (Tableau)", description: "Used to compute revenue aggregations, regional revenue percentages, and gender-split category revenue." },
+      { name: "Interactive Filters and Parameters", description: "Enabled dynamic filtering of all dashboard visuals by product category." }
+    ],
+    steps: [
+      { number: 1, title: "Data Import", description: "Loaded the raw e-commerce transaction dataset (order, product, customer, and location fields) into Tableau." },
+      { number: 2, title: "KPI Summary", description: "Built a Total Revenue KPI card summarizing overall performance across the full dataset." },
+      { number: 3, title: "Time Trend Analysis", description: "Built a Revenue Per Month line chart to track monthly revenue swings across the fiscal year." },
+      { number: 4, title: "Geographic Analysis", description: "Built a state-level revenue map (Revenue Per State) and a regional revenue-share donut chart (Revenue Percentage Per Region)." },
+      { number: 5, title: "Demographic Analysis", description: "Built a Revenue Per Age bar chart segmenting revenue by customer age bracket." },
+      { number: 6, title: "Category & Gender Analysis", description: "Built a Revenue Per Categories view comparing male vs. female revenue across product categories." },
+      { number: 7, title: "Discount Behavior Analysis", description: "Built a Quantity–Discount correlation scatter plot to examine whether discount percentage relates to order quantity." },
+      { number: 8, title: "Interactivity", description: "Added a Select Category filter to let users drill into any single product category across the whole dashboard." }
+    ],
+    star: {
+      situation: "I worked on a Customer Analysis project using a large U.S. e-commerce transaction dataset spanning order, product, customer demographic, and location data.",
+      task: "The goal was to turn raw order-level data into a single dashboard that could answer where the business's revenue was actually coming from — by region, age, category, and gender — and whether discounting was influencing order behavior.",
+      action: "I built the data model in Tableau Public Desktop and designed a multi-view dashboard: a revenue KPI, a monthly trend line, a state-level revenue map, an age-bracket revenue breakdown, a regional revenue-share donut chart, a gender-split category revenue comparison, and a quantity-vs-discount scatter plot, all tied together with a category filter.",
+      result: "The dashboard revealed $234M in total revenue, with the South region contributing the largest share (38.37%) and the 20–30 age group the top-spending demographic ($44.8M). Mobiles & Tablets emerged as the clear leading category across both genders, and the discount-vs-quantity analysis showed no strong relationship between deeper discounts and larger order volumes — giving the business a clear, filterable view of where its revenue concentration actually sits."
+    }
   },
 
   {
-    slug: "atliq",
-    title: "AtliQ Sales Analysis",
+    slug: "sales-by-revenue-atliq-hardware",
+    title: "AtliQ Sales Revenue Analysis",
     category: "Business Intelligence",
-    shortDescription: "Analyzed multi-year sales performance to identify key market trends.",
+    shortDescription: "Built a Tableau dashboard and conducted a root-cause analysis on declining sales revenue.",
     cover: "/images/project-7.jpg",
     overview:
-      "This project explores multi-year sales data to understand revenue trends, market performance, and business growth patterns.",
+      "AtliQ Hardware Company Ltd is a retail and distribution firm selling computer hardware components — cables, peripherals, and accessories — across major Indian cities. Leadership needed more than a dashboard of totals; they needed to understand why revenue was declining in their two largest markets, Mumbai and Delhi NCR. So this project went beyond visualization into the raw transaction data itself, first cleaning a data quality issue that was inflating reported revenue, then diagnosing the actual drivers behind the regional decline.",
     problem:
-      "The company lacked clarity on declining revenue patterns and underperforming markets.",
+      "Mumbai and Delhi NCR — AtliQ's two largest markets — both peaked in 2018 and then declined sharply through 2019 into 2020. The existing dashboard reported the trend but didn't explain the cause, and a review of the raw transaction data uncovered that roughly 28% of transaction rows were exact duplicates, inflating total reported revenue by about 16%. Before any root-cause conclusions could be drawn, the data itself needed to be corrected. On top of that, the 2020 figures only covered data through mid-June, making that year's numbers misleading if read as a full annual comparison.",
     solution:
-      "Using Tableau, I built a dashboard to analyze sales trends across regions, products, and time periods.",
+      "Went beyond Tableau's dashboard layer into the raw CSV source data using Python to identify and remove duplicate transaction rows before re-analyzing the trend. With clean data, broke down Mumbai and Delhi NCR's decline by customer count, transaction volume, customer channel (Brick & Mortar vs. E-Commerce), and product concentration to isolate what was actually driving each market's fall. The result is a diagnosis, not just a description: Mumbai's decline traces to over-reliance on a single flagship product and a shrinking e-commerce customer base, while Delhi NCR's traces to a narrow, aging customer base with no new account acquisition.",
     results:
-      "The analysis highlighted key high-performing markets and revealed factors contributing to revenue fluctuations.",
-    tools: ["Tableau"],
+      "After removing duplicate rows, Mumbai's revenue fell from a 2018 peak of $4.45M to $1.61M in 2019 (−64%), and Delhi NCR fell from $1.46M to $911K (−38%) over the same period. The analysis traced Mumbai's 2018 spike to a single product (Prod018, $4.07M of Mumbai's $4.49M that year) and e-commerce customers ($3.39M of $4.45M) — both of which pulled back sharply the following year, taking the market with them. Delhi NCR's revenue, by contrast, was never product-concentrated but ran on just three repeat Brick & Mortar customers, with no new accounts added since 2017 and its e-commerce channel disappearing entirely after that year. Smaller markets like Kanpur grew over the same period, showing the decline wasn't company-wide — it was specific to over-reliance on a narrow customer and product base in AtliQ's two biggest markets.",
+    tools: ["Tableau Public Desktop", "Python (Pandas)", "Microsoft Excel / CSV", "Calculated Fields", "Interactive Filters & Parameters", "Data Story feature"],
     gallery: ["/images/project-7.jpg"],
     demo:
-      "https://drive.google.com/file/d/1Duk-xE8AZlOvY4Hyvf1sCN2TIsQplpNa/view?usp=sharing",
-    report:
       "https://drive.google.com/drive/folders/1QUTAms1SS-R70ptO_cyDtOjFGqs11dl1?usp=sharing",
+    report:
+      "https://drive.google.com/file/d/17WLR1ch0LVnjjxvpLa2AyHwT5NSxdQlY/view?usp=sharing",
+    dataSource: "AtliQ Hardware Sales Dataset (Codebasics.io / Tableau Public repositories) — raw transactions, customers, products, and markets tables covering 2017–2020.",
+    toolDetails: [
+      { name: "Tableau Public Desktop", description: "Used for data visualization, relational data modeling across five CSV tables, and building the interactive dashboard." },
+      { name: "Python (Pandas)", description: "Used to audit the raw transaction data, detect and remove duplicate rows, and run the customer/product/channel breakdown behind the root-cause analysis." },
+      { name: "Microsoft Excel / CSV File", description: "Initial format and storage of the raw transactional dataset." },
+      { name: "Calculated Fields (Tableau)", description: "Used to derive metrics such as Normalized Amount, Total Revenue, and Total Quantity." },
+      { name: "Interactive Filters and Parameters", description: "Enabled dynamic filtering by Year and Month across all dashboard visuals." },
+      { name: "Data Story Feature (Tableau)", description: "Used to summarize key insights interactively." }
+    ],
+    steps: [
+      { number: 1, title: "Data Import and Preparation", description: "Imported the raw transactions.csv, customers.csv, markets.csv, products.csv, and date.csv files into Tableau, relating them through the transactions table." },
+      { number: 2, title: "Data Quality Audit", description: "Used Python to identify ~28% duplicate transaction rows inflating revenue by ~16%, and removed them before further analysis." },
+      { number: 3, title: "Field Cleanup", description: "Renamed fields for clarity and verified data types (strings for Market/Product ID/Customer, numbers for Quantity/Revenue, dates for Year/Month)." },
+      { number: 4, title: "Calculated Fields", description: "Created Normalized Amount (revenue adjusted for scale across years), Total Revenue (SUM of Revenue), and Total Quantity (SUM of Quantity)." },
+      { number: 5, title: "Dashboard Design", description: "Built KPI cards for Total Revenue and Total Quantity, plus worksheets for Revenue by Market, Sales Qty by Market, Revenue by Year, Top 5 Products by Revenue, and Top 5 Customers by Revenue." },
+      { number: 6, title: "Root-Cause Analysis", description: "Segmented Mumbai and Delhi NCR revenue by customer count, transaction volume, sales channel, and product to isolate the specific drivers of each market's decline." },
+      { number: 7, title: "Interactivity", description: "Added Year (2017–2020) and Month (Jan–Dec) filters, plus dashboard actions so selecting a market filters all other visuals to that region." }
+    ],
+    star: {
+      situation: "AtliQ Hardware's two largest markets, Mumbai and Delhi NCR, were declining after a 2018 peak, and the existing dashboard could show the trend but not explain it.",
+      task: "I needed to go beyond the dashboard visuals into the raw transaction data to find the actual cause of the decline in each region, and along the way I discovered the dashboard's revenue figures were being inflated by duplicate data.",
+      action: "I used Python to audit the raw transaction file and found that 28% of rows were exact duplicates, inflating total revenue by roughly 16%; I removed them before drawing any conclusions. With clean data, I broke down Mumbai and Delhi NCR by customer count, transaction volume, sales channel, and product concentration across each year to isolate what was actually driving the drop in each market, rather than just reporting that revenue had fallen.",
+      result: "I found that Mumbai's 2018 peak was driven almost entirely by one product and a wave of e-commerce customers, both of which pulled back sharply in 2019 (revenue fell 64%), while Delhi NCR's decline (down 38%) came from a shrinking, un-refreshed customer base with no new accounts added since 2017. This reframed the business problem from \"sales are down\" to a specific, actionable diagnosis: over-reliance on a narrow product/customer base in the two biggest markets — while smaller markets like Kanpur were actually growing."
+    }
   },
 
   {
@@ -327,17 +373,40 @@ export const projects: Project[] = [
     shortDescription: "Identified a hidden opportunity in the healthy snack market using data-driven analysis.",
     cover: "/images/project-8.webp",
     overview:
-      "This project investigates global food and nutrition datasets to understand evolving consumer preferences toward healthier snack alternatives. The aim was to analyze product composition and nutritional profiles to uncover underserved market opportunities in the food industry.",
+      "A simulated client engagement for Helix CPG Partners, a food & beverage strategy consultancy: their client, a global snack manufacturer, wanted to launch a 'Healthy Snacking' line but had no data to prove where the market gap actually was. The brief asked one question — where is the 'Blue Ocean' in the snack aisle, the space where consumer demand for high-protein, low-sugar products isn't being met by what's currently on shelves?",
     problem:
-      "The snack food industry is heavily dominated by products high in sugar and processed ingredients. Despite increasing health awareness, there is limited structured data insight highlighting where healthier alternatives are missing in the market.",
+      "The snack aisle is widely assumed to be saturated with high-sugar, high-fat products, but 'assumed' isn't something you can hand to an R&D team. The client needed the assumption tested against real product data — an actual sugar-vs-protein map of the market — and a specific, defensible category recommendation to act on, not just a hunch.",
     solution:
-      "Using Python and exploratory data analysis with Pandas, I cleaned and analyzed nutritional datasets, segmenting products based on sugar levels, protein content, and market distribution. Visualization techniques were applied to identify gaps in product availability.",
+      "Built a Python/Pandas pipeline to pull and clean a working sample of the Open Food Facts dataset, filtering out rows with missing or biologically impossible sugar and protein values. Plotted a sugar-vs-protein scatter to visually locate product clusters, then defined a data-driven 'Blue Ocean' zone as the top quartile of protein content combined with the bottom quartile of sugar content. Products falling in that zone were bucketed into high-level categories (Snacks, Beverages, Dairy, Meat, Seafood, Cereals, Sweets, Protein Products) using keyword matching against each product's category tags, in order to surface which category the underserved demand was concentrated in.",
     results:
-      "The analysis revealed a significant gap in low-sugar, high-protein snack categories, highlighting a clear opportunity for innovation in healthier food product development.",
-    tools: ["Python", "Pandas", "Power BI"],
+      "Filtering to the top-quartile-protein (≥18.56g/100g), bottom-quartile-sugar (≤1.0g/100g) zone isolated 252 products out of the working sample — the market's actual 'Blue Ocean.' Once uncategorized products were excluded, Meat and Protein Products emerged as the two categories with the strongest presence in that gap, each accounting for 17 of the categorized products, pointing R&D toward high-protein, low-sugar meat-based or protein-supplement-style snacks as the most defensible white space. A notable limitation surfaced in the process: the keyword-based categorizer left the majority of the Blue Ocean segment (192 of 252 products) uncategorized as 'Other,' which is flagged as a next step for refinement rather than papered over.",
+    tools: ["Python", "Pandas", "Matplotlib", "Jupyter Notebook", "Power BI"],
     gallery: ["/images/project-8.webp"],
     github: "https://github.com/Abdoul-razaq/The-Sugar-Trap-Market-Gap-Analysis",
     demo: "https://colab.research.google.com/drive/1pVcXVvGlrjK1E7pMLMk-wC7g3y3xBAwK?usp=sharing",
+    dataSource: "Open Food Facts — a free, open database of global food products (worked with a 10,000-row sample of the full dataset, which exceeds 3GB).",
+    toolDetails: [
+      { name: "Python", description: "Core language for data ingestion, cleaning, and analysis." },
+      { name: "Pandas", description: "Used to load, filter, and clean the product dataset, and to compute the protein/sugar quantile thresholds defining the Blue Ocean zone." },
+      { name: "Matplotlib", description: "Used to build the sugar-vs-protein scatter plot visualizing where products cluster." },
+      { name: "Jupyter Notebook", description: "Development environment for the full analysis workflow, from data cleaning through category classification." },
+      { name: "Power BI", description: "Used to build the client-facing interactive dashboard version of the findings." }
+    ],
+    steps: [
+      { number: 1, title: "Data Ingestion", description: "Pulled the Open Food Facts product dataset and loaded a working sample of product name, category tags, sugar, protein, and fat columns." },
+      { number: 2, title: "Data Cleaning", description: "Dropped rows with missing sugar or protein values and filtered out biologically impossible readings (values outside a 0–100g/100g range)." },
+      { number: 3, title: "Nutrient Matrix Visualization", description: "Plotted sugar (x-axis) against protein (y-axis) for all products, with median reference lines, to visually locate where offerings cluster." },
+      { number: 4, title: "Blue Ocean Definition", description: "Defined the underserved zone as the top quartile of protein content combined with the bottom quartile of sugar content." },
+      { number: 5, title: "Category Wrangling", description: "Parsed the raw, messy category tags into high-level buckets (Snacks, Beverages, Dairy, Meat, Seafood, Cereals, Sweets, Protein Products, Other) using keyword-based classification." },
+      { number: 6, title: "Recommendation", description: "Identified the leading categories within the Blue Ocean segment and translated the finding into a specific, actionable recommendation for the client's R&D team." },
+      { number: 7, title: "Dashboard Build", description: "Rebuilt the key visuals and recommendation as an interactive Power BI dashboard for client presentation." }
+    ],
+    star: {
+      situation: "I worked on a simulated consulting engagement for a food & beverage strategy firm, whose client — a snack manufacturer — wanted to launch a healthy snacking line but had no data backing up where the actual market gap was.",
+      task: "The brief was to prove, with data, whether the snack market really was oversaturated with high-sugar products, find the specific \"Blue Ocean\" where high-protein/low-sugar demand wasn't being met, and turn that into one concrete category recommendation for R&D.",
+      action: "I built a cleaning pipeline in Pandas to filter the Open Food Facts dataset down to valid sugar and protein readings, then plotted the full sugar-vs-protein landscape to see where products actually clustered. I defined the Blue Ocean quantitatively — top-quartile protein, bottom-quartile sugar — rather than eyeballing it, then classified the products that fell in that zone into readable categories using a keyword-matching function built from the raw, messy category tags.",
+      result: "The analysis isolated 252 products sitting in the true market gap, with Meat and Protein Products emerging as the strongest represented categories once uncategorized items were excluded — giving R&D a specific, data-backed direction (high-protein, low-sugar meat or protein-supplement-style snacks) instead of a guess. I also flagged that the categorizer left most of the Blue Ocean segment unclassified, which is the clear next step to sharpen the recommendation further rather than overstate confidence in it."
+    }
   },
 
   {
@@ -347,17 +416,40 @@ export const projects: Project[] = [
     shortDescription: "Analyzed delivery inefficiencies and customer satisfaction in logistics operations.",
     cover: "/images/project-9.webp",
     overview:
-      "This project focuses on evaluating last-mile delivery performance in an e-commerce logistics system. The objective was to understand how delivery efficiency impacts customer satisfaction and overall operational performance.",
+      "Veridi Logistics needed to know one thing: where is their delivery network actually failing, and what is that failure costing them in customer trust? Rather than treating 'late delivery' as a single yes/no flag, this project builds a full audit — merging orders, reviews, customer locations, and product categories into one dataset to find exactly which states and product categories are driving delays, and how directly delivery performance translates into customer review scores.",
     problem:
-      "Customers were experiencing inconsistent delivery times, leading to dissatisfaction and reduced trust in logistics reliability. The lack of clear performance tracking made it difficult to identify the root cause of delays.",
+      "Raw order and review data lived in five separate files with no single view connecting delivery timing to customer sentiment or geography. Before any region or category could be blamed for poor performance, the data itself needed cleaning — 551 duplicate order IDs were found in the initial merge and had to be resolved before any delivery-status metric could be trusted.",
     solution:
-      "I used SQL and Power BI to analyze delivery datasets, focusing on delay patterns, route inefficiencies, and customer feedback metrics. This allowed me to build a structured view of operational bottlenecks.",
+      "Built a Python/Pandas pipeline merging orders, reviews, and customer data into a master dataset, removed duplicate order records, and calculated a Days_Difference metric (estimated vs. actual delivery date) to classify every order as On Time, Late, or Super Late. Used that classification to benchmark delivery performance by customer state and by product category, then merged in review scores to directly measure how delivery status affects customer satisfaction, visualizing how review scores erode as deliveries fall further behind schedule.",
     results:
-      "The analysis showed that inaccurate delivery time estimates were the primary driver of customer dissatisfaction, providing actionable insight for improving logistics planning systems.",
-    tools: ["SQL", "Power BI"],
+      "Across 99,441 cleaned orders, 88,649 (89.2%) arrived On Time, while 4,665 (4.7%) were Super Late and 3,162 (3.2%) were Late. Alagoas (AL) had the worst late-delivery rate in the country at 23.9%, followed by Maranhão (MA) at 19.7% and Piauí (PI) at 16.0% — a clear regional pattern concentrated in Brazil's North/Northeast states. On the product side, home_comfort_2 (16.7%), furniture_mattress_and_upholstery (13.5%), and audio (12.7%) had the highest late-delivery rates. Most tellingly, the link between delivery performance and customer sentiment was stark: average review score fell from 4.29/5 for On Time orders to 3.59/5 for Late orders and collapsed to 1.85/5 for Super Late orders — proving that lateness alone, more than any other single factor, is what turns a customer against the brand.",
+    tools: ["Python", "Pandas", "Matplotlib", "Jupyter Notebook", "Power BI"],
     gallery: ["/images/project-9.webp"],
     github: "https://github.com/Abdoul-razaq/The-Last-Mile-Logistics-Auditor",
     demo: "https://colab.research.google.com/drive/15WwOHsc6ApX3HapDvngNu5AH0Mr25kFs?usp=sharing",
+    dataSource: "Olist Brazilian e-commerce public dataset (orders, reviews, customers, products, order items, and category translations), used as the underlying data for a simulated client engagement for 'Veridi Logistics.'",
+    toolDetails: [
+      { name: "Python", description: "Core language for data merging, cleaning, and metric calculation." },
+      { name: "Pandas", description: "Used to merge five separate datasets (orders, reviews, customers, products, order items), remove duplicate records, and compute delivery-status classifications and state/category performance breakdowns." },
+      { name: "Matplotlib", description: "Used to visualize the relationship between days late and average review score." },
+      { name: "Jupyter Notebook (Google Colab)", description: "Development environment for the full audit workflow." },
+      { name: "Power BI", description: "Used to build the client-facing interactive 'Last Mile Logistics Auditor' dashboard." }
+    ],
+    steps: [
+      { number: 1, title: "Data Ingestion", description: "Loaded and merged the orders, reviews, and customers datasets into a single master dataframe." },
+      { number: 2, title: "Data Cleaning", description: "Identified and removed 551 duplicate order IDs, converted date columns to proper datetime format, and dropped orders with no recorded delivery date." },
+      { number: 3, title: "Delivery Classification", description: "Calculated the difference between estimated and actual delivery dates and classified each order as On Time, Late, or Super Late." },
+      { number: 4, title: "Regional Performance Audit", description: "Grouped delivery status by customer state to rank which regions have the highest late-delivery rates." },
+      { number: 5, title: "Sentiment Analysis", description: "Merged in review scores and calculated average customer rating by delivery status to quantify the satisfaction impact of delays." },
+      { number: 6, title: "Category Performance Audit", description: "Merged in product and category-translation data to identify which product categories have the worst on-time delivery rates." },
+      { number: 7, title: "Decay Visualization", description: "Plotted average review score against exact days late to show how satisfaction erodes the longer a delivery is delayed." }
+    ],
+    star: {
+      situation: "I worked on a logistics audit for Veridi Logistics, using a 100K-order e-commerce dataset spanning orders, customer reviews, product categories, and delivery timing.",
+      task: "The goal was to move past a simple \"X% of orders are late\" statistic and pinpoint exactly which regions and product categories were driving delivery failures, and prove how much those failures were actually costing the business in customer satisfaction.",
+      action: "I merged five separate datasets into one master table, caught and removed 551 duplicate order records before trusting any delivery metric, then built a Days_Difference calculation to classify every order as On Time, Late, or Super Late. I benchmarked that classification against customer state and product category to rank the worst-performing regions and categories, then merged in review scores to directly connect delivery performance to customer sentiment.",
+      result: "I found that late deliveries are heavily concentrated in specific states — Alagoas topped the list at a 23.9% late rate — and specific product categories like home comfort and furniture. More importantly, I quantified the sentiment cost precisely: average review score drops from 4.29 to 3.59 when an order is Late, and collapses to 1.85 when it's Super Late, giving Veridi a clear, data-backed case for where to prioritize last-mile delivery fixes first."
+    }
   },
 ];
 

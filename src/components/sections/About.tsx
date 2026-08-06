@@ -4,7 +4,7 @@ import { GraduationCap, Briefcase, BookOpen, ExternalLink, ChevronDown } from "l
 
 export function About() {
   return (
-    <section id="about" className="relative pt-12 lg:pt-8 pb-16 sm:pb-24 scroll-mt-20">
+    <section id="about" className="relative pt-2 sm:pt-4 pb-16 sm:pb-24 scroll-mt-24">
       <div className="mx-auto w-[min(1200px,92%)]">
         <SectionHeader eyebrow="About" title="Data-Driven Engineering." />
 
@@ -17,12 +17,12 @@ export function About() {
             className="space-y-5 text-muted-foreground/90 leading-relaxed"
           >
             <p>
-              I hold a BSc (Hons) in Mechanical Engineering from the{" "}
+              I'm Graduate in BSc (Hons) in Mechanical Engineering: Production at{" "}
               <span className="text-foreground">University of Rwanda</span>, class of 2026, with a strong foundation in engineering design, production systems, simulation, and embedded systems development.
             </p>
 
             <p>
-              I am a certified Associate Data Analyst and Data Scientist, with additional certifications in Microsoft Azure, AWS Cloud Computing, and Machine Learning using tree-based models. My academic and professional training has strengthened my ability to approach engineering and data problems with structured analytical thinking and evidence-based decision-making.
+              I am a certified Associate Data Analyst and Data Scientist, with additional certifications in Microsoft Azure, AWS Cloud Computing, and Machine Learning using tree-based models. My academic and professional training has strengthened my ability to approach engineering and data problems.
             </p>
 
             <p>
@@ -179,15 +179,17 @@ export function SectionHeader({
   subtitle,
   align = "left",
   subtitleSize = "text-base sm:text-lg",
+  maxW = "max-w-2xl",
 }: {
   eyebrow: string;
   title: string;
   subtitle?: string;
   align?: "left" | "center";
   subtitleSize?: string;
+  maxW?: string;
 }) {
   return (
-    <div className={align === "center" ? "text-center mx-auto max-w-2xl" : "max-w-2xl"}>
+    <div className={align === "center" ? `text-center mx-auto ${maxW}` : maxW}>
       <div className={`inline-flex items-center gap-2 rounded-full glass px-5 py-2.5 text-sm leading-none tracking-wide text-accent ${align === "center" ? "mx-auto" : ""}`}>
         <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-glow-cyan" />
         {eyebrow}

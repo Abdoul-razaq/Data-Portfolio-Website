@@ -8,16 +8,25 @@ export function ScrollToTop() {
         // If user navigates to a section like /#projects
         if (hash) {
             const id = hash.replace("#", "");
-            setTimeout(() => {
+            const scrollToElement = () => {
                 const element = document.getElementById(id);
                 if (element) {
-                    element.scrollIntoView({ behavior: "smooth" });
+                    element.scrollIntoView({ behavior: "smooth", block: "start" });
                 }
-            }, 100);
-            return;
+            };
+
+            scrollToElement();
+            const t1 = setTimeout(scrollToElement, 100);
+            const t2 = setTimeout(scrollToElement, 400);
+            const t3 = setTimeout(scrollToElement, 800);
+
+            return () => {
+                clearTimeout(t1);
+                clearTimeout(t2);
+                clearTimeout(t3);
+            };
         }
 
-        // Default behavior (normal page navigation)
         window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
 
     }, [pathname, hash]);
