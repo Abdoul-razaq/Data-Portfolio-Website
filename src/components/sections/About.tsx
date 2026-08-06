@@ -194,51 +194,15 @@ export function SectionHeader({
         <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-glow-cyan" />
         {eyebrow}
       </div>
-      <h2 className="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight">
-        {title.split(" ").map((word, i) => {
-          if (word.includes("'") || word.includes("’")) {
-            const parts = word.split(/['’]/);
-            const apostrophe = word.includes("'") ? "'" : "’";
-            return (
-              <motion.span
-                key={i}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{
-                  duration: 0.5,
-                  delay: i * 0.05,
-                  ease: [0.215, 0.61, 0.355, 1],
-                }}
-                className="mr-[0.25em] inline-block"
-              >
-                <span className="text-gradient">{parts[0]}</span>
-                <span className="text-foreground">{apostrophe}</span>
-                <span className="text-gradient">{parts[1]}</span>
-              </motion.span>
-            );
-          }
-
-          return (
-            <motion.span
-              key={i}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{
-                duration: 0.5,
-                delay: i * 0.05,
-                ease: [0.215, 0.61, 0.355, 1],
-              }}
-              className="mr-[0.25em] inline-block"
-            >
-              <span className="text-gradient">
-                {word}
-              </span>
-            </motion.span>
-          );
-        })}
-      </h2>
+      <motion.h2
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.6, ease: [0.215, 0.61, 0.355, 1] }}
+        className="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-gradient"
+      >
+        {title}
+      </motion.h2>
       {subtitle && (
         <motion.p
           initial={{ opacity: 0, y: 15, filter: "blur(3px)" }}
