@@ -198,8 +198,8 @@ export function SectionHeader({
         {title.split(" ").map((word, i) => (
           <motion.span
             key={i}
-            initial={{ opacity: 0, y: 18, filter: "blur(4px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{
               duration: 0.5,

@@ -233,6 +233,8 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
   }
 
   .text-gradient-primary {
@@ -243,6 +245,8 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
   }
 
   .glow-indigo {
