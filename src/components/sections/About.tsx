@@ -194,7 +194,7 @@ export function SectionHeader({
         <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-glow-cyan" />
         {eyebrow}
       </div>
-      <h2 className="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight flex flex-wrap">
+      <h2 className="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight">
         {title.split(" ").map((word, i) => (
           <motion.span
             key={i}
@@ -206,9 +206,11 @@ export function SectionHeader({
               delay: i * 0.05,
               ease: [0.215, 0.61, 0.355, 1],
             }}
-            className="mr-[0.25em] inline-block text-gradient animate-morph"
+            className="mr-[0.25em] inline-block"
           >
-            {word}
+            <span className="text-gradient inline-block">
+              {word}
+            </span>
           </motion.span>
         ))}
       </h2>
