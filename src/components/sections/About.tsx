@@ -195,24 +195,49 @@ export function SectionHeader({
         {eyebrow}
       </div>
       <h2 className="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight">
-        {title.split(" ").map((word, i) => (
-          <motion.span
-            key={i}
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{
-              duration: 0.5,
-              delay: i * 0.05,
-              ease: [0.215, 0.61, 0.355, 1],
-            }}
-            className="mr-[0.25em] inline-block"
-          >
-            <span className="text-gradient inline-block">
-              {word}
-            </span>
-          </motion.span>
-        ))}
+        {title.split(" ").map((word, i) => {
+          if (word.includes("'") || word.includes("’")) {
+            const parts = word.split(/['’]/);
+            const apostrophe = word.includes("'") ? "'" : "’";
+            return (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{
+                  duration: 0.5,
+                  delay: i * 0.05,
+                  ease: [0.215, 0.61, 0.355, 1],
+                }}
+                className="mr-[0.25em] inline-block"
+              >
+                <span className="text-gradient">{parts[0]}</span>
+                <span className="text-foreground">{apostrophe}</span>
+                <span className="text-gradient">{parts[1]}</span>
+              </motion.span>
+            );
+          }
+
+          return (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{
+                duration: 0.5,
+                delay: i * 0.05,
+                ease: [0.215, 0.61, 0.355, 1],
+              }}
+              className="mr-[0.25em] inline-block"
+            >
+              <span className="text-gradient">
+                {word}
+              </span>
+            </motion.span>
+          );
+        })}
       </h2>
       {subtitle && (
         <motion.p

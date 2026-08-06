@@ -41,7 +41,7 @@ export function Contact() {
       <div className="relative mx-auto w-[min(1200px,92%)]">
         <SectionHeader
           eyebrow="Contact"
-          title="Let’s work on something impactful."
+          title="Let's work on something impactful."
           subtitle="Abdoul Razak - Data Analyst & Scientist. Open to internships, data roles, and collaborations where data drives decisions."
         />
 

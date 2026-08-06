@@ -54,7 +54,7 @@ export function Certificates() {
 
         <SectionHeader
           eyebrow="Certificates"
-          title="Professional Certifications & Verified Skills"
+          title="Professional Certifications and Verified Skills"
           subtitle="Industry-recognized certifications in Data Science, Machine Learning, and Analytics with verifiable credentials from leading platforms."
           maxW="max-w-none"
           subtitleSize="text-base sm:text-lg lg:whitespace-nowrap"
