@@ -79,13 +79,21 @@ export function Navbar() {
                     onClick={() => {
                       setActive(s.id);
                     }}
-                    className={`px-3.5 py-2 text-[15px] font-navbar font-medium tracking-wide rounded-md transition-colors
-    ${active === s.id
-                        ? "text-white font-bold underline decoration-2 underline-offset-[6px] decoration-[oklch(0.78_0.16_210)]"
-                        : "text-muted-foreground hover:text-white"
-                      }`}
+                    className="relative px-3.5 py-2 text-[15px] font-navbar font-medium tracking-wide rounded-md transition-colors block group"
                   >
-                    {s.label}
+                    <span className={active === s.id
+                      ? "bg-gradient-to-r from-[oklch(0.78_0.16_210)] to-[oklch(0.96_0.01_250)] bg-clip-text text-transparent font-bold"
+                      : "text-muted-foreground group-hover:text-white transition-colors"
+                    }>
+                      {s.label}
+                    </span>
+                    {active === s.id && (
+                      <motion.span
+                        layoutId="activeUnderline"
+                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[oklch(0.78_0.16_210)] to-transparent"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
                   </a>
                 ) : (
                   <Link
@@ -130,13 +138,21 @@ export function Navbar() {
                           setActive(s.id);
                           setOpen(false);
                         }}
-                        className={`block px-4 py-2.5 text-base font-navbar font-medium tracking-wide rounded-lg transition-colors
-      ${active === s.id
-                            ? "text-white font-bold underline decoration-2 underline-offset-[6px] decoration-[oklch(0.78_0.16_210)]"
-                            : "text-muted-foreground hover:text-white"
-                          }`}
+                        className="relative block px-4 py-2.5 text-base font-navbar font-medium tracking-wide rounded-lg transition-colors group"
                       >
-                        {s.label}
+                        <span className={active === s.id
+                          ? "bg-gradient-to-r from-[oklch(0.78_0.16_210)] to-[oklch(0.96_0.01_250)] bg-clip-text text-transparent font-bold"
+                          : "text-muted-foreground group-hover:text-white transition-colors"
+                        }>
+                          {s.label}
+                        </span>
+                        {active === s.id && (
+                          <motion.span
+                            layoutId="activeUnderlineMobile"
+                            className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[oklch(0.78_0.16_210)] to-transparent"
+                            transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                          />
+                        )}
                       </a>
                     ) : (
                       <Link
