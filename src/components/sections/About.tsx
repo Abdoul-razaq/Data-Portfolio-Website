@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { GraduationCap, Briefcase, BookOpen, ExternalLink, ChevronDown } from "lucide-react";
+import { GraduationCap, Briefcase, BookOpen, ExternalLink, ChevronDown, Globe } from "lucide-react";
 
 
 export function About() {
@@ -44,16 +44,17 @@ export function About() {
               className="glass rounded-2xl p-6 hover:shadow-glow-indigo transition-all group flex flex-col justify-between"
             >
               <div>
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/30 to-accent/20 text-accent mb-3 group-hover:scale-110 transition">
-                  <GraduationCap size={24} />
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/30 to-accent/20 text-accent group-hover:scale-110 transition">
+                    <GraduationCap size={24} />
+                  </div>
+                  <h3 className="font-display text-xl font-semibold">Education</h3>
                 </div>
-                <h3 className="font-display text-xl font-semibold mb-3">Education</h3>
-                <div className="space-y-4 text-sm">
-                  <div>
-                    <p className="font-medium text-foreground">
-                      BSc (Hons) Mechanical Engineering in production <span className="text-accent/80 font-normal">| University of Rwanda</span>
-                    </p>
-                    <p className="text-muted-foreground mt-0.5">May 2022 - June 2026</p>
+                <div className="space-y-4 text-sm w-full">
+                  <div className="w-full">
+                    <p className="font-semibold text-foreground text-sm whitespace-nowrap">University of Rwanda</p>
+                    <p className="text-muted-foreground text-sm mt-1">BSc (Hons) Mechanical Engineering: Production</p>
+                    <p className="text-right text-accent/80 text-xs mt-1">May 2022 - June 2026</p>
                   </div>
 
                   <div className="pt-5 mt-2 border-t border-white/5">
@@ -66,7 +67,10 @@ export function About() {
                         <p className="font-medium text-foreground text-sm leading-snug">
                           Design and Mathematical Modelling of Solar Fish Dryer With MPPT System
                         </p>
-                        <p className="text-muted-foreground text-xs mt-0.5">Oct 2025 - Jun 2026</p>
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mt-2 w-full">
+                          <p className="text-muted-foreground text-xs">Final Year Thesis</p>
+                          <span className="text-accent/80 text-xs whitespace-nowrap">Oct 2025 - June 2026</span>
+                        </div>
                       </div>
 
                       <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 pt-1">
@@ -136,33 +140,61 @@ export function About() {
               whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
               viewport={{ once: true }}
               transition={{ type: "spring", stiffness: 80, damping: 14, delay: 0.2 }}
-              className="glass rounded-2xl p-6 hover:shadow-glow-indigo transition-all group"
+              className="glass rounded-2xl pt-6 pb-6 pl-4 pr-5 hover:shadow-glow-indigo transition-all group"
             >
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/30 to-accent/20 text-accent mb-3 group-hover:scale-110 transition">
-                <Briefcase size={24} />
+              <div className="flex items-center gap-4 mb-4">
+                <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/30 to-accent/20 text-accent group-hover:scale-110 transition">
+                  <Briefcase size={24} />
+                </div>
+                <h3 className="font-display text-xl font-semibold">Experience</h3>
               </div>
-              <h3 className="font-display text-xl font-semibold mb-3">Experience</h3>
-              <div className="space-y-5 text-sm">
-                <div>
-                  <p className="font-semibold text-foreground">Data Scientist Apprentice</p>
-                  <div className="flex justify-between items-start gap-2 mt-0.5">
-                    <p className="text-muted-foreground">ALX Rwanda</p>
-                    <span className="text-accent/80 text-xs whitespace-nowrap mt-0.5">Jan 2026 - Aug 2026</span>
+              <div className="space-y-0 text-sm pl-1 w-full">
+                {/* Role 1 */}
+                <div className="flex gap-3 w-full">
+                  <div className="flex flex-col items-center shrink-0">
+                    <div className="h-3 w-3 rounded-full border-2 border-accent bg-[#181a2f] shrink-0 mt-1.5 shadow-[0_0_8px_rgba(202,138,4,0.4)]" />
+                    <div className="w-0.5 flex-grow bg-white/10 my-1" />
                   </div>
-                  <p className="mt-2 text-muted-foreground leading-relaxed">
-                    Collaborated on hands-on machine learning and statistical modeling projects, engineering features, building predictive models, and translating complex data into actionable insights.
-                  </p>
+                  <div className="pb-6 w-full">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <p className="font-semibold text-foreground">Founder & President</p>
+                      <a
+                        href="https://www.linkedin.com/company/dataminds-rwanda/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs text-blue-400 hover:text-blue-300 transition-colors font-medium border border-blue-500/20 bg-blue-500/10 px-2 py-0.5 rounded-md"
+                        title="DataMinds Rwanda LinkedIn"
+                      >
+                        <Globe size={12} />
+                        <span>LinkedIn</span>
+                      </a>
+                    </div>
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mt-1 w-full">
+                      <p className="text-muted-foreground">DataMinds Rwanda</p>
+                      <span className="text-accent/80 text-xs whitespace-nowrap">Feb 2026 - Present</span>
+                    </div>
+                    <p className="mt-2 text-muted-foreground leading-relaxed">
+                      Founder of DataMinds Rwanda, a Former University of Rwanda-Data Science Club. A Community Bridging Class Theory skills in Data Science, AI, ML into real world Professionals.
+                    </p>
+                  </div>
                 </div>
 
-                <div>
-                  <p className="font-semibold text-foreground">Founder & President</p>
-                  <div className="flex justify-between items-start gap-2 mt-0.5">
-                    <p className="text-muted-foreground">DataX Lab Rwanda</p>
-                    <span className="text-accent/80 text-xs whitespace-nowrap mt-0.5">Feb 2026 - Present</span>
+                {/* Role 2 */}
+                <div className="flex gap-3 w-full">
+                  <div className="flex flex-col items-center shrink-0">
+                    <div className="h-3 w-3 rounded-full border-2 border-accent bg-[#181a2f] shrink-0 mt-1.5 shadow-[0_0_8px_rgba(202,138,4,0.4)]" />
+                    <div className="w-0.5 flex-grow bg-white/10 my-1" />
                   </div>
-                  <p className="mt-2 text-muted-foreground leading-relaxed">
-                    Sole Founder of DataX Lab Rwanda, leading initiatives to foster a data-driven culture and empower students with analytical skills at University of Rwanda.
-                  </p>
+                  <div className="w-full">
+                    <p className="font-semibold text-foreground">Data Scientist Apprentice</p>
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mt-1 w-full">
+                      <p className="text-muted-foreground">ALX Rwanda</p>
+                      <span className="text-accent/80 text-xs whitespace-nowrap">Jan 2026 - Aug 2026</span>
+                    </div>
+                    <p className="mt-2 text-muted-foreground leading-relaxed">
+                      Collaborated on hands-on machine learning and statistical modeling projects, engineering features, building predictive models, and translating complex data into actionable insights.
+                    </p>
+                  </div>
                 </div>
               </div>
             </motion.div>
