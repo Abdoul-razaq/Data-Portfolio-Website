@@ -144,8 +144,8 @@ export function Hero() {
                     ),
                     v: (
                       <>
-                        <span className="lg:hidden">(Hons) - Mech Eng</span>
-                        <span className="hidden lg:inline">Mechanical Engineering in production</span>
+                        <span className="lg:hidden">(Hons) - Production Eng</span>
+                        <span className="hidden lg:inline">Production Engineering</span>
                       </>
                     ),
                   },

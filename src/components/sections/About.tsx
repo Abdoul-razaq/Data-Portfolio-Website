@@ -17,8 +17,8 @@ export function About() {
             className="space-y-5 text-muted-foreground/90 leading-relaxed"
           >
             <p>
-              I'm Graduate in BSc (Hons) in Mechanical Engineering: Production at{" "}
-              <span className="text-foreground">University of Rwanda</span>, class of 2026, with a strong foundation in engineering design, production systems, simulation, and embedded systems development.
+              I'm Graduate in BSc (Hons) Mechanical Engineering: Production Engineering at{" "}
+              <span className="text-foreground">University of Rwanda</span>, class of 2026, with a strong foundation in engineering design, industrial systems, simulation, and embedded systems development.
             </p>
 
             <p>
@@ -192,7 +192,7 @@ export function About() {
                       <span className="text-accent/80 text-xs whitespace-nowrap">Jan 2026 - Aug 2026</span>
                     </div>
                     <p className="mt-2 text-muted-foreground leading-relaxed">
-                      Collaborated on hands-on machine learning and statistical modeling projects, engineering features, building predictive models, and translating complex data into actionable insights.
+                      Collaborated on hands-on machine learning statistical modeling projects, engineering features, building predictive models, and translating complex data into actionable insights.
                     </p>
                   </div>
                 </div>
