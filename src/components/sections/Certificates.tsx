@@ -116,9 +116,6 @@ export function Certificates() {
           ))}
 
         </div>
-        <p className="mt-10 text-center text-base sm:text-lg text-muted-foreground">
-          I also have 20+ additional data-related certifications - visit my LinkedIn profile for full verification.
-        </p>
       </div>
     </section>
   );
