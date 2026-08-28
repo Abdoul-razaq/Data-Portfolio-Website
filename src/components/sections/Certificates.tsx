@@ -11,18 +11,18 @@ const certificates = [
     url: "https://www.datacamp.com/certificate/DSA0011897974798",
   },
   {
+    title: "Mathematics & Statistics for Data Science",
+    issuer: "Simplilearn",
+    year: "2026",
+    image: "/images/Certificate-2.png",
+    url: "https://certificates.simplicdn.net/share/10661277_10992109_1787917135259.pdf",
+  },
+  {
     title: "Certified Associate Data Analyst",
     issuer: "DataCamp",
     year: "2026",
-    image: "/images/Certificate-2.png",
-    url: "https://www.datacamp.com/certificate/DAA0012772204704",
-  },
-  {
-    title: "Machine Learning with Tree-Based Models",
-    issuer: "DataCamp",
-    year: "2026",
     image: "/images/Certificate-3.png",
-    url: "https://www.datacamp.com/statement-of-accomplishment/course/e33988b9edc34dc8a51580c01ef952b742ce7389?raw=1",
+    url: "https://www.datacamp.com/certificate/DAA0012772204704",
   },
   {
     title: "Microsoft Certified: Azure Developer Associate(AZ-204)",
@@ -32,18 +32,18 @@ const certificates = [
     url: "https://www.datacamp.com/statement-of-accomplishment/track/e3d6216ce26e0c1e648e8ec1974a01a5fedd71d2?raw=1",
   },
   {
-    title: "AWS Cloud Practitioner (CLF-C02)",
+    title: "Machine Learning with Tree-Based Models",
     issuer: "DataCamp",
     year: "2026",
     image: "/images/Certificate-5.png",
-    url: "https://www.datacamp.com/statement-of-accomplishment/track/79f02b8bc0ac602db7e607193eea4826ee669f33?raw=1",
+    url: "https://www.datacamp.com/statement-of-accomplishment/course/e33988b9edc34dc8a51580c01ef952b742ce7389?raw=1",
   },
   {
-    title: "Alx Venture’s Founder Academy",
-    issuer: "Alx Africa + Mastercard Foundation Program",
-    year: "2025",
+    title: "AWS Cloud Practitioner (CLF-C02)",
+    issuer: "DataCamp",
+    year: "2026",
     image: "/images/Certificate-6.png",
-    url: "https://drive.google.com/file/d/1SiAaZi-wYOxraRm_fbQza9MnAv6q2BV1/view?usp=drivesdk",
+    url: "https://www.datacamp.com/statement-of-accomplishment/track/79f02b8bc0ac602db7e607193eea4826ee669f33?raw=1",
   },
 ];
 
