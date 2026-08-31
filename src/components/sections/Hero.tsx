@@ -209,22 +209,22 @@ export function Hero() {
               {/* floating chips */}
               <div className="absolute glass rounded-xl px-3 py-2 text-xs shadow-glass z-20 whitespace-nowrap"
                 style={{ top: "12px", left: "-10px", animation: "float 5s ease-in-out infinite" }}>
-                🌐 Google Colab & Deepnote
+                🤖 Machine Learning and AI
               </div>
 
               <div className="absolute glass rounded-xl px-3 py-2 text-xs shadow-glass z-20 whitespace-nowrap"
                 style={{ top: "35px", right: "-12px", animation: "float 6s ease-in-out infinite reverse" }}>
-                ⚡ Data Analytics and Engineering
+                ⚡Business Intelligence and Analytics
               </div>
 
               <div className="absolute glass rounded-xl px-3 py-2 text-xs shadow-glass z-20 whitespace-nowrap"
                 style={{ bottom: "35px", left: "-15px", animation: "float 7s ease-in-out infinite" }}>
-                ☀️ Cloud Technologies
+                ☀️ Cloud and Data Engineering
               </div>
 
               <div className="absolute glass rounded-xl px-3 py-2 text-xs shadow-glass z-20 whitespace-nowrap"
                 style={{ bottom: "18px", right: "-10px", animation: "float 5.5s ease-in-out infinite reverse" }}>
-                📡 Data Science and Machine Learning
+                🌐 Data Science and Analysis
               </div>
             </motion.div>
           </div>
