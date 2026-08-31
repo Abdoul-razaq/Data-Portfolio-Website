@@ -130,7 +130,7 @@ export function Hero() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
-                className="mt-12 grid grid-cols-3 max-w-md gap-4 lg:flex lg:max-w-full lg:gap-6 lg:divide-x lg:divide-white/10"
+                className="mt-12 lg:mt-16 grid grid-cols-3 max-w-md gap-4 lg:flex lg:max-w-full lg:gap-6 lg:divide-x lg:divide-white/10"
               >
                 {[
                   { k: "3+", v: "Years experience" },
