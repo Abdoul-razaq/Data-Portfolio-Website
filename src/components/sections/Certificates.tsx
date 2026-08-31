@@ -11,7 +11,7 @@ const certificates = [
     url: "https://www.datacamp.com/certificate/DSA0011897974798",
   },
   {
-    title: "Mathematics & Statistics for Data Science",
+    title: "Mathematics and Statistics for Data Science",
     issuer: "Simplilearn",
     year: "2026",
     image: "/images/Certificate-2.png",
