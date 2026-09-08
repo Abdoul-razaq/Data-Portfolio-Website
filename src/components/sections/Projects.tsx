@@ -40,7 +40,7 @@ export function Projects() {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
           <SectionHeader
             eyebrow="Projects"
-            title="ideas & Projects shipped"
+            title="ideas & Projects Shipped"
             subtitle="Explore my projects by category based on your preference."
             subtitleSize="text-sm sm:text-base"
           />

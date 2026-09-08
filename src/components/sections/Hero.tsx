@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import Typed from "typed.js";
 import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
+import { Sparkles, Download, ArrowUpRight } from "lucide-react";
 
 export function Hero() {
   const typedRef = useRef<HTMLSpanElement>(null);
@@ -99,7 +99,7 @@ export function Hero() {
                 transition={{ duration: 0.8, delay: 0.45, ease: "easeOut" }}
                 className="mt-6 max-w-xl text-sm sm:text-base text-muted-foreground leading-relaxed text-justify"
               >
-                A certified <span className="font-semibold">Data Scientist</span> and <span className="font-semibold">Data Analyst</span> with formal training in <span className="font-semibold">Microsoft Azure</span> and <span className="font-semibold">AWS cloud technologies</span>, and practical expertise in <span className="font-semibold">Machine Learning</span> using <span className="whitespace-nowrap">tree-based</span> models. Experienced in applying data-driven methods to extract insights and support <span className="whitespace-nowrap">decision-making.</span>
+                Certified <span className="font-semibold text-foreground">Data Scientist</span> and <span className="font-semibold text-foreground">Associate Data Analyst</span> with industry credentials across <span className="font-semibold text-foreground">Microsoft Azure</span> and <span className="font-semibold text-foreground">AWS</span> cloud environments, paired with proven expertise in <span className="font-semibold text-foreground">Machine Learning</span> and predictive modeling. Combining engineering rigor with modern data practices to build robust models, extract actionable intelligence, and drive high-impact <span className="whitespace-nowrap">decision-making.</span>
               </motion.p>
 
               <motion.div
@@ -112,16 +112,18 @@ export function Hero() {
                   onClick={() =>
                     window.open('https://drive.google.com/file/d/1uapJtOcNr6_fwsvBKVpw8AmsU5lgeG-_/view?usp=sharing', '_blank')
                   }
-                  className="inline-flex items-center gap-2 rounded-full border-2 border-blue-800 bg-blue-800 px-8 py-3.5 text-base font-medium text-white shadow-md transition-all hover:bg-blue-900 hover:border-blue-900 hover:-translate-y-0.5"
+                  className="group relative inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 px-7 py-3.5 text-sm sm:text-base font-semibold text-white shadow-[0_0_24px_-4px_rgba(59,130,246,0.5)] transition-all duration-300 hover:shadow-[0_0_32px_-2px_rgba(59,130,246,0.7)] hover:-translate-y-0.5 active:scale-[0.98] border border-white/20"
                 >
-                  Download CV
+                  <Download size={18} className="transition-transform duration-300 group-hover:-translate-y-0.5 text-white/90" />
+                  <span>Download CV</span>
                 </button>
 
                 <a
                   href="#contact"
-                  className="inline-flex items-center gap-2 rounded-full border-2 border-white/80 bg-[#1a1a1a] px-8 py-3.5 text-base font-medium text-white shadow-md transition-all hover:bg-white/10 hover:border-white hover:-translate-y-0.5"
+                  className="group inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/[0.06] backdrop-blur-md px-7 py-3.5 text-sm sm:text-base font-semibold text-neutral-100 transition-all duration-300 hover:bg-white/[0.12] hover:border-white/40 hover:text-white hover:-translate-y-0.5 hover:shadow-glass active:scale-[0.98]"
                 >
-                  Get in Touch
+                  <span>Get in Touch</span>
+                  <ArrowUpRight size={18} className="text-muted-foreground transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
                 </a>
               </motion.div>
 

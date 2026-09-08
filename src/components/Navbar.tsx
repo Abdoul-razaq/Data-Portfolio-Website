@@ -57,54 +57,69 @@ export function Navbar() {
     >
       <div className="mx-auto w-[min(1200px,94%)]">
         <nav
-          className={`flex items-center justify-between rounded-2xl px-5 py-3 transition-all duration-300 ${scrolled
-            ? "bg-white/25 backdrop-blur-lg shadow-glass"
-            : "bg-white/15 backdrop-blur-md"
+          className={`flex items-center justify-between rounded-2xl px-5 py-2.5 transition-all duration-300 ${scrolled
+            ? "bg-[#0a0f1d]/85 backdrop-blur-xl border border-cyan-500/20 shadow-[0_12px_36px_rgba(0,0,0,0.5),0_0_24px_-4px_rgba(34,211,238,0.15)]"
+            : "bg-[#0a0f1d]/50 backdrop-blur-md border border-white/10"
             }`}
         >
           {/* ── LOGO ── */}
-          <Link to="/" className="flex items-center group">
-            <span className="font-display text-1.8xl tracking-tight text-white">
-              Portfolio.
+          <Link to="/" className="flex items-center group gap-1">
+            <span className="font-display text-xl font-bold tracking-tight text-white group-hover:text-cyan-200 transition-colors">
+              Portfolio<span className="text-cyan-400 font-extrabold text-2xl leading-none inline-block animate-pulse">.</span>
             </span>
           </Link>
 
           {/* ── LINKS ── */}
-          <ul className="hidden lg:flex items-center gap-1">
-            {sections.map((s) => (
-              <li key={s.id}>
-                {onHome ? (
-                  <a
-                    href={`#${s.id}`}
-                    onClick={() => {
-                      setActive(s.id);
-                    }}
-                    className="relative px-3.5 py-2 text-[15px] font-navbar font-medium tracking-wide rounded-md transition-colors block group"
-                  >
-                    <span className={active === s.id
-                      ? "bg-gradient-to-r from-[oklch(0.78_0.16_210)] to-[oklch(0.96_0.01_250)] bg-clip-text text-transparent font-bold"
-                      : "text-muted-foreground group-hover:text-white transition-colors"
-                    }>
+          <ul className="hidden lg:flex items-center gap-1.5 p-1 rounded-full bg-white/[0.03] border border-white/[0.06]">
+            {sections.map((s) => {
+              const isActive = active === s.id;
+              return (
+                <li key={s.id} className="relative">
+                  {onHome ? (
+                    <a
+                      href={`#${s.id}`}
+                      onClick={() => {
+                        setActive(s.id);
+                      }}
+                      className={`relative px-4 py-2 text-sm font-navbar font-medium tracking-wide rounded-full transition-all duration-300 flex items-center gap-2 group select-none ${
+                        isActive
+                          ? "text-white"
+                          : "text-white hover:bg-white/[0.1]"
+                      }`}
+                    >
+                      {isActive && (
+                        <motion.div
+                          layoutId="activeNavCapsule"
+                          className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/30 via-cyan-500/25 to-indigo-600/30 border border-cyan-400/40 shadow-[0_0_18px_rgba(34,211,238,0.3)] backdrop-blur-sm -z-10"
+                          transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                        />
+                      )}
+
+                      {isActive && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee] animate-pulse" />
+                      )}
+
+                      <span
+                        className={
+                          isActive
+                            ? "bg-gradient-to-r from-cyan-300 via-sky-100 to-white bg-clip-text text-transparent font-semibold drop-shadow-[0_0_12px_rgba(34,211,238,0.4)]"
+                            : "text-white font-medium"
+                        }
+                      >
+                        {s.label}
+                      </span>
+                    </a>
+                  ) : (
+                    <Link
+                      to={`/#${s.id}`}
+                      className="px-4 py-2 text-sm font-navbar font-medium tracking-wide text-white hover:bg-white/[0.1] rounded-full transition-all duration-200 block"
+                    >
                       {s.label}
-                    </span>
-                    {active === s.id && (
-                      <motion.span
-                        layoutId="activeUnderline"
-                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[oklch(0.78_0.16_210)] to-transparent"
-                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                      />
-                    )}
-                  </a>
-                ) : (
-                  <Link
-                    to={`/#${s.id}`}
-                    className="px-3.5 py-2 text-[15px] font-navbar font-medium tracking-wide text-muted-foreground hover:text-white transition-colors rounded-md"
-                  >
-                    {s.label}
-                  </Link>
-                )}
-              </li>
-            ))}
+                    </Link>
+                  )}
+                </li>
+              );
+            })}
           </ul>
 
 
@@ -112,9 +127,10 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="lg:hidden inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 text-foreground"
+            className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-neutral-300 hover:text-cyan-400 hover:bg-white/10 hover:border-cyan-500/30 transition-all"
+            aria-label="Toggle navigation menu"
           >
-            {open ? <X size={18} /> : <Menu size={18} />}
+            {open ? <X size={20} /> : <Menu size={20} />}
           </button>
         </nav>
 
@@ -122,55 +138,61 @@ export function Navbar() {
         <AnimatePresence>
           {open && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.25, ease: "easeInOut" }}
-              className="lg:hidden mt-2 glass-strong rounded-2xl p-3 overflow-hidden"
+              initial={{ opacity: 0, y: -8, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -8, scale: 0.98 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="lg:hidden mt-2.5 bg-[#0a0f1d]/95 backdrop-blur-2xl border border-cyan-500/25 rounded-2xl p-3 shadow-2xl overflow-hidden"
             >
-              <ul className="flex flex-col">
-                {sections.map((s) => (
-                  <li key={s.id}>
-                    {onHome ? (
-                      <a
-                        href={`#${s.id}`}
-                        onClick={() => {
-                          setActive(s.id);
-                          setOpen(false);
-                        }}
-                        className="relative block px-4 py-2.5 text-base font-navbar font-medium tracking-wide rounded-lg transition-colors group"
-                      >
-                        <span className={active === s.id
-                          ? "bg-gradient-to-r from-[oklch(0.78_0.16_210)] to-[oklch(0.96_0.01_250)] bg-clip-text text-transparent font-bold"
-                          : "text-muted-foreground group-hover:text-white transition-colors"
-                        }>
+              <ul className="flex flex-col gap-1.5">
+                {sections.map((s) => {
+                  const isActive = active === s.id;
+                  return (
+                    <li key={s.id}>
+                      {onHome ? (
+                        <a
+                          href={`#${s.id}`}
+                          onClick={() => {
+                            setActive(s.id);
+                            setOpen(false);
+                          }}
+                          className={`relative flex items-center gap-2.5 px-4 py-3 text-[15px] font-navbar font-medium tracking-wide rounded-xl transition-all duration-200 ${
+                            isActive
+                              ? "bg-gradient-to-r from-blue-600/25 via-cyan-500/20 to-indigo-600/15 border border-cyan-400/40 text-white shadow-[0_0_15px_rgba(34,211,238,0.2)]"
+                              : "text-white hover:bg-white/[0.08]"
+                          }`}
+                        >
+                          {isActive && (
+                            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee] animate-pulse" />
+                          )}
+                          <span
+                            className={
+                              isActive
+                                ? "bg-gradient-to-r from-cyan-300 via-sky-100 to-white bg-clip-text text-transparent font-semibold"
+                                : "text-white font-medium"
+                            }
+                          >
+                            {s.label}
+                          </span>
+                        </a>
+                      ) : (
+                        <Link
+                          to={`/#${s.id}`}
+                          onClick={() => setOpen(false)}
+                          className="block px-4 py-3 text-[15px] font-navbar font-medium tracking-wide text-white hover:bg-white/[0.08] rounded-xl transition-colors"
+                        >
                           {s.label}
-                        </span>
-                        {active === s.id && (
-                          <motion.span
-                            layoutId="activeUnderlineMobile"
-                            className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[oklch(0.78_0.16_210)] to-transparent"
-                            transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                          />
-                        )}
-                      </a>
-                    ) : (
-                      <Link
-                        to={`/#${s.id}`}
-                        onClick={() => setOpen(false)}
-                        className="block px-4 py-2.5 text-base font-navbar font-medium tracking-wide text-muted-foreground hover:text-white transition-colors rounded-lg"
-                      >
-                        {s.label}
-                      </Link>
-                    )}
-                  </li>
-                ))}
+                        </Link>
+                      )}
+                    </li>
+                  );
+                })}
 
               </ul>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
-    </header >
+    </header>
   );
 }

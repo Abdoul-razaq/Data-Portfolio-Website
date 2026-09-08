@@ -4,7 +4,7 @@ import { SectionHeader } from "./About";
 
 const certificates = [
   {
-    title: "Certified Data Scientist Professional",
+    title: "Data Scientist Professional",
     issuer: "DataCamp",
     year: "2026",
     image: "/images/Certificate-1.png",
@@ -18,7 +18,7 @@ const certificates = [
     url: "https://www.datacamp.com/statement-of-accomplishment/track/e3d6216ce26e0c1e648e8ec1974a01a5fedd71d2?raw=1",
   },
   {
-    title: "Certified Associate Data Analyst",
+    title: "Associate Data Analyst",
     issuer: "DataCamp",
     year: "2026",
     image: "/images/Certificate-3.png",

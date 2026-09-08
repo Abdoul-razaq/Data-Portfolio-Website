@@ -22,11 +22,11 @@ export function About() {
             </p>
 
             <p>
-              I am a certified Associate Data Analyst and Data Scientist, with additional certifications in Microsoft Azure, AWS Cloud Computing, and Machine Learning using tree-based models. My academic and professional training has strengthened my ability to approach engineering and data problems.
+              I am an officially certified <span className="text-foreground font-medium">Data Scientist</span> and <span className="text-foreground font-medium">Associate Data Analyst</span>, with verified cloud credentials in Microsoft Azure and AWS, along with specialized expertise in Machine Learning and predictive modeling. My cross-disciplinary engineering and data training empowers me to tackle complex analytical and systems challenges with rigor and precision.
             </p>
 
             <p>
-              I have developed practical expertise in <span className="text-foreground">SQL, Python, Excel, Power BI, and Tableau</span>, which I have applied in real-world projects including diabetes prediction modeling, customer churn forecasting, and real estate valuation systems. These projects involved working with large datasets, building efficient data workflows, defining key performance metrics, and designing interactive dashboards to support strategic decisions.
+              I have developed practical expertise in <span className="text-foreground">SQL, Python, Excel, Power BI, and Tableau</span>, which I have applied in real-world projects including diabetes prediction modeling, customer churn forecasting, and real estate valuation systems. These projects involved working with large datasets, building efficient data workflows and defining key performance metrics.
             </p>
 
             <p>
