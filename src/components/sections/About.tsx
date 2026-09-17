@@ -210,13 +210,17 @@ export function SectionHeader({
   title,
   subtitle,
   align = "left",
+  titleSize = "text-3xl sm:text-4xl lg:text-5xl",
+  titleClassName = "",
   subtitleSize = "text-base sm:text-lg",
   maxW = "max-w-2xl",
 }: {
   eyebrow: string;
-  title: string;
+  title: React.ReactNode;
   subtitle?: string;
   align?: "left" | "center";
+  titleSize?: string;
+  titleClassName?: string;
   subtitleSize?: string;
   maxW?: string;
 }) {
@@ -231,7 +235,7 @@ export function SectionHeader({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.6, ease: [0.215, 0.61, 0.355, 1] }}
-        className="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-gradient"
+        className={`mt-4 font-display ${titleSize} font-semibold tracking-tight text-gradient ${titleClassName}`}
       >
         {title}
       </motion.h2>

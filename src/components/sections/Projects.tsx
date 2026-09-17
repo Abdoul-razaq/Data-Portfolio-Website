@@ -37,13 +37,23 @@ export function Projects() {
     <section id="projects" className="relative pt-2 pb-16 sm:pt-4 sm:pb-24 scroll-mt-24">
       <div className="mx-auto w-[min(1200px,92%)]">
 
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-          <SectionHeader
-            eyebrow="Projects"
-            title="ideas & Projects Shipped"
-            subtitle="Explore my projects by category based on your preference."
-            subtitleSize="text-sm sm:text-base"
-          />
+        <SectionHeader
+          eyebrow="Projects"
+          title="ideas and Projects Shipped"
+          titleClassName="whitespace-nowrap"
+          maxW="max-w-none"
+        />
+
+        <div className="mt-4 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+          <motion.p
+            initial={{ opacity: 0, y: 15, filter: "blur(3px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-muted-foreground text-sm sm:text-base leading-relaxed"
+          >
+            Explore my projects by category based on your preference.
+          </motion.p>
 
           <div className="flex flex-wrap gap-2">
             {filters.map((f) => (
