@@ -55,79 +55,68 @@ export function Navbar() {
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? "py-3" : "py-5"
         }`}
     >
-      <div className="mx-auto w-[min(1200px,94%)]">
+      <div className="mx-auto w-[min(1240px,94%)]">
         <nav
-          className={`flex items-center justify-between rounded-2xl px-5 py-2.5 transition-all duration-300 ${scrolled
-            ? "bg-[#0a0f1d]/85 backdrop-blur-xl border border-cyan-500/20 shadow-[0_12px_36px_rgba(0,0,0,0.5),0_0_24px_-4px_rgba(34,211,238,0.15)]"
-            : "bg-[#0a0f1d]/50 backdrop-blur-md border border-white/10"
+          className={`flex items-center justify-between rounded-full px-5 sm:px-6 py-2 sm:py-2.5 transition-all duration-300 ${scrolled
+            ? "bg-[#0a0f1d]/90 backdrop-blur-xl border border-cyan-500/20 shadow-[0_12px_36px_rgba(0,0,0,0.5),0_0_24px_-4px_rgba(34,211,238,0.15)]"
+            : "bg-[#0a0f1d]/60 backdrop-blur-md border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.35)]"
             }`}
         >
-          {/* ── LOGO ── */}
+          {/* ── LOGO (LEFT) ── */}
           <Link to="/" className="flex items-center group gap-1">
-            <span className="font-display text-xl font-bold tracking-tight text-white group-hover:text-cyan-200 transition-colors">
-              Portfolio<span className="text-cyan-400 font-extrabold text-2xl leading-none inline-block animate-pulse">.</span>
+            <span className="font-display text-lg sm:text-xl font-bold tracking-tight text-white group-hover:text-cyan-200 transition-colors">
+              Portfolio<span className="text-cyan-400 font-extrabold text-xl leading-none inline-block animate-pulse">.</span>
             </span>
           </Link>
 
-          {/* ── LINKS ── */}
-          <ul className="hidden lg:flex items-center gap-1.5 p-1 rounded-full bg-white/[0.03] border border-white/[0.06]">
-            {sections.map((s) => {
-              const isActive = active === s.id;
-              return (
-                <li key={s.id} className="relative">
-                  {onHome ? (
-                    <a
-                      href={`#${s.id}`}
-                      onClick={() => {
-                        setActive(s.id);
-                      }}
-                      className={`relative px-4 py-2 text-sm font-navbar font-medium tracking-wide rounded-full transition-all duration-300 flex items-center gap-2 group select-none ${
-                        isActive
-                          ? "text-white"
-                          : "text-white hover:bg-white/[0.1]"
-                      }`}
-                    >
-                      {isActive && (
-                        <motion.div
-                          layoutId="activeNavCapsule"
-                          className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/30 via-cyan-500/25 to-indigo-600/30 border border-cyan-400/40 shadow-[0_0_18px_rgba(34,211,238,0.3)] backdrop-blur-sm -z-10"
-                          transition={{ type: "spring", stiffness: 400, damping: 32 }}
-                        />
-                      )}
-
-                      {isActive && (
-                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee] animate-pulse" />
-                      )}
-
-                      <span
-                        className={
+          {/* ── PILL TABS (RIGHT CORNER) ── */}
+          <div className="hidden lg:flex items-center justify-end">
+            <ul className="flex items-center p-1 rounded-full bg-white/[0.08] border border-white/15 backdrop-blur-xl shadow-[0_2px_12px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.08)]">
+              {sections.map((s) => {
+                const isActive = active === s.id;
+                return (
+                  <li key={s.id} className="relative">
+                    {onHome ? (
+                      <a
+                        href={`#${s.id}`}
+                        onClick={() => {
+                          setActive(s.id);
+                        }}
+                        className={`relative px-4 py-1.5 text-[13px] sm:text-[13.5px] font-navbar tracking-normal rounded-full transition-all duration-200 flex items-center justify-center select-none ${
                           isActive
-                            ? "bg-gradient-to-r from-cyan-300 via-sky-100 to-white bg-clip-text text-transparent font-semibold drop-shadow-[0_0_12px_rgba(34,211,238,0.4)]"
-                            : "text-white font-medium"
-                        }
+                            ? "text-blue-600 font-bold"
+                            : "text-white hover:text-cyan-300 font-medium"
+                        }`}
+                      >
+                        {isActive && (
+                          <motion.div
+                            layoutId="activeNavCapsule"
+                            className="absolute inset-0 rounded-full bg-white shadow-[0_3px_12px_rgba(0,0,0,0.3),0_1px_2px_rgba(0,0,0,0.18)] -z-10"
+                            transition={{ type: "spring", stiffness: 450, damping: 35 }}
+                          />
+                        )}
+
+                        <span>{s.label}</span>
+                      </a>
+                    ) : (
+                      <Link
+                        to={`/#${s.id}`}
+                        className="px-4 py-1.5 text-[13px] sm:text-[13.5px] font-navbar font-medium tracking-normal text-white hover:text-cyan-300 rounded-full transition-all duration-200 block"
                       >
                         {s.label}
-                      </span>
-                    </a>
-                  ) : (
-                    <Link
-                      to={`/#${s.id}`}
-                      className="px-4 py-2 text-sm font-navbar font-medium tracking-wide text-white hover:bg-white/[0.1] rounded-full transition-all duration-200 block"
-                    >
-                      {s.label}
-                    </Link>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-
+                      </Link>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
 
           {/* ── MOBILE MENU BUTTON ── */}
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-neutral-300 hover:text-cyan-400 hover:bg-white/10 hover:border-cyan-500/30 transition-all"
+            className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 border border-white/10 text-white hover:text-cyan-400 hover:bg-white/10 hover:border-cyan-500/30 transition-all"
             aria-label="Toggle navigation menu"
           >
             {open ? <X size={20} /> : <Menu size={20} />}
@@ -156,30 +145,19 @@ export function Navbar() {
                             setActive(s.id);
                             setOpen(false);
                           }}
-                          className={`relative flex items-center gap-2.5 px-4 py-3 text-[15px] font-navbar font-medium tracking-wide rounded-xl transition-all duration-200 ${
+                          className={`relative flex items-center justify-between px-4 py-3 text-[15px] font-navbar tracking-wide rounded-xl transition-all duration-200 ${
                             isActive
-                              ? "bg-gradient-to-r from-blue-600/25 via-cyan-500/20 to-indigo-600/15 border border-cyan-400/40 text-white shadow-[0_0_15px_rgba(34,211,238,0.2)]"
-                              : "text-white hover:bg-white/[0.08]"
+                              ? "bg-white text-blue-600 font-bold shadow-md"
+                              : "text-white hover:text-cyan-300 hover:bg-white/[0.08] font-medium"
                           }`}
                         >
-                          {isActive && (
-                            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee] animate-pulse" />
-                          )}
-                          <span
-                            className={
-                              isActive
-                                ? "bg-gradient-to-r from-cyan-300 via-sky-100 to-white bg-clip-text text-transparent font-semibold"
-                                : "text-white font-medium"
-                            }
-                          >
-                            {s.label}
-                          </span>
+                          <span>{s.label}</span>
                         </a>
                       ) : (
                         <Link
                           to={`/#${s.id}`}
                           onClick={() => setOpen(false)}
-                          className="block px-4 py-3 text-[15px] font-navbar font-medium tracking-wide text-white hover:bg-white/[0.08] rounded-xl transition-colors"
+                          className="block px-4 py-3 text-[15px] font-navbar font-medium tracking-wide text-white hover:text-cyan-300 hover:bg-white/[0.08] rounded-xl transition-colors"
                         >
                           {s.label}
                         </Link>
@@ -187,7 +165,6 @@ export function Navbar() {
                     </li>
                   );
                 })}
-
               </ul>
             </motion.div>
           )}

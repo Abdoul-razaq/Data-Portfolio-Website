@@ -71,7 +71,7 @@ export function Projects() {
           </div>
         </div>
 
-        <motion.div layout className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <motion.div layout className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           <AnimatePresence>
             {visible.map((p, i) => (
               <motion.div
