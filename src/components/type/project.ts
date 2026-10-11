@@ -98,7 +98,7 @@ export const projects: Project[] = [
     title: "YouTube Trending Video Data Pipeline",
     category: "Data Engineering",
     shortDescription: "Built a serverless AWS pipeline to analyze trending YouTube data for content marketing insights.",
-    cover: "/images/Project-2.jpeg",
+    cover: "/images/Project-2.png",
     overview:
       "Marketing team wants to run a YouTube campaign, but first they need to answer a basic question: what kind of content actually performs well, and where? Trending video data exists — but it arrives daily, split across ten different country files, in raw CSV and JSON formats that aren't ready to analyze or plug into a dashboard.\n\nSo the problem was: can we build a system that automatically pulls this data in, cleans it, organizes it, and makes it instantly queryable — without anyone manually downloading files or wrangling spreadsheets every day?",
     problem:
