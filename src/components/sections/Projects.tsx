@@ -34,13 +34,17 @@ export function Projects() {
       : projects.filter((p) => p.category === active);
 
   return (
-    <section id="projects" className="relative pt-2 pb-16 sm:pt-4 sm:pb-24 scroll-mt-24">
-      <div className="mx-auto w-[min(1200px,92%)]">
+    <section id="projects" className="relative pt-4 sm:pt-6 pb-16 sm:pb-24 scroll-mt-24 overflow-hidden">
+      {/* BACKGROUND */}
+      <div className="aurora aurora-alt pointer-events-none" />
+      <div className="absolute inset-0 grid-bg opacity-60 pointer-events-none" />
+
+      <div className="relative z-10 mx-auto w-[min(1200px,92%)]">
 
         <SectionHeader
           eyebrow="Projects"
-          title="ideas and Projects Shipped"
-          titleClassName="whitespace-nowrap"
+          title="Ideas and Projects Shipped"
+          titleClassName="sm:whitespace-nowrap"
           maxW="max-w-none"
         />
 
@@ -77,15 +81,15 @@ export function Projects() {
               <motion.div
                 key={p.slug}
                 layout
-                initial={{ opacity: 0, y: 35, scale: 0.96, filter: "blur(4px)" }}
+                initial={{ opacity: 0, y: 35, scale: 0.93, filter: "blur(8px)" }}
                 whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-                viewport={{ once: true, margin: "-50px" }}
+                viewport={{ once: true, margin: "-60px" }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{
                   type: "spring",
-                  stiffness: 80,
+                  stiffness: 85,
                   damping: 15,
-                  delay: i * 0.05,
+                  delay: i * 0.06,
                 }}
               >
                 <ProjectCard project={p} />

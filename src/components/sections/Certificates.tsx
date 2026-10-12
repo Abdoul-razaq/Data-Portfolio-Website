@@ -49,8 +49,12 @@ const certificates = [
 
 export function Certificates() {
   return (
-    <section id="certificates" className="relative pt-2 pb-16 sm:pt-4 sm:pb-24 scroll-mt-24">
-      <div className="mx-auto w-[min(1200px,92%)]">
+    <section id="certificates" className="relative pt-4 sm:pt-6 pb-16 sm:pb-24 scroll-mt-24 overflow-hidden">
+      {/* BACKGROUND */}
+      <div className="aurora pointer-events-none" />
+      <div className="absolute inset-0 grid-bg opacity-60 pointer-events-none" />
+
+      <div className="relative z-10 mx-auto w-[min(1200px,92%)]">
 
         <SectionHeader
           eyebrow="Certificates"
@@ -65,14 +69,14 @@ export function Certificates() {
           {certificates.map((c, i) => (
             <motion.div
               key={c.title}
-              initial={{ opacity: 0, y: 35, scale: 0.95, filter: "blur(4px)" }}
+              initial={{ opacity: 0, y: 35, scale: 0.92, filter: "blur(8px)" }}
               whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, margin: "-60px" }}
               transition={{
                 type: "spring",
-                stiffness: 80,
+                stiffness: 85,
                 damping: 15,
-                delay: i * 0.06,
+                delay: i * 0.07,
               }}
               whileHover={{ y: -6, scale: 1.01, transition: { duration: 0.25, ease: "easeOut" } }}
               className="group relative glass rounded-2xl overflow-hidden shadow-lg hover:shadow-glow-cyan transition-all duration-300"

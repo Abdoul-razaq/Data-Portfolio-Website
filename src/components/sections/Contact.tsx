@@ -35,10 +35,12 @@ export function Contact() {
   const [sent, setSent] = useState(false);
 
   return (
-    <section id="contact" className="relative pt-2 pb-16 sm:pt-4 sm:pb-24 scroll-mt-24">
-      <div className="aurora opacity-50" />
+    <section id="contact" className="relative pt-4 sm:pt-6 pb-16 sm:pb-24 scroll-mt-24 overflow-hidden">
+      {/* BACKGROUND */}
+      <div className="aurora aurora-alt pointer-events-none" />
+      <div className="absolute inset-0 grid-bg opacity-60 pointer-events-none" />
 
-      <div className="relative mx-auto w-[min(1200px,92%)]">
+      <div className="relative z-10 mx-auto w-[min(1200px,92%)]">
         <SectionHeader
           eyebrow="Contact"
           title="Let's work on something impactful."
@@ -49,10 +51,10 @@ export function Contact() {
 
           {/* CONTACT INFO */}
           <motion.div
-            initial={{ opacity: 0, y: 35, scale: 0.96, filter: "blur(4px)" }}
+            initial={{ opacity: 0, y: 35, scale: 0.93, filter: "blur(8px)" }}
             whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ type: "spring", stiffness: 80, damping: 15, delay: 0.05 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ type: "spring", stiffness: 85, damping: 15, delay: 0.05 }}
             className="glass rounded-3xl p-6 space-y-3"
           >
             {contacts.map((c) => (
@@ -77,10 +79,10 @@ export function Contact() {
 
           {/* FORM */}
           <motion.form
-            initial={{ opacity: 0, y: 35, scale: 0.96, filter: "blur(4px)" }}
+            initial={{ opacity: 0, y: 35, scale: 0.93, filter: "blur(8px)" }}
             whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ type: "spring", stiffness: 80, damping: 15, delay: 0.15 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ type: "spring", stiffness: 85, damping: 15, delay: 0.15 }}
             onSubmit={(e) => {
               e.preventDefault();
               setSent(true);

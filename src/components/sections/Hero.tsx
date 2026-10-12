@@ -28,8 +28,8 @@ export function Hero() {
       className="relative min-h-[100svh] flex flex-col pt-20 lg:pt-24 pb-20 lg:pb-16 overflow-x-hidden"
     >
       {/* BACKGROUND */}
-      <div className="aurora" />
-      <div className="absolute inset-0 grid-bg opacity-60" />
+      <div className="aurora pointer-events-none" />
+      <div className="absolute inset-0 grid-bg opacity-60 pointer-events-none" />
 
       <div className="relative mx-auto w-[min(1200px,92%)] lg:flex-1 flex flex-col items-start gap-6 z-10 py-4 lg:py-0">
         {/* Badge at the left start, below navbar */}
@@ -146,7 +146,7 @@ export function Hero() {
                     ),
                     v: (
                       <>
-                        <span className="lg:hidden">(Hons) - Production Eng</span>
+                        <span className="lg:hidden">Production Eng</span>
                         <span className="hidden lg:inline">Production Engineering</span>
                       </>
                     ),

@@ -4,16 +4,20 @@ import { GraduationCap, Briefcase, BookOpen, ExternalLink, ChevronDown, Globe } 
 
 export function About() {
   return (
-    <section id="about" className="relative pt-2 sm:pt-4 pb-16 sm:pb-24 scroll-mt-24">
-      <div className="mx-auto w-[min(1200px,92%)]">
+    <section id="about" className="relative pt-4 sm:pt-6 pb-16 sm:pb-24 scroll-mt-24 overflow-hidden">
+      {/* BACKGROUND */}
+      <div className="aurora aurora-alt pointer-events-none" />
+      <div className="absolute inset-0 grid-bg opacity-60 pointer-events-none" />
+
+      <div className="relative z-10 mx-auto w-[min(1200px,92%)]">
         <SectionHeader eyebrow="About" title="Data-Driven Engineering." />
 
         <div className="mt-8 grid lg:grid-cols-[1fr_1.2fr] gap-12 items-start">
           <motion.div
-            initial={{ opacity: 0, y: 24, filter: "blur(4px)" }}
+            initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7, ease: [0.215, 0.61, 0.355, 1] }}
             className="space-y-5 text-muted-foreground/90 leading-relaxed"
           >
             <p>
@@ -37,10 +41,10 @@ export function About() {
           <div className="grid md:grid-cols-2 gap-6">
             {/* Education & Research Thesis Block */}
             <motion.div
-              initial={{ opacity: 0, y: 30, scale: 0.96, filter: "blur(4px)" }}
+              initial={{ opacity: 0, y: 30, scale: 0.94, filter: "blur(8px)" }}
               whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-              viewport={{ once: true }}
-              transition={{ type: "spring", stiffness: 80, damping: 14, delay: 0.1 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ type: "spring", stiffness: 85, damping: 14, delay: 0.1 }}
               className="glass rounded-2xl p-6 hover:shadow-glow-indigo transition-all group flex flex-col justify-between"
             >
               <div>
@@ -136,10 +140,10 @@ export function About() {
 
             {/* Experience Block */}
             <motion.div
-              initial={{ opacity: 0, y: 30, scale: 0.96, filter: "blur(4px)" }}
+              initial={{ opacity: 0, y: 30, scale: 0.94, filter: "blur(8px)" }}
               whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-              viewport={{ once: true }}
-              transition={{ type: "spring", stiffness: 80, damping: 14, delay: 0.2 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ type: "spring", stiffness: 85, damping: 14, delay: 0.2 }}
               className="glass rounded-2xl pt-6 pb-6 pl-4 pr-5 hover:shadow-glow-indigo transition-all group"
             >
               <div className="flex items-center gap-4 mb-4">
@@ -189,7 +193,7 @@ export function About() {
                     <p className="font-semibold text-foreground">Data Scientist Apprentice</p>
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mt-1 w-full">
                       <p className="text-muted-foreground">ALX Rwanda</p>
-                      <span className="text-accent/80 text-xs whitespace-nowrap">Jan 2026 - Aug 2026</span>
+                      <span className="text-accent/80 text-xs whitespace-nowrap">Jan 2026 - Sep 2026</span>
                     </div>
                     <p className="mt-2 text-muted-foreground leading-relaxed">
                       Collaborated on hands-on machine learning statistical modeling projects, engineering features, building predictive models, and translating complex data into actionable insights.
@@ -226,25 +230,68 @@ export function SectionHeader({
 }) {
   return (
     <div className={align === "center" ? `text-center mx-auto ${maxW}` : maxW}>
-      <div className={`inline-flex items-center gap-2 rounded-full glass px-5 py-2.5 text-sm leading-none tracking-wide text-accent ${align === "center" ? "mx-auto" : ""}`}>
+      <motion.div
+        initial={{ opacity: 0, y: -12, scale: 0.94, filter: "blur(6px)" }}
+        whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
+        className={`inline-flex items-center gap-2 rounded-full glass px-5 py-2.5 text-sm leading-none tracking-wide text-accent ${align === "center" ? "mx-auto" : ""}`}
+      >
         <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-glow-cyan" />
         {eyebrow}
-      </div>
-      <motion.h2
-        initial={{ opacity: 0, y: 15 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.6, ease: [0.215, 0.61, 0.355, 1] }}
-        className={`mt-4 font-display ${titleSize} font-semibold tracking-tight text-gradient ${titleClassName}`}
+      </motion.div>
+
+      <h2
+        className={`mt-4 font-display ${titleSize} font-semibold tracking-tight text-gradient flex flex-wrap ${align === "center" ? "justify-center" : ""} ${titleClassName}`}
       >
-        {title}
-      </motion.h2>
+        {typeof title === "string" ? (
+          title.split(" ").map((word, idx, arr) => {
+            const isLast = idx === arr.length - 1;
+            return (
+              <motion.span
+                key={idx}
+                initial={{
+                  opacity: 0,
+                  y: 24,
+                  scale: isLast ? 0.92 : 0.96,
+                  filter: "blur(6px)",
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                  filter: "blur(0px)",
+                }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{
+                  duration: 0.55,
+                  delay: idx * 0.07,
+                  ease: isLast ? [0.34, 1.56, 0.64, 1] : [0.215, 0.61, 0.355, 1],
+                }}
+                className="mr-[0.25em] inline-block"
+              >
+                {word}
+              </motion.span>
+            );
+          })
+        ) : (
+          <motion.span
+            initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.6, ease: [0.215, 0.61, 0.355, 1] }}
+          >
+            {title}
+          </motion.span>
+        )}
+      </h2>
+
       {subtitle && (
         <motion.p
-          initial={{ opacity: 0, y: 15, filter: "blur(3px)" }}
+          initial={{ opacity: 0, y: 18, filter: "blur(6px)" }}
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
           className={`mt-4 text-muted-foreground ${subtitleSize} leading-relaxed`}
         >
           {subtitle}

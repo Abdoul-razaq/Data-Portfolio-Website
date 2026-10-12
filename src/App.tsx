@@ -1,4 +1,7 @@
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import { Preloader } from "./components/Preloader";
 import { Footer } from "./components/Footer";
 import { Navbar } from "./components/Navbar";
 import { About } from "./components/sections/About";
@@ -11,8 +14,14 @@ import ProjectDetail from "./routes/project.$slug";
 import { ScrollToTop } from "./components/sections/ScrollToTop";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
   return (
     <>
+      <AnimatePresence mode="wait">
+        {loading && <Preloader onComplete={() => setLoading(false)} />}
+      </AnimatePresence>
+
       <ScrollToTop />
 
       <Routes>
