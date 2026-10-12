@@ -31,7 +31,13 @@ export function Hero() {
       <div className="aurora pointer-events-none" />
       <div className="absolute inset-0 grid-bg opacity-60 pointer-events-none" />
 
-      <div className="relative mx-auto w-[min(1200px,92%)] lg:flex-1 flex flex-col items-start gap-6 z-10 py-4 lg:py-0">
+      <motion.div
+        initial={{ opacity: 0, y: 50, scale: 0.96, filter: "blur(8px)" }}
+        animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+        transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1] }}
+        style={{ transformOrigin: "top center" }}
+        className="relative mx-auto w-[min(1200px,92%)] lg:flex-1 flex flex-col items-start gap-6 z-10 py-4 lg:py-0"
+      >
         {/* Badge at the left start, below navbar */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
@@ -231,7 +237,7 @@ export function Hero() {
             </motion.div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

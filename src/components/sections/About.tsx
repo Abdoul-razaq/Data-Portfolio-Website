@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { GraduationCap, Briefcase, BookOpen, ExternalLink, ChevronDown, Globe } from "lucide-react";
-
+import { MorphSection } from "../MorphSection";
 
 export function About() {
   return (
@@ -9,7 +9,7 @@ export function About() {
       <div className="aurora aurora-alt pointer-events-none" />
       <div className="absolute inset-0 grid-bg opacity-60 pointer-events-none" />
 
-      <div className="relative z-10 mx-auto w-[min(1200px,92%)]">
+      <MorphSection>
         <SectionHeader eyebrow="About" title="Data-Driven Engineering." />
 
         <div className="mt-8 grid lg:grid-cols-[1fr_1.2fr] gap-12 items-start">
@@ -204,7 +204,7 @@ export function About() {
             </motion.div>
           </div>
         </div>
-      </div>
+      </MorphSection>
     </section>
   );
 }

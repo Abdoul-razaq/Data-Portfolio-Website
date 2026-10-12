@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Mail, Phone, Send, Check } from "lucide-react";
 import { SectionHeader } from "./About";
 import { GithubIcon, LinkedinIcon } from "../BrandIcons";
+import { MorphSection } from "../MorphSection";
 
 const contacts = [
   {
@@ -40,7 +41,7 @@ export function Contact() {
       <div className="aurora aurora-alt pointer-events-none" />
       <div className="absolute inset-0 grid-bg opacity-60 pointer-events-none" />
 
-      <div className="relative z-10 mx-auto w-[min(1200px,92%)]">
+      <MorphSection>
         <SectionHeader
           eyebrow="Contact"
           title="Let's work on something impactful."
@@ -127,7 +128,7 @@ export function Contact() {
             </button>
           </motion.form>
         </div>
-      </div>
+      </MorphSection>
     </section>
   );
 }

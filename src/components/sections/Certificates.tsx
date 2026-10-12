@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Award } from "lucide-react";
 import { SectionHeader } from "./About";
+import { MorphSection } from "../MorphSection";
 
 const certificates = [
   {
@@ -54,8 +55,7 @@ export function Certificates() {
       <div className="aurora pointer-events-none" />
       <div className="absolute inset-0 grid-bg opacity-60 pointer-events-none" />
 
-      <div className="relative z-10 mx-auto w-[min(1200px,92%)]">
-
+      <MorphSection>
         <SectionHeader
           eyebrow="Certificates"
           title="Professional Certifications and Verified Skills"
@@ -120,7 +120,7 @@ export function Certificates() {
           ))}
 
         </div>
-      </div>
+      </MorphSection>
     </section>
   );
 }

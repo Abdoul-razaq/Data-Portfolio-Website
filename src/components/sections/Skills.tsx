@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { SectionHeader } from "./About";
+import { MorphSection } from "../MorphSection";
 import {
   Database,
   BarChart3,
@@ -281,7 +282,7 @@ export function Skills() {
       <div className="aurora pointer-events-none" />
       <div className="absolute inset-0 grid-bg opacity-60 pointer-events-none" />
 
-      <div className="relative z-10 mx-auto w-[min(1200px,92%)]">
+      <MorphSection>
         <SectionHeader
           eyebrow="Skills"
           title="Data Analytics & Engineering Toolkit."
@@ -295,7 +296,7 @@ export function Skills() {
             <SkillCard key={g.id} group={g} index={i} />
           ))}
         </div>
-      </div>
+      </MorphSection>
     </section>
   );
 }

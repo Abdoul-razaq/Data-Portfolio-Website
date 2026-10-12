@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 
 import { SectionHeader } from "./About";
+import { MorphSection } from "../MorphSection";
 import {
   categories,
   projects,
@@ -39,8 +40,7 @@ export function Projects() {
       <div className="aurora aurora-alt pointer-events-none" />
       <div className="absolute inset-0 grid-bg opacity-60 pointer-events-none" />
 
-      <div className="relative z-10 mx-auto w-[min(1200px,92%)]">
-
+      <MorphSection>
         <SectionHeader
           eyebrow="Projects"
           title="Ideas and Projects Shipped"
@@ -97,8 +97,7 @@ export function Projects() {
             ))}
           </AnimatePresence>
         </motion.div>
-
-      </div>
+      </MorphSection>
     </section>
   );
 }
