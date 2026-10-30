@@ -57,21 +57,24 @@ export function Navbar() {
     >
       <div className="mx-auto w-[min(1240px,94%)]">
         <nav
-          className={`flex items-center justify-between rounded-full px-5 sm:px-6 py-2 sm:py-2.5 transition-all duration-300 ${scrolled
-            ? "bg-[#0a0f1d]/90 backdrop-blur-xl border border-cyan-500/20 shadow-[0_12px_36px_rgba(0,0,0,0.5),0_0_24px_-4px_rgba(34,211,238,0.15)]"
-            : "bg-[#0a0f1d]/60 backdrop-blur-md border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.35)]"
-            }`}
+          className={`flex items-center justify-between rounded-full pl-5 sm:pl-6 pr-3 sm:pr-4 lg:pr-0 py-2 sm:py-2.5 lg:py-0 transition-all duration-300 ${
+            scrolled
+              ? "bg-[#0a0f1d]/90 backdrop-blur-xl border border-cyan-500/20 shadow-[0_12px_36px_rgba(0,0,0,0.5),0_0_24px_-4px_rgba(34,211,238,0.15)]"
+              : "bg-[#0a0f1d]/60 backdrop-blur-md border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.35)]"
+          }`}
         >
           {/* ── LOGO (LEFT) ── */}
-          <Link to="/" className="flex items-center group gap-1">
+          <Link to="/" className="flex items-center group gap-1 py-1.5 sm:py-2">
             <span className="font-display text-lg sm:text-xl font-bold tracking-tight text-white group-hover:text-cyan-200 transition-colors">
               Portfolio<span className="text-cyan-400 font-extrabold text-xl leading-none inline-block animate-pulse">.</span>
             </span>
           </Link>
 
           {/* ── PILL TABS (RIGHT CORNER) ── */}
-          <div className="hidden lg:flex items-center justify-end">
-            <ul className="flex items-center p-1 rounded-full bg-white/[0.08] border border-white/15 backdrop-blur-xl shadow-[0_2px_12px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.08)]">
+          <div className="hidden lg:flex items-center justify-end self-stretch">
+            <ul
+              className="flex items-center p-1 rounded-full bg-white/[0.08] border border-white/15 backdrop-blur-xl shadow-[0_2px_12px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.08)] transition-all duration-300 h-full -mr-[1px] -my-[1px]"
+            >
               {sections.map((s) => {
                 const isActive = active === s.id;
                 return (
