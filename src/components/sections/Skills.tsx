@@ -181,7 +181,7 @@ function SkillCard({ group, index }: { group: SkillGroup; index: number }) {
       }}
       whileHover={{ y: -6, transition: { duration: 0.25, ease: "easeOut" } }}
       onMouseMove={handleMouseMove}
-      className={`group relative rounded-3xl p-6 sm:p-7 flex flex-col justify-between overflow-hidden glass border border-white/10 transition-all duration-300 ${group.borderColor} hover:shadow-2xl`}
+      className={`group relative rounded-3xl p-6 sm:p-7 flex flex-col justify-between overflow-hidden bg-[#0d1222]/90 backdrop-blur-xl border border-white/15 transition-all duration-300 ${group.borderColor} hover:shadow-2xl hover:border-white/30`}
     >
       {/* ── Interactive Cursor Spotlight ── */}
       <div
@@ -193,7 +193,7 @@ function SkillCard({ group, index }: { group: SkillGroup; index: number }) {
 
       {/* ── Ambient Top-Right Corner Glow ── */}
       <div
-        className={`pointer-events-none absolute -top-12 -right-12 w-44 h-44 rounded-full bg-gradient-to-br ${group.bgGradient} blur-2xl opacity-40 group-hover:opacity-80 transition-opacity duration-500`}
+        className={`pointer-events-none absolute -top-12 -right-12 w-44 h-44 rounded-full bg-gradient-to-br ${group.bgGradient} blur-2xl opacity-30 group-hover:opacity-60 transition-opacity duration-500`}
       />
 
       {/* ── Card Content ── */}
@@ -202,7 +202,7 @@ function SkillCard({ group, index }: { group: SkillGroup; index: number }) {
         <div className="flex items-center justify-between mb-5">
           <div className="relative flex items-center gap-3">
             <div
-              className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-white/[0.06] border border-white/15 backdrop-blur-md shadow-lg group-hover:scale-110 transition-transform duration-300"
+              className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-white/[0.08] border border-white/20 backdrop-blur-md shadow-lg group-hover:scale-110 transition-transform duration-300"
               style={{
                 boxShadow: `0 0 20px -5px ${group.glowColor}`,
               }}
@@ -211,7 +211,7 @@ function SkillCard({ group, index }: { group: SkillGroup; index: number }) {
             </div>
 
             <div className="flex flex-col">
-              <span className="font-mono text-[11px] tracking-wider text-muted-foreground/70">
+              <span className="font-mono text-[11px] tracking-wider text-neutral-400 font-medium">
                 MODULE // {group.index}
               </span>
               <span className={`text-xs font-semibold tracking-wide ${group.accentColor}`}>
@@ -220,7 +220,7 @@ function SkillCard({ group, index }: { group: SkillGroup; index: number }) {
             </div>
           </div>
 
-          <div className="font-mono text-xs px-2.5 py-1 rounded-full bg-white/[0.04] border border-white/10 text-muted-foreground group-hover:text-white transition-colors">
+          <div className="font-mono text-xs px-2.5 py-1 rounded-full bg-white/[0.06] border border-white/10 text-neutral-300 group-hover:text-white transition-colors">
             {group.index}
           </div>
         </div>
@@ -235,7 +235,7 @@ function SkillCard({ group, index }: { group: SkillGroup; index: number }) {
           {group.tools.map((t) => (
             <span
               key={t}
-              className="inline-flex items-center px-2.5 py-1 rounded-md text-[11px] font-mono font-medium bg-white/[0.05] border border-white/[0.08] text-white/80 group-hover:border-white/20 transition-colors"
+              className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-mono font-medium bg-white/[0.06] border border-white/10 text-neutral-200 group-hover:border-white/25 transition-colors"
             >
               {t}
             </span>
@@ -243,11 +243,11 @@ function SkillCard({ group, index }: { group: SkillGroup; index: number }) {
         </div>
 
         {/* Competencies List */}
-        <div className="mt-4 pt-4 border-t border-white/[0.08] space-y-2.5">
+        <div className="mt-4 pt-4 border-t border-white/10 space-y-2">
           {group.skills.map((s, idx) => (
             <div
               key={idx}
-              className="group/item flex items-start gap-2.5 rounded-xl px-2.5 py-1.5 -mx-2.5 text-xs sm:text-[13px] text-muted-foreground/90 hover:text-white hover:bg-white/[0.04] transition-all duration-150"
+              className="group/item flex items-start gap-2.5 rounded-xl px-2 py-1 -mx-2 text-xs sm:text-[13px] text-neutral-200 hover:text-white hover:bg-white/[0.05] transition-all duration-150"
             >
               <span
                 className={`mt-1.5 h-1.5 w-1.5 rounded-full shrink-0 ${group.accentColor}`}
@@ -255,19 +255,19 @@ function SkillCard({ group, index }: { group: SkillGroup; index: number }) {
                   boxShadow: `0 0 8px ${group.glowColor}`,
                 }}
               />
-              <span className="leading-snug">{s}</span>
+              <span className="leading-snug text-neutral-200 group-hover/item:text-white">{s}</span>
             </div>
           ))}
         </div>
       </div>
 
       {/* ── Bottom Micro-Footer ── */}
-      <div className="relative z-10 mt-6 pt-3 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-muted-foreground/60">
+      <div className="relative z-10 mt-6 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-neutral-400">
         <span className="flex items-center gap-1.5">
           <span className={`h-1.5 w-1.5 rounded-full ${group.accentColor} animate-pulse`} />
           Verified Competencies
         </span>
-        <span className="text-white/40 group-hover:text-white/80 transition-colors">
+        <span className="text-neutral-400 group-hover:text-neutral-200 transition-colors">
           6 Capabilities
         </span>
       </div>
@@ -277,18 +277,14 @@ function SkillCard({ group, index }: { group: SkillGroup; index: number }) {
 
 export function Skills() {
   return (
-    <section id="skills" className="relative pt-4 sm:pt-6 pb-16 sm:pb-24 scroll-mt-24 overflow-hidden">
-      {/* BACKGROUND */}
-      <div className="aurora pointer-events-none" />
-      <div className="absolute inset-0 grid-bg opacity-60 pointer-events-none" />
-
+    <section id="skills" className="relative pt-10 sm:pt-14 pb-16 sm:pb-24 scroll-mt-24">
       <MorphSection>
         <SectionHeader
           eyebrow="Skills"
           title="Data Analytics & Engineering Toolkit."
           subtitle="A focused skillset built around real-world data analysis, cloud computing, and machine learning - transforming raw data into actionable insights."
           maxW="max-w-none"
-          subtitleSize="text-base sm:text-lg lg:whitespace-nowrap"
+          subtitleSize="text-base sm:text-lg"
         />
 
         <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6">

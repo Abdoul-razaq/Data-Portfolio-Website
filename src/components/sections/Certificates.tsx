@@ -50,11 +50,7 @@ const certificates = [
 
 export function Certificates() {
   return (
-    <section id="certificates" className="relative pt-4 sm:pt-6 pb-16 sm:pb-24 scroll-mt-24 overflow-hidden">
-      {/* BACKGROUND */}
-      <div className="aurora pointer-events-none" />
-      <div className="absolute inset-0 grid-bg opacity-60 pointer-events-none" />
-
+    <section id="certificates" className="relative pt-4 sm:pt-6 pb-16 sm:pb-24 scroll-mt-24">
       <MorphSection>
         <SectionHeader
           eyebrow="Certificates"

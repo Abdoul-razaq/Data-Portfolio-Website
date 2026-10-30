@@ -114,22 +114,22 @@ export function Hero() {
                 transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
                 className="mt-9 flex flex-wrap items-center gap-4"
               >
-                <button
-                  onClick={() =>
-                    window.open('https://drive.google.com/file/d/1uapJtOcNr6_fwsvBKVpw8AmsU5lgeG-_/view?usp=sharing', '_blank')
-                  }
-                  className="group relative inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 px-7 py-3.5 text-sm sm:text-base font-semibold text-white shadow-[0_0_24px_-4px_rgba(59,130,246,0.5)] transition-all duration-300 hover:shadow-[0_0_32px_-2px_rgba(59,130,246,0.7)] hover:-translate-y-0.5 active:scale-[0.98] border border-white/20"
+                <a
+                  href="https://drive.google.com/file/d/1OmiB2phyr6wSAMX_384UVAWpFu2SclIo/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative inline-flex items-center gap-2.5 rounded-full bg-white px-7 py-3.5 text-sm sm:text-base font-semibold text-black shadow-[0_0_24px_-4px_rgba(255,255,255,0.4)] transition-all duration-300 hover:bg-neutral-100 hover:shadow-[0_0_32px_-2px_rgba(255,255,255,0.6)] hover:-translate-y-0.5 active:scale-[0.98] border border-white"
                 >
-                  <Download size={18} className="transition-transform duration-300 group-hover:-translate-y-0.5 text-white/90" />
-                  <span>Download CV</span>
-                </button>
+                  <Download size={18} className="text-black transition-transform duration-300 group-hover:-translate-y-0.5" />
+                  <span className="text-black">Download CV</span>
+                </a>
 
                 <a
                   href="#contact"
-                  className="group inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/[0.06] backdrop-blur-md px-7 py-3.5 text-sm sm:text-base font-semibold text-neutral-100 transition-all duration-300 hover:bg-white/[0.12] hover:border-white/40 hover:text-white hover:-translate-y-0.5 hover:shadow-glass active:scale-[0.98]"
+                  className="group inline-flex items-center gap-2.5 rounded-full bg-black border border-white/25 backdrop-blur-md px-7 py-3.5 text-sm sm:text-base font-semibold text-white shadow-[0_0_20px_rgba(0,0,0,0.6)] transition-all duration-300 hover:bg-neutral-900 hover:border-white/50 hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(255,255,255,0.15)] active:scale-[0.98]"
                 >
-                  <span>Get in Touch</span>
-                  <ArrowUpRight size={18} className="text-muted-foreground transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
+                  <span className="text-white">Get in Touch</span>
+                  <ArrowUpRight size={18} className="text-white transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
               </motion.div>
 
