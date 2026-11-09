@@ -57,7 +57,7 @@ export function About() {
                 <div className="space-y-4 text-sm w-full">
                   <div className="w-full">
                     <p className="font-semibold text-foreground text-sm whitespace-nowrap">University of Rwanda</p>
-                    <p className="text-muted-foreground text-sm mt-1">Bachelor's of Science - BS, Mechanical Engineerin (Production Engineering)</p>
+                    <p className="text-muted-foreground text-sm mt-1">Bachelor's of Science - BS, Mechanical Engineering (Production Engineering)</p>
                     <p className="text-right text-accent/80 text-xs mt-1">May 2022 - June 2026</p>
                   </div>
 
