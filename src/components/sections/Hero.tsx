@@ -8,7 +8,7 @@ export function Hero() {
 
   useEffect(() => {
     const typed = new Typed(typedRef.current, {
-      strings: ["Data Scientist ", "Data Analyst ", "Mechanical Engineer "],
+      strings: ["Associate Data Engineer ", "Data Scientist ", "Associate Data Analyst ", "Mechanical Engineer "],
       typeSpeed: 60,
       backSpeed: 30,
       backDelay: 2000,
@@ -105,7 +105,7 @@ export function Hero() {
                 transition={{ duration: 0.8, delay: 0.45, ease: "easeOut" }}
                 className="mt-6 max-w-xl text-sm sm:text-base text-muted-foreground leading-relaxed text-justify"
               >
-                Certified <span className="font-semibold text-foreground">Data Scientist</span> and <span className="font-semibold text-foreground">Associate Data Analyst</span> with industry credentials across <span className="font-semibold text-foreground">Microsoft Azure</span> and <span className="font-semibold text-foreground">AWS</span> cloud environments, paired with proven expertise in <span className="font-semibold text-foreground">Machine Learning</span> and predictive modeling. Combining engineering rigor with modern data practices to build robust models, extract actionable intelligence, and drive high-impact <span className="whitespace-nowrap">decision-making.</span>
+                Certified <span className="font-semibold text-foreground">Associate Data Engineer</span>, <span className="font-semibold text-foreground">Data Scientist</span>, and <span className="font-semibold text-foreground">Associate Data Analyst</span> with industry credentials across <span className="font-semibold text-foreground">Microsoft Azure</span> and <span className="font-semibold text-foreground">AWS</span> cloud environments, paired with proven expertise in <span className="font-semibold text-foreground">Machine Learning</span> and predictive modeling. Combining engineering rigor with modern data practices to build robust models, extract actionable intelligence, and drive high-impact <span className="whitespace-nowrap">decision-making.</span>
               </motion.p>
 
               <motion.div

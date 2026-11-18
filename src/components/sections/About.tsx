@@ -26,7 +26,7 @@ export function About() {
             </p>
 
             <p>
-              I am an officially certified <span className="text-foreground font-medium">Data Scientist</span> and <span className="text-foreground font-medium">Associate Data Analyst</span>, with verified cloud credentials in Microsoft Azure and AWS, along with specialized expertise in Machine Learning and predictive modeling. My cross-disciplinary engineering and data training empowers me to tackle complex analytical and systems challenges with rigor and precision.
+              I am an officially certified <span className="text-foreground font-medium">Associate Data Engineer</span>, <span className="text-foreground font-medium">Data Scientist</span>, and <span className="text-foreground font-medium">Associate Data Analyst</span>, with verified cloud credentials in Microsoft Azure and AWS, along with specialized expertise in Machine Learning and predictive modeling. My cross-disciplinary engineering and data training empowers me to tackle complex analytical and systems challenges with rigor and precision.
             </p>
 
             <p>

@@ -5,18 +5,18 @@ import { MorphSection } from "../MorphSection";
 
 const certificates = [
   {
-    title: "Data Scientist Professional",
+    title: "Associate Data Engineer",
     issuer: "DataCamp",
     year: "2026",
     image: "/images/Certificate-1.png",
-    url: "https://www.datacamp.com/certificate/DS0029034458797",
+    url: "https://www.datacamp.com/certificate/DEA0013230414359",
   },
   {
-    title: "Microsoft Certified: Azure Developer Associate(AZ-204)",
+    title: "Data Scientist Professional",
     issuer: "DataCamp",
     year: "2026",
     image: "/images/Certificate-2.png",
-    url: "https://www.datacamp.com/statement-of-accomplishment/track/e3d6216ce26e0c1e648e8ec1974a01a5fedd71d2?raw=1",
+    url: "https://www.datacamp.com/certificate/DS0029034458797",
   },
   {
     title: "Associate Data Analyst",
@@ -26,11 +26,11 @@ const certificates = [
     url: "https://www.datacamp.com/certificate/DAA0012772204704",
   },
   {
-    title: "AWS Cloud Practitioner (CLF-C02)",
+    title: "Microsoft Certified: Azure Developer Associate(AZ-204)",
     issuer: "DataCamp",
     year: "2026",
     image: "/images/Certificate-4.png",
-    url: "https://www.datacamp.com/statement-of-accomplishment/track/79f02b8bc0ac602db7e607193eea4826ee669f33?raw=1",
+    url: "https://www.datacamp.com/statement-of-accomplishment/track/e3d6216ce26e0c1e648e8ec1974a01a5fedd71d2?raw=1",
   },
   {
     title: "Mathematics and Statistics for Data Science",
@@ -40,11 +40,11 @@ const certificates = [
     url: "https://certificates.simplicdn.net/share/10661277_10992109_1787917135259.pdf",
   },
   {
-    title: "Machine Learning with Tree-Based Models",
+    title: "AWS Cloud Practitioner (CLF-C02)",
     issuer: "DataCamp",
     year: "2026",
     image: "/images/Certificate-6.png",
-    url: "https://www.datacamp.com/statement-of-accomplishment/course/e33988b9edc34dc8a51580c01ef952b742ce7389?raw=1",
+    url: "https://www.datacamp.com/statement-of-accomplishment/track/79f02b8bc0ac602db7e607193eea4826ee669f33?raw=1",
   },
 ];
 
